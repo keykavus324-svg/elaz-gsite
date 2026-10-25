@@ -42,14 +42,15 @@ site yedek yazı tipleriyle aynen çalışır; görseller yereldir (`public/img/
 
 ```
 index.html            Başlık, meta/OG etiketleri, yazı tipleri, favicon
-public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî görseller (11 adet)
+public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî görseller (14 adet)
 public/favicon.svg    El çizimi SVG kayısı amblemi
 src/data.ts           Ürün, lot, süreç verileri + öneri motoru (tüm demo içeriği burada)
 src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları
-src/components/       Header, Hero, Compare, Process, Producer, Mola (radyo/oyun),
+src/components/       Header, Hero, Showcase (Patik Filmi), Compare, Process, Producer, Mola (radyo/oyun),
                       LotBuilder (imza), Products, Mutfak, LotLookup, LotPassport,
                       Faq, CartDrawer, Footer, Prova (gizli sunum konsolu)
-src/styles.css        Tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
+src/styles.css        Temel tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
+src/cinematic.css         v5 sinematik katman: tam ekran hero, buzlu cam, paralaks, scroll-driven sahneler
 KAYNAKLAR.md          Kaynakça, görsel ve lisans notları, temsilî içerik listesi
 DEMO-SENARYO.md       Etkinlik günü koşu planı: roller, saatler, riskler, jüri masası kiti
 SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri soruları
@@ -57,6 +58,9 @@ SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri s
 
 ## Çalışan akışlar
 
+- **Sinematik vitrin:** tam ekran ürün-lansmanı hero’su, fareyle eğilen cam lot pasaportu kartı,
+  3 sahnelik yapışkan **Patik Filmi**, kaydırma ilerleme çizgisi ve paralaks hareketleri
+  (`prefers-reduced-motion` ile sadeleşir)
 - Gün/islim karşılaştırma: sürüklenebilir görsel kaydırıcı + ayrıntı sekmeleri
 - 6 adımlık etkileşimli üretim süreci, kayan yöresel sözlük şeridi, görünüm animasyonları
 - **Çay Molası:** canlı radyo çaları (TRT Türkü HLS, Radyo FM 23 Elazığ; Radyo Fırat resmî

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "../cart";
 
 const LINKS = [
@@ -26,13 +26,28 @@ export function LogoMark({ size = 34 }: { size?: number }) {
 export default function Header() {
   const { count, setCartOpen } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => setScrolled(window.scrollY > 24));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
     <>
       <p className="demo-strip" role="note">
         GakCoding yarışma demosu — gerçek satış yapılmaz, üretici ve lot içerikleri temsilîdir.
       </p>
-      <header className="site-header">
+      <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
         <a className="skip-link" href="#icerik">İçeriğe atla</a>
         <div className="site-header__inner">
           <a href="#top" className="brand" aria-label="Patik — ana sayfa">

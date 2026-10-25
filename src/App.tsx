@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Showcase from "./components/Showcase";
+import ScrollProgress from "./components/ScrollProgress";
 import Compare from "./components/Compare";
 import Process from "./components/Process";
 import Producer from "./components/Producer";
@@ -87,9 +89,11 @@ function Toast() {
 export default function App() {
   return (
     <>
+      <ScrollProgress />
       <Header />
       <main id="icerik">
         <Hero />
+        <Showcase />
         <Marquee />
         <Reveal><Compare /></Reveal>
         <Reveal><Process /></Reveal>
