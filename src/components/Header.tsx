@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useCart } from "../cart";
 
 const LINKS = [
-  { href: "#karsilastir", label: "Gün mü İslim mi?" },
+  { href: "#karsilastir", label: "Gün/İslim" },
   { href: "#surec", label: "Süreç" },
   { href: "#uretici", label: "Üretici" },
+  { href: "#mola", label: "Çay Molası" },
   { href: "#urunler", label: "Ürünler" },
   { href: "#lot-sorgula", label: "Lot Sorgula" },
   { href: "#sss", label: "SSS" },

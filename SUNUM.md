@@ -47,8 +47,14 @@
    "Patik gerçek işletme mi?" ile "tescil" cevaplarını göster. Kapatırken sloganı söyle:
    **"Bahçeden kutuna, lotuyla."**
 
+**Zaman kalırsa (bonus 30 sn):** Çay Molası'nda TRT Türkü'yü açın (Harput eseri denk
+gelirse altın vuruş), *Patik Ustası*'nda jüriden birini 30 saniye oynatın — "gerçek
+patik böyle hızlı olmaz ama refleksinizi gördük" esprisiyle kapatın. FM 23 akışı
+HTTPS'te tarayıcı politikasına takılırsa şaşırmayın; çalar bunu açıklayıp resmî
+siteye yönlendirir (bunu "hata hâlinde bile dürüst geri bildirim" diye anlatın).
+
 **Yedek plan:** İnternet giderse site yerelden çalışmaya devam eder (görseller yereldir,
-yazı tipleri yedeğe düşer). Akışın tamamı çevrimdışı da işler.
+yazı tipleri yedeğe düşer). Akışın tamamı çevrimdışı da işler; radyo hariç (o zaten canlı yayın).
 
 ## C) Muhtemel 5 jüri sorusu — dürüst cevaplar
 

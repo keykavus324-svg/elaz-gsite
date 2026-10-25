@@ -24,6 +24,7 @@ export default function Footer() {
           <a href="#karsilastir">Gün mü İslim mi?</a>
           <a href="#surec">Dalından Kutuna: Süreç</a>
           <a href="#uretici">Üretici Hikâyesi</a>
+          <a href="#mola">Çay Molası: Radyo & Oyun</a>
           <a href="#lotunu-kur">Lotunu Kur</a>
           <a href="#urunler">Ürünler</a>
           <a href="#lot-sorgula">Lot Sorgula</a>

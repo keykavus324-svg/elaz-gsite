@@ -47,6 +47,7 @@ const DATA: Record<
 
 export default function Compare() {
   const [tab, setTab] = useState<TabId>("gun");
+  const [pos, setPos] = useState(50);
   const d = DATA[tab];
 
   return (
@@ -59,6 +60,32 @@ export default function Compare() {
           damak tadına ve kullanımına göre doğru olan değişir. İşte saklamadan, açık açık farkları:
         </p>
       </div>
+
+      <figure className="wipe" aria-label="Gün kurusu ve islimli kayısı görsel karşılaştırması">
+        <img src="/img/islimli.jpg" alt="" width={1600} height={900} loading="lazy" className="wipe__base" />
+        <img
+          src="/img/gun-kurusu.jpg"
+          alt=""
+          width={1600}
+          height={900}
+          loading="lazy"
+          className="wipe__top"
+          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+        />
+        <span className="wipe__label wipe__label--left">Gün kurusu</span>
+        <span className="wipe__label wipe__label--right">İslimli</span>
+        <span className="wipe__handle" style={{ left: `${pos}%` }} aria-hidden="true" />
+        <input
+          type="range"
+          className="wipe__range"
+          min={0}
+          max={100}
+          value={pos}
+          onChange={(e) => setPos(Number(e.target.value))}
+          aria-label="Karşılaştırma kaydırıcısı: solu gün kurusu, sağı islimli gösterir"
+        />
+        <figcaption className="wipe__caption">Kaydır: aynı kase, aynı ışık — tek fark kurutma yolu.</figcaption>
+      </figure>
 
       <div className="compare__tabs" role="tablist" aria-label="Kurutma türü seçimi">
         {(Object.keys(DATA) as TabId[]).map((id) => (

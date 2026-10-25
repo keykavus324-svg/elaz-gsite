@@ -92,6 +92,34 @@ de çalışır durumda teslim edilmiştir.
 **Marka amblemi** (`public/favicon.svg` ve başlık içi SVG) proje için kod ile çizilmiş
 özgün vektördür; ikon kütüphanesi kullanılmamıştır.
 
+## 4b) Radyo yayınları (Çay Molası bölümü)
+
+Sitedeki çalar, istasyonların **resmî internet yayınlarını** kullanıcının tarayıcısında
+açar; yayınlar kopyalanmaz, kaydedilmez, sahiplenilmez. Her istasyonda resmî site
+bağlantısı ayrıca verilir.
+
+- **TRT Türkü** — akış: `https://rd-trtturku.medya.trt.com.tr/master_128.m3u8` (TRT
+  resmî HLS yayını). Kayıt ve canlılık kontrolü: radio-browser.info istasyon kaydı
+  (son başarılı kontrol: 21.10.2026). Resmî sayfa: trtdinle.com. HLS, Safari'de yerleşik;
+  diğer tarayıcılarda `hls.js` (Apache-2.0) yalnızca çalarken tembel yüklenir.
+- **Radyo FM 23 (Elazığ, 88.8/93.5; Doruk Medya)** — akış:
+  `http://radyofm23.canliyayinda.com:8280/` Bu adres birden çok bağımsız radyo
+  dizininde/listesinde aynı biçimde kayıtlıdır (örn. micgame.net radyo listesi,
+  harsitvadisi.com, radyodelisi). Not: akış HTTP olduğundan site HTTPS altında
+  açılırsa tarayıcı karışık içeriği engelleyebilir; çalar bu durumu yakalayıp
+  kullanıcıya resmî site (radyofm23.com) yolunu gösterir. HTTP (yerel) açılışta çalışır.
+- **Radyo Fırat (Fırat Üniversitesi, 89.2)** — Doğrulanabilir gömülü akış adresine
+  ulaşılamadığı için uydurma akış yazılmadı; kart, resmî siteye
+  (radyo.firat.edu.tr) bağlanır. Sitedeki bilgiye göre yayın 06.00–24.00 arasındadır.
+- **Çayda Çıra bilgi kartı** — Elazığ yöresine ait, dünyada "Mumlu Dans" olarak
+  bilinen halk oyunu; mani ve "nanay" türküler eşliğinde oynanır:
+  tr.wikipedia.org/wiki/Çayda_Çıra ve Elazığ Fırat Gazetesi haberi
+  (elazigfirat.com, "Çayda Çıra nedir?").
+
+Akışların çalışırlığı bu geliştirme ortamının ağ kısıtları nedeniyle uçtan uca ses
+dinlenerek test edilememiştir; doğrulama dizin kayıtları ve canlılık kontrolleriyle
+yapılmıştır. Çalar, hata hâlinde bunu kullanıcıya açıkça söyler.
+
 ## 5) Yazı tipleri ve yazılım
 
 - **Fraunces** ve **Manrope** — Google Fonts üzerinden, SIL Open Font License 1.1.

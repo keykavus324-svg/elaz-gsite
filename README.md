@@ -56,7 +56,13 @@ SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri s
 
 ## Çalışan akışlar
 
-- Gün/islim karşılaştırma sekmeleri, 6 adımlık etkileşimli üretim süreci
+- Gün/islim karşılaştırma: sürüklenebilir görsel kaydırıcı + ayrıntı sekmeleri
+- 6 adımlık etkileşimli üretim süreci, kayan yöresel sözlük şeridi, görünüm animasyonları
+- **Çay Molası:** canlı radyo çaları (TRT Türkü HLS, Radyo FM 23 Elazığ; Radyo Fırat resmî
+  site bağlantısı) ve iki mini oyun — *Patik Ustası* (30 sn refleks, rekor saklanır)
+  ve *Baskil Bilgisi* (5 soruluk bilgi yarışması); radyoda hata durumunda anlaşılır
+  yedek yolu gösterilir, sitenin geri kalanı internetsiz çalışmayı sürdürür
+- Mobilde kaydırdıkça beliren "Lotunu Kur" yüzer eylem düğmesi
 - Lotunu Kur: 3 soru → gerekçeli ürün/gramaj önerisi → çekirdek ekleme → sepete
 - Ürün kartlarında gramaj seçimi, lot kodu ile pasaporta atlama
 - Lot sorgulama: büyük/küçük harf ve boşluk toleranslı, hatalı kodda anlaşılır uyarı
