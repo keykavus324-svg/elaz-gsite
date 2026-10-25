@@ -74,7 +74,7 @@ temsilî görsel" notu düşülür.
 
 | Dosya | Kullanım | Not |
 |---|---|---|
-| `public/img/hero.jpg` | Süreç adımı 02 | Gün kurusu + islimli bir arada; kasadan dökülen kompozisyon |
+| `public/img/hero.jpg` | Ana vitrin | Gün kurusu + islimli bir arada; kasadan dökülen kompozisyon |
 | `public/img/sergi.jpg` | Üretici bölümü + süreç adımı 03 | Göl kıyısı sergi manzarası; temsilîdir, gerçek bahçe değildir |
 | `public/img/patik.jpg` | Üretici kartı + süreç adımı 04 | Yalnızca eller görünür; gerçek bir üreticiyi temsil etmez |
 | `public/img/dal.jpg` | Süreç adımı 01 | Dalında kayısı |
@@ -83,7 +83,6 @@ temsilî görsel" notu düşülür.
 | `public/img/cekirdek.jpg` | Ürün | Kayısı çekirdeği içi |
 | `public/img/hediye.jpg` | Ürün + süreç adımı 06 | Etiketsiz/yazısız kraft kutu (bilinçli tercih) |
 
-v5 sinematik görseller: `public/img/studio-hero.jpg` (havada süzülen kayısı stüdyo çekimi; ana vitrin ve OG görseli), `public/img/firat-orchard.jpg` (Fırat vadisi/teras bahçe; Patik Filmi 1. sahne), `public/img/studio-pack.jpg` (etiketsiz premium kutular; Patik Filmi 3. sahne). Üçü de yapay zekâ üretimi temsilî çekimlerdir, gerçek bahçe/paket fotoğrafı değildir.
 Ek görseller: `public/img/mola.jpg` (radyo + çay + kayısı köşesi, Çay Molası), `public/img/cicek.jpg` (kayısı çiçeği, mevsim takvimi), `public/img/hosaf.jpg` (kayısı hoşafı, mutfak bölümü). Hepsi yapay zekâ üretimi temsilî çekimlerdir.
 `sergi.jpg`, ilk sürümündeki soluk filigran-benzeri üretim izi giderilerek ikinci sürümde yeniden üretilmiştir; uzakta küçük çalışan figürleri görünür, temsilî olduğu alt yazıda belirtilir ve görsel alt banda kırpılarak kullanılır.
 Hoşaf Hesapçısı ölçüleri Patik mutfağının kendi önerisidir; dış kaynaklı tarif iddiası değildir. Mevsim takvimindeki hasat/sergi ayları §2'deki haber kaynaklarına, çiçek-don riski vurgusu aynı haberlerdeki rekolte anlatımlarına dayanır; 'eleme & kutu' ve 'sofra' adımları markanın kendi akışıdır.

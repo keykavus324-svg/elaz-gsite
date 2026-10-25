@@ -33,9 +33,8 @@
 
 ## B) Canlı demoda 5 adım (tıklama sırasıyla)
 
-1. **Vitrinde dur (5 sn):** "Baskil'de kurudu. Adıyla geldi." Sağdaki buzlu cam
-   **lot pasaportu kartını** göster; fareyle hafifçe eğiliyorsa imza özelliğin zaten
-   vitrinden başladığını söyle. **Lotunu Kur** butonuna bas.
+1. **Vitrinde dur (5 sn):** "Baskil'de kurudu, adıyla gelsin." Patik kelimesinin anlamını
+   hero'nun altındaki sarı kutudan söyle. **Lotunu Kur** butonuna bas.
 2. **3 soruyu cevapla (20 sn):** "Çayın yanına atıştırmalık" → "Koyu, yoğun, karamelimsi"
    → "Aileyle paylaşılır". Sonuç kartında gerekçeleri oku; sağdaki **lot pasaportu
    önizlemesini** göster. "Yanına çekirdek de ekle"yi işaretle, **Sepete ekle**.
@@ -48,8 +47,7 @@
    "Patik gerçek işletme mi?" ile "tescil" cevaplarını göster. Kapatırken sloganı söyle:
    **"Bahçeden kutuna, lotuyla."**
 
-**Zaman kalırsa (bonus 30 sn):** Ana sayfayı yavaşça kaydırıp **Patik Filmi**'nin üç
-sahnesinin (dal → patik → kutu) aynı kadrajda dönüşünü gösterin. Sonra Çay Molası'nda TRT Türkü'yü açın (Harput eseri denk
+**Zaman kalırsa (bonus 30 sn):** Çay Molası'nda TRT Türkü'yü açın (Harput eseri denk
 gelirse altın vuruş), *Patik Ustası*'nda jüriden birini 30 saniye oynatın — "gerçek
 patik böyle hızlı olmaz ama refleksinizi gördük" esprisiyle kapatın. FM 23 akışı
 HTTPS'te tarayıcı politikasına takılırsa şaşırmayın; çalar bunu açıklayıp resmî
@@ -111,5 +109,4 @@ ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçül
 - [ ] Formu boş gönder → hata mesajları görünüyor; doldur → demo özeti geliyor
 - [ ] Lot sorgula: PT-26-047 açılıyor; hatalı kod uyarı veriyor
 - [ ] Telefonda (ya da dar pencerede) yatay taşma yok, menü çalışıyor
-- [ ] Tüm görseller yükleniyor (özellikle stüdyo hero’su, Patik Filmi’nin 3 sahnesi ve sergi bandı)
-- [ ] Ana vitrin paralaksı ve yapışkan film sahneleri akıcı; hareket azaltma açıksa site sakin moda geçiyor
+- [ ] Tüm görseller yükleniyor (özellikle sergi bandı)
