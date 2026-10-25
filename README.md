@@ -1,5 +1,9 @@
 # PATİK — Baskil Kayısı Atölyesi
 
+**Canlı site:** https://keykavus324-svg.github.io/elaz-gsite/
+
+**GitHub:** https://github.com/keykavus324-svg/elaz-gsite
+
 **Vitrin:** *Kayısı kurur. Kaydı kalır.*
 
 **Slogan:** *Bahçeden kutuna, lotuyla.*
@@ -43,6 +47,13 @@ npm run verify               # typecheck + Atlas + Evren denetimi + üretim derl
 
 Başka hiçbir kurulum, API anahtarı veya veritabanı gerekmez. Google Fonts yüklenemezse
 site yedek yazı tipleriyle aynen çalışır; görseller yereldir (`public/img/`).
+
+### GitHub Pages
+
+`.github/workflows/deploy-pages.yml`, desteklenen dallara her gönderimde önce
+`npm run verify` çalıştırır; doğrulama geçerse `VITE_BASE_PATH=/elaz-gsite/` ile
+üretilen `dist/` çıktısını GitHub Pages'e yayınlar. Canlı adres:
+https://keykavus324-svg.github.io/elaz-gsite/
 
 ## Yapı
 

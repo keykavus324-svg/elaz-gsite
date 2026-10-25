@@ -4,6 +4,8 @@
 /*  temsilî içeriktir. Gerçek kişi, işletme veya satış verisi değildir.*/
 /* ------------------------------------------------------------------ */
 
+import { publicAsset } from "./assets";
+
 export interface SizeOption {
   id: string;
   label: string;
@@ -30,7 +32,7 @@ export const PRODUCTS: Product[] = [
     name: "Gün Kurusu",
     short: "İslimsiz, doğrudan güneşle",
     desc: "Kükürt odasına girmeden sergide kurur; rengi koyulaşır, tadı yoğunlaşır. Koyu amber görünümü kusur değil, gün kurusunun imzasıdır.",
-    img: "/img/gun-kurusu.jpg",
+    img: publicAsset("img/gun-kurusu.jpg"),
     alt: "Seramik kasede koyu amber renkli gün kurusu kayısılar",
     badge: "İslimsiz",
     lotCodes: ["PT-26-047"],
@@ -46,7 +48,7 @@ export const PRODUCTS: Product[] = [
     name: "İslimli Jumbo",
     short: "Rengi korunmuş, iri boy",
     desc: "Hasat sonrası islim damında rengi korunarak kurutulur. Canlı turuncu rengi ve diri dokusuyla tatlılarda, hoşafta ve sunumda şeklini korur.",
-    img: "/img/islimli.jpg",
+    img: publicAsset("img/islimli.jpg"),
     alt: "Seramik kasede parlak turuncu islimli kuru kayısı yarıları",
     badge: "Jumbo boy",
     lotCodes: ["PT-26-112"],
@@ -62,7 +64,7 @@ export const PRODUCTS: Product[] = [
     name: "Kayısı Çekirdeği İçi",
     short: "Patikten artan çekirdek, ziyan olmaz",
     desc: "Patik mesaisinde çıkan çekirdekler kırılır, içi ayıklanır. Baskil'de kayısının çekirdeği de değerlidir; bu kutuda o emek de sofraya gelir.",
-    img: "/img/cekirdek.jpg",
+    img: publicAsset("img/cekirdek.jpg"),
     alt: "Ahşap kasede kayısı çekirdeği içleri ve yanında kırılmış çekirdekler",
     badge: "Sıfır atık",
     lotCodes: ["PT-26-089"],
@@ -78,7 +80,7 @@ export const PRODUCTS: Product[] = [
     name: "Fırat Sergisi Kutusu",
     short: "Üç lot, tek hediye kutusu",
     desc: "Gün kurusu (400 g), islimli jumbo (400 g) ve çekirdek içi (200 g) aynı kutuda. Üç lotun pasaportu da kutunun içinde gelir; hediye ettiğiniz kişi bahçeyi kendisi sorgulayabilir.",
-    img: "/img/hediye.jpg",
+    img: publicAsset("img/hediye.jpg"),
     alt: "İçinde gün kurusu, islimli kayısı ve çekirdek kesesi görünen kraft hediye kutusu",
     badge: "Hediyelik",
     lotCodes: ["PT-26-047", "PT-26-112", "PT-26-089"],
@@ -170,7 +172,7 @@ export const PROCESS: ProcessStep[] = [
     kicker: "Dalından kasaya",
     text: "Baskil'de hasat temmuzda başlar, ağustos ortasına uzanır. Olgunlaşan kayısı dalından toplanıp kasalanır; bekletilmeden kurutma alanına taşınır. Doğru gün, kutudaki tadın ilk kararıdır.",
     chip: "Temmuz – Ağustos",
-    img: "/img/dal.jpg",
+    img: publicAsset("img/dal.jpg"),
     alt: "Dalında olgunlaşmış altın sarısı kayısılar ve yeşil yapraklar",
   },
   {
@@ -179,7 +181,7 @@ export const PROCESS: ProcessStep[] = [
     kicker: "Kutunun karakteri burada belli olur",
     text: "Kayısının bir kısmı rengini korumak için islim damına (kükürt odası) girer, bir kısmı hiç islim görmeden doğrudan sergiye çıkar. İslimli parlak ve diri kalır; gün kurusu koyulaşır, tadı yoğunlaşır. Patik, bu ayrımı kutunun üstünde saklamaz — yazar.",
     chip: "İslim damı ≈ 1 gün",
-    img: "/img/hero.jpg",
+    img: publicAsset("img/hero.jpg"),
     alt: "Ahşap kasadan dökülen koyu gün kurusu ve parlak islimli kayısılar",
   },
   {
@@ -188,7 +190,7 @@ export const PROCESS: ProcessStep[] = [
     kicker: "Güneş işe başlar",
     text: "Kayısılar geniş bezlerin üzerine serilir. Karakaya Baraj Gölü kıyısındaki bahçelerde yaz güneşi, kayısının suyunu alırken tadını içinde bırakır. İlk kuruma yaklaşık iki gün sürer.",
     chip: "İlk kuruma ≈ 2 gün",
-    img: "/img/sergi.jpg",
+    img: publicAsset("img/sergi.jpg"),
     alt: "Göl kıyısındaki yamaçta bezler üzerine serilmiş kuruyan kayısılar (temsilî görsel)",
   },
   {
@@ -197,7 +199,7 @@ export const PROCESS: ProcessStep[] = [
     kicker: "Markaya adını veren mesai",
     text: "Yarı kuruyan kayısının çekirdeği tek tek elle çıkarılır; Baskil'de bu işe patik denir. Bu adımda her kayısı elden geçer: ezilen, yara alan ayrılır. Çıkan çekirdek de atılmaz; kırılıp içi ayrıca değerlendirilir.",
     chip: "Tek tek, elle",
-    img: "/img/patik.jpg",
+    img: publicAsset("img/patik.jpg"),
     alt: "Tepsi dolusu yarı kuru kayısının çekirdeklerini elle çıkaran üretici elleri",
   },
   {
@@ -206,7 +208,7 @@ export const PROCESS: ProcessStep[] = [
     kicker: "Son kurutma",
     text: "Çekirdeği çıkan kayısı son kez güneşe serilir. Yaklaşık üç günün sonunda halk arasında çir denen, kutuya girmeye hazır kuru kayısıya dönüşür. Bu sürece önceden karar verilemez; hava ne derse o olur.",
     chip: "Son kuruma ≈ 3 gün",
-    img: "/img/gun-kurusu.jpg",
+    img: publicAsset("img/gun-kurusu.jpg"),
     alt: "Kasede son kurutması tamamlanmış koyu renkli kuru kayısılar",
   },
   {
@@ -215,7 +217,7 @@ export const PROCESS: ProcessStep[] = [
     kicker: "Kutuya giren, kaydıyla girer",
     text: "Kuru kayısı boyuna göre elenir, bahçe bahçe ayrılır ve her grup bir lot kodu alır. Kutunun içindeki pasaportta o lotun bahçesi, hasat haftası ve kurutma geçmişi yazar; kodu bu siteden sorgulayabilirsiniz.",
     chip: "Her kutuda pasaport",
-    img: "/img/hediye.jpg",
+    img: publicAsset("img/hediye.jpg"),
     alt: "Üç bölmeli kraft kutuda lotlarına ayrılmış kayısılar",
   },
 ];
@@ -319,7 +321,7 @@ export const SEASONS: Season[] = [
     name: "Çiçek & Bekleyiş",
     chip: "İlkbahar",
     text: "Bahçe çiçek açar; o yılın kayısısının kaderi birkaç haftaya sığar. Geç don ya da çiçekte yağan yağmur rekolteyi sessizce belirler. Baskil'de herkes önce göğe, sonra dallara bakar.",
-    img: "/img/cicek.jpg",
+    img: publicAsset("img/cicek.jpg"),
     alt: "Dalında beyaz-pembe kayısı çiçekleri, arkada flu tepeler",
   },
   {
@@ -327,7 +329,7 @@ export const SEASONS: Season[] = [
     name: "Hasat",
     chip: "Temmuz başı",
     text: "Yazla birlikte bahçeler hareketlenir; asıl hasat temmuzda başlar, ağustos ortasına uzanır. Olgun meyve bekletilmez: dalından kasaya, kasadan kurutma alanına. Doğru hasat günü, kutudaki tadın ilk kararıdır.",
-    img: "/img/dal.jpg",
+    img: publicAsset("img/dal.jpg"),
     alt: "Dalında olgunlaşmış altın sarısı kayısılar",
   },
   {
@@ -335,7 +337,7 @@ export const SEASONS: Season[] = [
     name: "Sergi · Patik · Çir",
     chip: "Temmuz – Ağustos",
     text: "Yazın kalbi sergide atar: kayısı islim ya da gün yolunu seçer, güneşte kıvam alır, çekirdeği patikte tek tek çıkarılır ve son güneşte çir olur. Patik'in lot kayıtları tam da bu haftalarda yazılır.",
-    img: "/img/sergi.jpg",
+    img: publicAsset("img/sergi.jpg"),
     alt: "Göl kıyısı yamaçta bezler üzerinde kuruyan kayısı sergileri",
   },
   {
@@ -343,7 +345,7 @@ export const SEASONS: Season[] = [
     name: "Eleme & Kutu",
     chip: "Sonbahar",
     text: "Hava serinleyince kuru kayısı boylanır, bahçe bahçe lotlanır ve kutulanır. Her kutunun içine lot pasaportu girer; yazın güneşi artık kâğıda dökülmüş, kodu kapağa basılmıştır.",
-    img: "/img/hediye.jpg",
+    img: publicAsset("img/hediye.jpg"),
     alt: "Üç bölmeli kraft kutuda lotlarına ayrılmış kayısılar",
   },
   {
@@ -351,7 +353,7 @@ export const SEASONS: Season[] = [
     name: "Sofra Zamanı",
     chip: "Kış",
     text: "Kışın kuru kayısı hoşaf olur, çayın yanına çıkar, hediye kutusunda başka bir sofraya misafir gider. Kutudaki kodu sorgulayan herkes, temmuzun bahçesine tek tıkla geri döner.",
-    img: "/img/hosaf.jpg",
+    img: publicAsset("img/hosaf.jpg"),
     alt: "Cam kasede altın rengi kayısı hoşafı ve yanında kuru kayısılar",
   },
 ];

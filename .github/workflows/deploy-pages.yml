@@ -1,0 +1,61 @@
+name: Patik Sitesini GitHub Pages'te Yayınla
+
+on:
+  push:
+    branches:
+      - main
+      - arena/a9c83a62-elaz-gsite
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Doğrula ve derle
+    runs-on: ubuntu-latest
+    env:
+      VITE_BASE_PATH: /elaz-gsite/
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Bağımlılıkları kur
+        run: npm ci
+
+      - name: Tip, içerik ve üretim doğrulaması
+        run: npm run verify
+
+      - name: GitHub Pages yapılandırması
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Pages paketini yükle
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: GitHub Pages'e yayınla
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Yayınla
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,4 +1,5 @@
 import { goToLot } from "./Products";
+import { publicAsset } from "../assets";
 
 const LEDGER_LINKS = [
   { value: "1.800", label: "temsilî kayıt", href: "#saha", note: "Saha Defteri'nde aç" },
@@ -68,7 +69,7 @@ export default function Hero() {
         <div className="hero__collage" aria-label="Patik görsel vitrini">
           <figure className="hero__photo hero__photo--main">
             <img
-              src="/img/sergi.jpg"
+              src={publicAsset("img/sergi.jpg")}
               alt="Karakaya kıyısındaki teraslarda bezler üzerinde kuruyan kayısı sergileri"
               width={1600}
               height={1000}
@@ -82,7 +83,7 @@ export default function Hero() {
 
           <figure className="hero__photo hero__photo--hands">
             <img
-              src="/img/patik.jpg"
+              src={publicAsset("img/patik.jpg")}
               alt="Tepsideki yarı kuru kayısıların çekirdeklerini elle çıkaran üretici elleri"
               width={1200}
               height={800}

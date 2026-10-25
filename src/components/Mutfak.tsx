@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { PRODUCTS, SEASONS, hosafFor } from "../data";
 import { useCart } from "../cart";
+import { publicAsset } from "../assets";
 
 export default function Mutfak() {
   const { add } = useCart();
@@ -52,7 +53,7 @@ export default function Mutfak() {
 
         {/* -------- Hoşaf hesapçısı -------- */}
         <div className="hosaf-card">
-          <img src="/img/hosaf.jpg" alt="Cam kasede altın rengi kayısı hoşafı" width={1200} height={800} loading="lazy" className="hosaf-card__img" />
+          <img src={publicAsset("img/hosaf.jpg")} alt="Cam kasede altın rengi kayısı hoşafı" width={1200} height={800} loading="lazy" className="hosaf-card__img" />
           <div className="hosaf-card__body">
             <h3>Hoşaf Hesapçısı</h3>
             <p className="hosaf-card__sub">Patik mutfağının ölçüsü: kişi sayısını seç, gerisini biz hesaplayalım.</p>

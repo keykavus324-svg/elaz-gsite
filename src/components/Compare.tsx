@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { publicAsset } from "../assets";
 
 type TabId = "gun" | "islim";
 
@@ -16,7 +17,7 @@ const DATA: Record<
   gun: {
     title: "Gün Kurusu",
     lede: "İslim damına hiç girmeden, doğrudan güneşle kurur.",
-    img: "/img/gun-kurusu.jpg",
+    img: publicAsset("img/gun-kurusu.jpg"),
     alt: "Koyu kahve-amber renkli gün kurusu kayısılarla dolu seramik kase",
     rows: [
       ["Renk", "Koyu kahve-amber. Parlak değildir; koyulaşması gün kurusunun doğasıdır."],
@@ -31,7 +32,7 @@ const DATA: Record<
   islim: {
     title: "İslimli",
     lede: "Kükürt odasında (islim damı) rengi korunarak kurutulur; üretimin büyük kısmı bu yolla yapılır.",
-    img: "/img/islimli.jpg",
+    img: publicAsset("img/islimli.jpg"),
     alt: "Parlak turuncu renkte islimli kuru kayısı yarılarıyla dolu seramik kase",
     rows: [
       ["Renk", "Canlı, parlak turuncu. Taze kayısının rengine en yakın hâli."],
@@ -62,9 +63,9 @@ export default function Compare() {
       </div>
 
       <figure className="wipe" aria-label="Gün kurusu ve islimli kayısı görsel karşılaştırması">
-        <img src="/img/islimli.jpg" alt="" width={1600} height={900} loading="lazy" className="wipe__base" />
+        <img src={publicAsset("img/islimli.jpg")} alt="" width={1600} height={900} loading="lazy" className="wipe__base" />
         <img
-          src="/img/gun-kurusu.jpg"
+          src={publicAsset("img/gun-kurusu.jpg")}
           alt=""
           width={1600}
           height={900}

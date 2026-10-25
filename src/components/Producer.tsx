@@ -1,3 +1,5 @@
+import { publicAsset } from "../assets";
+
 export default function Producer() {
   return (
     <section className="section producer" id="uretici" aria-labelledby="uretici-baslik">
@@ -8,7 +10,7 @@ export default function Producer() {
 
       <figure className="producer__banner">
         <img
-          src="/img/sergi.jpg"
+          src={publicAsset("img/sergi.jpg")}
           alt="Karakaya Baraj Gölü'ne bakan yamaç teraslarında bezlerle kayısı kurutulan sergi alanı"
           width={1920}
           height={1080}
@@ -47,7 +49,7 @@ export default function Producer() {
 
         <aside className="producer__card" aria-labelledby="uretici-kart-baslik">
           <img
-            src="/img/patik.jpg"
+            src={publicAsset("img/patik.jpg")}
             alt="Yarı kuru kayısıların çekirdeklerini tepsi başında elle çıkaran üretici elleri"
             width={1200}
             height={800}
