@@ -1,0 +1,31 @@
+{
+  "name": "patik-baskil-kayisi",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Patik — Baskil kayisisi icin lot pasaportlu tanitim ve demo siparis sitesi (GakCoding)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5000",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 5000",
+    "typecheck": "tsc --noEmit",
+    "content:generate": "node scripts/generate-atlas-content.mjs",
+    "verify:atlas": "node scripts/verify-atlas.mjs",
+    "verify": "npm run typecheck && npm run verify:atlas && npm run verify:universe && npm run build",
+    "content:generate:universe": "node scripts/generate-universe-content.mjs",
+    "content:generate:all": "npm run content:generate && npm run content:generate:universe",
+    "verify:universe": "node scripts/verify-universe.mjs"
+  },
+  "dependencies": {
+    "hls.js": "^1.7.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.7"
+  }
+}
