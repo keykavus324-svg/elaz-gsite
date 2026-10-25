@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Compare from "./components/Compare";
@@ -15,6 +15,8 @@ import CartDrawer from "./components/CartDrawer";
 import Reveal from "./components/Reveal";
 import Prova from "./components/Prova";
 import { useCart } from "./cart";
+
+const Atlas = lazy(() => import("./components/Atlas"));
 
 const WORDS = [
   "PATİK", "tek tek elle", "GÜN KURUSU", "islimsiz güneş", "İSLİM DAMI", "canlı renk",
@@ -71,6 +73,16 @@ function FloatingCta() {
   );
 }
 
+function AtlasFallback() {
+  return (
+    <section className="section atlas atlas--loading" id="atlas" aria-labelledby="atlas-yukleme-baslik">
+      <p className="kicker">Patik Atlası</p>
+      <h2 id="atlas-yukleme-baslik">Kayıt odası hazırlanıyor</h2>
+      <p className="section__lede">811 temsilî kayıt, ana sayfanın ilk açılışını ağırlaştırmadan ayrı paketten geliyor.</p>
+    </section>
+  );
+}
+
 function Toast() {
   const { toast, setCartOpen, cartOpen } = useCart();
   if (!toast || cartOpen) return null;
@@ -98,6 +110,7 @@ export default function App() {
         <Reveal><LotBuilder /></Reveal>
         <Reveal><Products /></Reveal>
         <Reveal><Mutfak /></Reveal>
+        <Suspense fallback={<AtlasFallback />}><Atlas /></Suspense>
         <Reveal><LotLookup /></Reveal>
         <Reveal><Faq /></Reveal>
       </main>

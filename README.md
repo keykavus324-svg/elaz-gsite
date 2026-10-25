@@ -26,6 +26,9 @@ npm run dev        # http://localhost:5000
 npm run build      # dist/ altında üretim çıktısı
 npm run preview    # üretim çıktısını önizle
 npm run typecheck  # TypeScript tip kontrolü
+npm run content:generate # Atlas veri dosyalarını kaynaktan yeniden üret
+npm run verify:atlas     # 811 kayıt + 20.000 satır hedefini doğrula
+npm run verify           # typecheck + Atlas denetimi + üretim derlemesi
 ```
 
 ### Replit'te
@@ -46,10 +49,14 @@ public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî g�
 public/favicon.svg    El çizimi SVG kayısı amblemi
 src/data.ts           Ürün, lot, süreç verileri + öneri motoru (tüm demo içeriği burada)
 src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları
-src/components/       Header, Hero, Compare, Process, Producer, Mola (radyo/oyun),
+src/components/       Header, Hero, Compare, Process, Producer, Mola (radyo/oyun), Atlas,
                       LotBuilder (imza), Products, Mutfak, LotLookup, LotPassport,
                       Faq, CartDrawer, Footer, Prova (gizli sunum konsolu)
+src/content/          Atlas veri katmanı: 204 lot + 52 hafta + 155 kavram + 96 tarif +
+                      160 bilgi kartı + 144 soru = 811 temsilî kayıt
+src/atlas.css         Atlas için ayrı yüklenen sakin kâğıt tonlu arayüz stilleri
 src/styles.css        Tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
+scripts/              Atlas veri üreticisi, kaynak listeleri ve bütünlük doğrulaması
 KAYNAKLAR.md          Kaynakça, görsel ve lisans notları, temsilî içerik listesi
 DEMO-SENARYO.md       Etkinlik günü koşu planı: roller, saatler, riskler, jüri masası kiti
 SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri soruları
@@ -66,6 +73,9 @@ SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri s
 - Mobilde kaydırdıkça beliren "Lotunu Kur" yüzer eylem düğmesi
 - Lotunu Kur: 3 soru → gerekçeli ürün/gramaj önerisi → çekirdek ekleme → sepete
 - Mevsim & Mutfak: 5 mevsimlik hasat takvimi + Hoşaf Hesapçısı (kişi sayısı → gram/su/paket hesabı ve sepete bağlar)
+- **Patik Atlası:** 811 temsilî kayıt üzerinde çalışan aranabilir lot defteri, 52 haftalık
+  sezon planı, 155 kavramlık sözlük, 96 tarif kartı, senaryolu bilgi kartları ve 144 soruluk
+  çalışma bankası; ana paketi ağırlaştırmadan ayrı chunk olarak yüklenir
 - Lot pasaportunu paylaşma: `?lot=PT-26-047` derin bağlantısı, panoya kopyalama ve yazdırılabilir/PDF pasaport
 - Ürün kartlarında gramaj seçimi, lot kodu ile pasaporta atlama
 - Lot sorgulama: büyük/küçük harf ve boşluk toleranslı, hatalı kodda anlaşılır uyarı
@@ -80,7 +90,8 @@ SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri s
 - Bu site bir **yarışma demosudur**: gerçek satış, ödeme, üyelik ve takip kodu yoktur.
   Form verileri hiçbir yere gönderilmez.
 - Üretici profili ("Fatma & Ali D."), fiyatlar, parsel bilgileri ve lot kayıtları
-  **temsilîdir** ve sitede açıkça böyle etiketlenir.
+  **temsilîdir** ve sitede açıkça böyle etiketlenir. Atlas'taki 204 lotluk geniş defter
+  ve operasyon miktarları da gerçek kayıt değildir; kanonik alışveriş akışı 3 demo lotla çalışır.
 - Sağlık/beslenme iddiası, sahte ödül/sertifika/müşteri yorumu kullanılmamıştır.
   Baskil kayısının coğrafi işaret durumu sitede dürüstçe anlatılır (bkz. SSS).
 - Görseller yapay zekâ ile üretilmiştir; gerçek üretici veya tesis fotoğrafı olarak

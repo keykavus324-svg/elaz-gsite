@@ -26,7 +26,7 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
   eklemek yok; her değişiklikten sonra `npm run build` + ana akış testi.
 - **15.30–16.30 Prova ×3:** Prova Modu'nun yerleşik 90 saniye sayacıyla. Sürücü tıklama sırasını ezberler
   (SUNUM.md §B). Biri jüri rolüyle §C'deki 5 soruyu sorar.
-- **16.30–17.00 Dondur:** Kod değişikliği bitti. Son build, son bakış, pasaport
+- **16.30–17.00 Dondur:** Kod değişikliği bitti. `npm run verify` çıktısını sakla; son build, son bakış, pasaport
   baskıları hazır, telefon sessizde, su içildi.
 - **Sunum:** Derin nefes. Prova konsolunu P ile küçült. Önce sorun cümlesi, sonra canlı akış. Radyoyu bonus
   bölümde aç; jüriden bir kişiyi Patik Ustası'nda oynatmak buzları eritir.
@@ -41,6 +41,7 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 | Radyo HTTPS'te açılmaz | TRT Türkü birincil; FM 23 takılırsa çalar açıklar, resmî siteye geç |
 | Sepet eski veriyle dolu | Sunum öncesi gizli sekme kullan (temiz localStorage) |
 | Jüri "gerçek mi?" derse | Gülümse: "Açıkça etiketledik" → §C/2 cevabı + KAYNAKLAR.md göster |
+| Atlas sayıları gerçek sanılırsa | 811 kaydın tamamının temsilî arayüz ölçeği olduğunu ilk cümlede söyle; kanonik akışın 3 lotla çalıştığını göster |
 
 ## Jüri masası kiti
 

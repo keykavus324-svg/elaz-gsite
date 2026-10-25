@@ -679,10 +679,11 @@ body { overflow-x: clip; }
 .product-card__figure img { transition: transform .6s ease; }
 .product-card:hover .product-card__figure img { transform: scale(1.045); }
 
-/* Masaüstü menü sıkıştırma (7 öğe) */
-@media (min-width: 960px) and (max-width: 1120px) {
-  .main-nav { gap: 13px; }
-  .main-nav a { font-size: .86rem; }
+/* Masaüstü menü sıkıştırma (8 öğe) */
+@media (min-width: 960px) and (max-width: 1160px) {
+  .main-nav { gap: 8px; }
+  .main-nav a { font-size: .8rem; padding-inline: 6px; }
+  .header-cta { display: none; }
 }
 
 /* ---- Karşılaştırma kaydırıcısı (wipe) ---- */
@@ -940,6 +941,9 @@ body { overflow-x: clip; }
   .drawer__form-actions .btn { flex: 1; }
   .prova__btn--close { margin-left: 0; }
 }
+
+/* Atlas ayrı paketten gelirken sayfa sıçramasını azalt */
+.atlas--loading { min-height: 520px; }
 
 /* ---- v6 sakin cila: düzeni ve marka dilini değiştirmeden yumuşatma ---- */
 ::selection { background: var(--amber); color: var(--ink); }

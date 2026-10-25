@@ -7,6 +7,7 @@ const LINKS = [
   { href: "#uretici", label: "Üretici" },
   { href: "#mola", label: "Çay Molası" },
   { href: "#urunler", label: "Ürünler" },
+  { href: "#atlas", label: "Atlas" },
   { href: "#lot-sorgula", label: "Lot Sorgula" },
   { href: "#sss", label: "SSS" },
 ];

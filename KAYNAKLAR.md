@@ -125,13 +125,24 @@ yapılmıştır. Çalar, hata hâlinde bunu kullanıcıya açıkça söyler.
 - **React 18, ReactDOM, Vite 6, @vitejs/plugin-react, TypeScript** — MIT lisansı.
   Bunlar dışında üretim bağımlılığı yoktur; analitik/takip betiği bulunmaz.
 
+## 5b) Patik Atlası verisinin kökeni
+
+Atlas'taki 811 kayıt, `scripts/atlas-source-data.mjs` içindeki kısa kaynak listelerinden
+`scripts/generate-atlas-content.mjs` ile deterministik biçimde üretilir. Dağılım:
+204 temsilî lot satırı, 52 haftalık çalışma planı, 155 sözlük maddesi, 96 tarif kartı,
+160 bilgi kartı ve 144 çalışma sorusu. Lot miktarları, parsel satırları, sezon iş listeleri
+ve tarif varyasyonları arayüz ölçeğini göstermek için kurgulanmıştır; gerçek üretici,
+hasat, stok, satış veya verim kaydı değildir. Ana alışveriş akışındaki üç kanonik lot
+(`PT-26-047`, `PT-26-112`, `PT-26-089`) Atlas defterinden ayrı tutulur. Veri tekrar
+üretimi: `npm run content:generate`; bütünlük denetimi: `npm run verify:atlas`.
+
 ## 6) Temsilî (kurgusal) içerik listesi
 
 Aşağıdakiler demo amacıyla **uydurulmuş** ve sitede öyle etiketlenmiştir:
 
 - "Patik — Baskil Kayısı Atölyesi" markası ve sloganı (gerçek işletme değildir)
 - Üretici profili: "Fatma & Ali D., Çavuşlu Köyü" ve sözü (gerçek kişi değildir)
-- Parsel adları (Gölyaka/Kıyıdüzü), lot kodları ve lot kayıt içerikleri
+- Parsel adları (Gölyaka/Kıyıdüzü), lot kodları, lot kayıt içerikleri ve Atlas'taki 811 genişletilmiş demo kaydı
 - Tüm fiyatlar, kargo baremi ve sipariş numarası üretimi
 - 2026 hasadına ait haftalar (tarih kurgusu, mevsim takvimi gerçeğe uygundur)
 
