@@ -14,10 +14,12 @@ import Footer from "./components/Footer";
 import CartDrawer from "./components/CartDrawer";
 import Reveal from "./components/Reveal";
 import Prova from "./components/Prova";
+import ChapterRail from "./components/ChapterRail";
 import { useCart } from "./cart";
 
 const Atlas = lazy(() => import("./components/Atlas"));
 const Universe = lazy(() => import("./components/Universe"));
+const FieldDesk = lazy(() => import("./components/FieldDesk"));
 
 const WORDS = [
   "PATİK", "tek tek elle", "GÜN KURUSU", "islimsiz güneş", "İSLİM DAMI", "canlı renk",
@@ -71,6 +73,16 @@ function FloatingCta() {
     <a href="#lotunu-kur" className="floating-cta">
       Lotunu Kur <span aria-hidden="true">→</span> <small>30 saniye</small>
     </a>
+  );
+}
+
+function FieldDeskFallback() {
+  return (
+    <section className="section fielddesk fielddesk--loading" id="saha" aria-labelledby="saha-yukleme-baslik">
+      <p className="kicker">Saha Defteri</p>
+      <h2 id="saha-yukleme-baslik">Günün kayıtları tezgâha geliyor</h2>
+      <p className="section__lede">Günlük, lot, tarif, kalite ve ders fişleri ana paket şişmeden ayrı ayrı yüklenir.</p>
+    </section>
   );
 }
 
@@ -161,9 +173,11 @@ export default function App() {
   return (
     <>
       <Header />
+      <ChapterRail />
       <main id="icerik">
         <Hero />
         <Marquee />
+        <Suspense fallback={<FieldDeskFallback />}><FieldDesk /></Suspense>
         <Reveal><Compare /></Reveal>
         <Reveal><Process /></Reveal>
         <Reveal><Producer /></Reveal>

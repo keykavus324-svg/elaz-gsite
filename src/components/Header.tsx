@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "../cart";
 
-const LINKS = [
-  { href: "#karsilastir", label: "Gün/İslim" },
-  { href: "#surec", label: "Süreç" },
-  { href: "#uretici", label: "Üretici" },
+const NAV = [
+  { href: "#saha", label: "Saha" },
+  { href: "#surec", label: "Yolculuk" },
+  { href: "#lotunu-kur", label: "Lotunu Kur" },
+  { href: "#urunler", label: "Kutular" },
+  { href: "#mutfak", label: "Mutfak" },
   { href: "#mola", label: "Çay Molası" },
-  { href: "#urunler", label: "Ürünler" },
   { href: "#atlas", label: "Atlas" },
-  { href: "#lot-sorgula", label: "Lot Sorgula" },
-  { href: "#sss", label: "SSS" },
+  { href: "#evren", label: "Evren" },
+  { href: "#lot-sorgula", label: "Pasaport" },
 ];
 
 export function LogoMark({ size = 34 }: { size?: number }) {
@@ -27,71 +28,89 @@ export function LogoMark({ size = 34 }: { size?: number }) {
 export default function Header() {
   const { count, setCartOpen } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 18);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   return (
-    <>
-      <p className="demo-strip" role="note">
-        GakCoding yarışma demosu — gerçek satış yapılmaz, üretici ve lot içerikleri temsilîdir.
-      </p>
-      <header className="site-header">
-        <a className="skip-link" href="#icerik">İçeriğe atla</a>
-        <div className="site-header__inner">
-          <a href="#top" className="brand" aria-label="Patik — ana sayfa">
-            <LogoMark />
-            <span className="brand__text">
-              <span className="brand__name">PATİK</span>
-              <span className="brand__sub">Baskil Kayısı Atölyesi</span>
+    <header className={`site-header site-header--ledger${scrolled ? " is-scrolled" : ""}`}>
+      <a className="skip-link" href="#icerik">İçeriğe atla</a>
+      <div className="site-header__ticker" role="note">
+        <span>Elazığ · 23</span>
+        <span aria-hidden="true">◆</span>
+        <span>Baskil kayısısı</span>
+        <span aria-hidden="true">◆</span>
+        <span>1.800 temsilî kayıt</span>
+        <span className="site-header__ticker-demo">Yarışma demosu — sahte sipariş yok</span>
+      </div>
+
+      <div className="site-header__bar">
+        <a href="#top" className="brand" aria-label="Patik — Baskil Kayısı Atölyesi, ana sayfa">
+          <span className="brand__mark" aria-hidden="true">P</span>
+          <span className="brand__text">
+            <strong>PATİK</strong>
+            <span>Baskil Kayısı Atölyesi</span>
+          </span>
+        </a>
+
+        <nav className="site-header__nav" aria-label="Ana menü">
+          {NAV.map((item) => (
+            <a key={item.href} href={item.href}>{item.label}</a>
+          ))}
+        </nav>
+
+        <div className="site-header__actions">
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="mobil-menu"
+            aria-label={menuOpen ? "Menüyü kapat" : "Menüyü aç"}
+            onClick={() => setMenuOpen((value) => !value)}
+          >
+            {menuOpen ? "✕" : "☰"}
+            <span>Menü</span>
+          </button>
+          <button type="button" className="cart-btn" onClick={() => setCartOpen(true)} aria-label={`Sepeti aç, içinde ${count} ürün var`}>
+            <span className="cart-btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                <path d="M3 6h18" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
             </span>
-          </a>
-
-          <nav className="main-nav" aria-label="Ana menü">
-            {LINKS.map((l) => (
-              <a key={l.href} href={l.href}>{l.label}</a>
-            ))}
-          </nav>
-
-          <div className="header-actions">
-            <a href="#lotunu-kur" className="btn btn--primary btn--small header-cta">Lotunu Kur</a>
-            <button
-              type="button"
-              className="cart-btn"
-              onClick={() => setCartOpen(true)}
-              aria-label={`Sepeti aç, içinde ${count} ürün var`}
-            >
-              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M6 7h15l-1.5 8.5a2 2 0 0 1-2 1.5h-7.4a2 2 0 0 1-2-1.7L5 3H2.5" />
-                <circle cx="9.5" cy="20.5" r="1.3" fill="currentColor" stroke="none" />
-                <circle cx="17" cy="20.5" r="1.3" fill="currentColor" stroke="none" />
-              </svg>
-              <span>Sepet</span>
-              {count > 0 && <span className="cart-btn__badge" aria-hidden="true">{count}</span>}
-            </button>
-            <button
-              type="button"
-              className="menu-btn"
-              aria-expanded={menuOpen}
-              aria-controls="mobil-menu"
-              onClick={() => setMenuOpen((v) => !v)}
-            >
-              <span className="sr-only">{menuOpen ? "Menüyü kapat" : "Menüyü aç"}</span>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                {menuOpen ? <path d="M5 5l14 14M19 5L5 19" /> : <path d="M4 7h16M4 12h16M4 17h10" />}
-              </svg>
-            </button>
-          </div>
+            <span>Sepet</span>
+            {count > 0 && <span className="cart-btn__badge">{count}</span>}
+          </button>
         </div>
+      </div>
 
-        {menuOpen && (
-          <nav id="mobil-menu" className="mobile-nav" aria-label="Mobil menü">
-            {LINKS.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
-            ))}
-            <a href="#lotunu-kur" className="btn btn--primary" onClick={() => setMenuOpen(false)}>
-              Lotunu Kur — 30 saniye
+      {menuOpen && (
+        <nav id="mobil-menu" className="site-header__mobile-nav" aria-label="Mobil menü">
+          {NAV.map((item, index) => (
+            <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              {item.label}
             </a>
-          </nav>
-        )}
-      </header>
-    </>
+          ))}
+          <a href="#uretici" onClick={() => setMenuOpen(false)}>Üretici</a>
+          <a href="#sss" onClick={() => setMenuOpen(false)}>Sorular</a>
+        </nav>
+      )}
+    </header>
   );
 }

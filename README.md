@@ -1,5 +1,7 @@
 # PATİK — Baskil Kayısı Atölyesi
 
+**Vitrin:** *Kayısı kurur. Kaydı kalır.*
+
 **Slogan:** *Bahçeden kutuna, lotuyla.*
 
 Elazığ'ın Baskil kayısısı için tasarlanmış, tek sayfalık tanıtım ve demo sipariş sitesi.
@@ -50,7 +52,8 @@ public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî g�
 public/favicon.svg    El çizimi SVG kayısı amblemi
 src/data.ts           Ürün, lot, süreç verileri + öneri motoru (tüm demo içeriği burada)
 src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları
-src/components/       Header, Hero, Compare, Process, Producer, Mola (radyo/oyun), Atlas, Universe,
+src/components/       Header, Hero, FieldDesk (Saha Defteri), ChapterRail, Compare, Process, Producer,
+                      Mola (radyo/oyun), Atlas, Universe,
                       universe/ altında Operasyon, 365 Gün, Kalite, Kutu Hattı, Hediye ve Okul panelleri
                       LotBuilder (imza), Products, Mutfak, LotLookup, LotPassport,
                       Faq, CartDrawer, Footer, Prova (gizli sunum konsolu)
@@ -60,15 +63,21 @@ src/content/          Atlas çekirdeği: 204 lot + 52 hafta + 155 kavram + 96 ta
                       120 hediye + 120 ders = 989 temsilî kayıt
 src/atlas.css         Atlas için ayrı yüklenen sakin kâğıt tonlu arayüz stilleri
 src/universe.css      Evren panellerinin ayrı yüklenen panoları, takvimleri ve simülasyon stilleri
-src/styles.css        Tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
+src/styles.css        Temel tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
+src/redesign.css      Hasat Defteri vitrini, Saha Defteri, bölüm rayı ve yeni sayfa ritmi
 scripts/              Atlas veri üreticisi, kaynak listeleri ve bütünlük doğrulaması
 KAYNAKLAR.md          Kaynakça, görsel ve lisans notları, temsilî içerik listesi
 DEMO-SENARYO.md       Etkinlik günü koşu planı: roller, saatler, riskler, jüri masası kiti
-SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri soruları
+SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soruları
 ```
 
 ## Çalışan akışlar
 
+- **Hasat Defteri vitrini:** Sergi + patik yakın çekimi, beş duraklı yol, çalışan lot bileti ve
+  1.800 temsilî kayda açılan koyu kayıt şeridiyle yeni ilk ekran
+- **Saha Defteri:** İlk ekranın hemen altında günün sezon kartını, bir lotu, tarif/sözlük fişini,
+  kalite-kutu kaydını ve günün dersini ayrı veri paketleriyle çalıştıran altı istasyonlu konsol
+- Geniş ekranda bölüm rayı ve kaydırma ilerlemesi; mobilde iki katmanlı üst bar ve numaralı menü
 - Gün/islim karşılaştırma: sürüklenebilir görsel kaydırıcı + ayrıntı sekmeleri
 - 6 adımlık etkileşimli üretim süreci, kayan yöresel sözlük şeridi, görünüm animasyonları
 - **Çay Molası:** canlı radyo çaları (TRT Türkü HLS, Radyo FM 23 Elazığ; Radyo Fırat resmî
@@ -89,8 +98,8 @@ SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri s
 - Lot sorgulama: büyük/küçük harf ve boşluk toleranslı, hatalı kodda anlaşılır uyarı
 - Sepet: adet artır/azalt/kaldır, ücretsiz kargo barı (750 ₺), kalıcı sepet (localStorage)
 - Demo sipariş formu: Türkçe doğrulama ve hata mesajları → sipariş özeti + lot kodları
-- **Prova Modu (ekip içi):** adrese `?prova=1` eklenince 6 adımlı konuşmacı
-  konsolu, 90 saniye sayacı, klavye adımları (←/→) ve P ile küçültme açılır;
+- **Prova Modu (ekip içi):** adrese `?prova=1` eklenince 7 adımlı konuşmacı
+  konsolu, 105 saniye sayacı, klavye adımları (←/→) ve P ile küçültme açılır;
   normal ziyaretçi adresinde görünmez
 
 ## Demo ve dürüstlük notları

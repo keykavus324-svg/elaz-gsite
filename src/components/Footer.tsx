@@ -21,6 +21,7 @@ export default function Footer() {
 
         <nav className="site-footer__nav" aria-label="Alt bilgi menüsü">
           <h3>Gezin</h3>
+          <a href="#saha">Saha Defteri: Günün Kayıtları</a>
           <a href="#karsilastir">Gün mü İslim mi?</a>
           <a href="#surec">Dalından Kutuna: Süreç</a>
           <a href="#uretici">Üretici Hikâyesi</a>

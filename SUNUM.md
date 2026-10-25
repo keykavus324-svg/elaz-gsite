@@ -31,23 +31,25 @@
 > "Özetle Patik; Baskil kayısının kendi adıyla, kaydı kitabıyla sofraya gelme hâli.
 > Teşekkürler — şimdi isterseniz 30 saniyede kendi lotunuzu kuralım."
 
-## B) Canlı demoda 5 adım (tıklama sırasıyla)
+## B) Canlı demoda 6 adım (tıklama sırasıyla)
 
-1. **Vitrinde dur (5 sn):** "Baskil'de kurudu, adıyla gelsin." Patik kelimesinin anlamını
-   hero'nun altındaki sarı kutudan söyle. **Lotunu Kur** butonuna bas.
-2. **3 soruyu cevapla (20 sn):** "Çayın yanına atıştırmalık" → "Koyu, yoğun, karamelimsi"
+1. **Vitrinde dur (8 sn):** "Kayısı kurur. Kaydı kalır." Beş duraklı yolu ve **PT-26-047**
+   lot biletini göster; mesajı kur: satılan şey yalnız kayısı değil, kayısının izlenebilir kaydı.
+2. **Saha Defteri'ni çalıştır (10 sn):** Bir istasyon değiştir, **Başka kayıt** düğmesine bas.
+   "1.800 temsilî kayıt sayfanın altında saklanmıyor; günün işi, lot, kalite ve ders burada çalışıyor."
+3. **3 soruyu cevapla (20 sn):** "Çayın yanına atıştırmalık" → "Koyu, yoğun, karamelimsi"
    → "Aileyle paylaşılır". Sonuç kartında gerekçeleri oku; sağdaki **lot pasaportu
    önizlemesini** göster. "Yanına çekirdek de ekle"yi işaretle, **Sepete ekle**.
-3. **Sepeti göster (15 sn):** Adet artır-azalt, ücretsiz kargo barının doluşunu göster.
+4. **Sepeti göster (15 sn):** Adet artır-azalt, ücretsiz kargo barının doluşunu göster.
    **Demo siparişe geç** → formu boş gönderip hata mesajlarını göster (doğrulama kanıtı),
    sonra hızlıca doldur ve onayla.
-4. **Başarı ekranındaki lot koduna tıkla (15 sn):** Pasaport sayfada açılsın; "İşte hediye
+5. **Başarı ekranındaki lot koduna tıkla (15 sn):** Pasaport sayfada açılsın; "İşte hediye
    ettiğiniz kişi tam bunu görecek." Bir de hatalı kod yazıp dostça hata mesajını göster.
-5. **Dürüstlük turu (20 sn):** Üretici bölümünde "temsilî profil" etiketini ve SSS'deki
+6. **Dürüstlük turu (20 sn):** Üretici bölümünde "temsilî profil" etiketini ve SSS'deki
    "Patik gerçek işletme mi?" ile "tescil" cevaplarını göster. Kapatırken sloganı söyle:
    **"Bahçeden kutuna, lotuyla."**
 
-**Zaman kalırsa (bonus 45 sn):** Patik Atlası'nda tek filtreyle 204 temsilî lot satırını daraltın; ardından Evren'de kutu hattı simülasyonunu bir adım çalıştırıp "üç lotla anlattığımız fikir operasyona dönünce böyle izlenir" deyin. Sayıların gerçek kayıt olmadığını özellikle söyleyin. Sonra Çay Molası'nda TRT Türkü'yü açın (Harput eseri denk
+**Zaman kalırsa (bonus 45 sn):** Gün/İslim kaydırıcısını oynatın; Patik Atlası'nda tek filtreyle 204 temsilî lot satırını daraltın; ardından Evren'de kutu hattı simülasyonunu bir adım çalıştırıp "üç lotla anlattığımız fikir operasyona dönünce böyle izlenir" deyin. Sayıların gerçek kayıt olmadığını özellikle söyleyin. Sonra Çay Molası'nda TRT Türkü'yü açın (Harput eseri denk
 gelirse altın vuruş), *Patik Ustası*'nda jüriden birini 30 saniye oynatın — "gerçek
 patik böyle hızlı olmaz ama refleksinizi gördük" esprisiyle kapatın. FM 23 akışı
 HTTPS'te tarayıcı politikasına takılırsa şaşırmayın; çalar bunu açıklayıp resmî
@@ -97,14 +99,15 @@ diye sunulmadı.
 - **Tasarım/Ux:** 360 px telefondan baştan sona akış testi, tıklanabilir alan kontrolü.
 - **Teknik:** Replit'te projeyi açıp `Run` doğrulama, yedek ekran görüntüleri.
 
-**Prova Modu:** Demo sürücüsü siteyi `?prova=1` ile açsın. Konsol altı adımı,
-konuşma notlarını ve 90 saniye sayacını gösterir; ←/→ ile ilerlenir. Sahnede
+**Prova Modu:** Demo sürücüsü siteyi `?prova=1` ile açsın. Konsol yedi adımı,
+konuşma notlarını ve 105 saniye sayacını gösterir; ←/→ ile ilerlenir. Sahnede
 ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçültün.
 
 ## E) Son 20 dakika kontrol listesi
 
 - [ ] Replit'te Run → sayfa açılıyor, konsolda kırmızı hata yok
 - [ ] Prova Modu (`?prova=1`) açılıyor; sayaç, ←/→ adımları ve P ile küçültme çalışıyor
+- [ ] Saha Defteri açılıyor; bir istasyon ve "Başka kayıt" çalışıyor
 - [ ] Lotunu Kur → 3 soru → sonuç → sepete ekle → çekmece açılıyor
 - [ ] Formu boş gönder → hata mesajları görünüyor; doldur → demo özeti geliyor
 - [ ] Lot sorgula: PT-26-047 açılıyor; hatalı kod uyarı veriyor

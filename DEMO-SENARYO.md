@@ -24,7 +24,7 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
   son göz; yazılı pasaport çıktısı al (Lot Sorgula → Yazdır) — jüri masasına bırakılacak.
 - **13.30–15.30 Geliştirme penceresi:** Yalnızca küçük, güvenli işler. Büyük özellik
   eklemek yok; her değişiklikten sonra `npm run build` + ana akış testi.
-- **15.30–16.30 Prova ×3:** Prova Modu'nun yerleşik 90 saniye sayacıyla. Sürücü tıklama sırasını ezberler
+- **15.30–16.30 Prova ×3:** Prova Modu'nun yerleşik 105 saniye sayacıyla. Sürücü tıklama sırasını ezberler
   (SUNUM.md §B). Biri jüri rolüyle §C'deki 5 soruyu sorar.
 - **16.30–17.00 Dondur:** Kod değişikliği bitti. `npm run verify` çıktısını sakla; son build, son bakış, pasaport
   baskıları hazır, telefon sessizde, su içildi.
@@ -42,7 +42,7 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 | Sepet eski veriyle dolu | Sunum öncesi gizli sekme kullan (temiz localStorage) |
 | Jüri "gerçek mi?" derse | Gülümse: "Açıkça etiketledik" → §C/2 cevabı + KAYNAKLAR.md göster |
 | Atlas/Evren sayıları gerçek sanılırsa | 811 Atlas + 989 Evren kaydının temsilî arayüz ölçeği olduğunu ilk cümlede söyle; kanonik akışın 3 lotla çalıştığını göster |
-| Sayfa uzunluğu jüriyi yorarsa | Ana akışı Lotunu Kur → Sepet → Pasaport sırasıyla bitir; Atlas ve Evreni yalnızca bonus ölçek kanıtı olarak aç |
+| Sayfa uzunluğu jüriyi yorarsa | Vitrin + Saha Defteri ile ölçeği ilk dakikada göster; ana akışı Lotunu Kur → Sepet → Pasaport sırasıyla bitir, Atlas ve Evreni bonus bırak |
 
 ## Jüri masası kiti
 

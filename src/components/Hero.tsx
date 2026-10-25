@@ -1,51 +1,142 @@
+import { goToLot } from "./Products";
+
+const LEDGER_LINKS = [
+  { value: "1.800", label: "temsilî kayıt", href: "#saha", note: "Saha Defteri'nde aç" },
+  { value: "204", label: "lot satırı", href: "#atlas", note: "Lot Defteri" },
+  { value: "365", label: "sezon günü", href: "#evren", note: "Günlüğü gör" },
+  { value: "120", label: "ders", href: "#evren", note: "Patik Okulu" },
+];
+
+const ROUTE = ["Dal", "Sergi", "Patik", "Çir", "Pasaport"];
+
 export default function Hero() {
   return (
-    <section className="hero" id="top" aria-labelledby="hero-baslik">
-      <div className="hero__text">
-        <p className="kicker">Baskil · Elazığ — 2026 hasadı, demo lotlar</p>
-        <h1 id="hero-baslik" className="hero__title">
-          Baskil'de kurudu.
-          <span className="hero__title-accent">Adıyla, lotuyla gelsin.</span>
-        </h1>
-        <p className="hero__sub">
-          Patik, Baskil bahçelerinden gün kurusu ve islimli kayısıyı aracısız kutular.
-          Her kutuda bahçenin, hasat haftasının ve kurutma geçmişinin yazılı olduğu bir{" "}
-          <strong>lot pasaportu</strong> bulursun. Gün mü islim mi, sana göre olanı 3 soruda bulalım.
-        </p>
-        <div className="hero__ctas">
-          <a href="#lotunu-kur" className="btn btn--primary btn--large">
-            Lotunu Kur <span aria-hidden="true">→</span>
-            <span className="btn__hint">30 saniye</span>
-          </a>
-          <a href="#karsilastir" className="btn btn--ghost btn--large">Gün mü islim mi? Farkı gör</a>
-        </div>
-        <ul className="hero__chips" aria-label="Öne çıkanlar">
-          <li>Her kutuda lot pasaportu</li>
-          <li>İslimli / gün kurusu ayrımı etikette açık</li>
-          <li>Çekirdek de ziyan olmaz</li>
-        </ul>
-        <p className="hero__etymology">
-          <strong>Patik ne demek?</strong> Baskil'de yarı kuru kayısının çekirdeğini tek tek elle çıkarma
-          mesaisine patik denir. Markanın adı, o el emeğinden gelir.
-        </p>
+    <section className="hero hero--ledger" id="top" aria-labelledby="hero-baslik">
+      <div className="hero__wordmark" aria-hidden="true">PATİK</div>
+      <div className="hero__ledger-lines" aria-hidden="true" />
+
+      <div className="hero__masthead" aria-label="Patik hasat defteri üst bilgisi">
+        <span>Elazığ · 23</span>
+        <strong>2026 Hasat Defteri</strong>
+        <span>Yarışma demosu baskısı</span>
       </div>
 
-      <figure className="hero__figure">
-        <img
-          src="/img/hero.jpg"
-          alt="Ahşap kasadan keten bez üzerine dökülen gün kurusu ve islimli kayısılar ile kayısı çekirdeği içleri"
-          width={1440}
-          height={960}
-          fetchPriority="high"
-        />
-        <figcaption className="hero__stamp" aria-hidden="true">
-          <span>2026 HASADI</span>
-          <span>BASKİL · ELAZIĞ</span>
-        </figcaption>
-        <figcaption className="hero__caption">
-          Aynı hasat, iki karakter: soldaki koyular gün kurusu, parlaklar islimli. <span className="img-note">Görsel: Yapay zekâ ile üretilmiş temsilî çekim</span>
-        </figcaption>
-      </figure>
+      <div className="hero__layout">
+        <div className="hero__text">
+          <p className="hero__issue">
+            <span>Baskil Kayısı Atölyesi</span>
+            <span aria-hidden="true">◆</span>
+            <span>Lot Pasaportlu</span>
+          </p>
+
+          <h1 id="hero-baslik" className="hero__title">
+            Kayısı kurur.
+            <span className="hero__title-accent">Kaydı kalır.</span>
+          </h1>
+
+          <p className="hero__sub">
+            Patik, Baskil kayısısını yalnızca kutuya koymaz; bahçesini, hasat haftasını,
+            kurutma yolunu ve patik gününü kutunun içine yazar. Aşağıda o kaydın tamamını
+            gezebilir, çalıştırabilir ve kendi lotunu kurabilirsin.
+          </p>
+
+          <div className="hero__ctas">
+            <a href="#lotunu-kur" className="btn btn--primary btn--large">
+              Lotunu Kur <span aria-hidden="true">→</span>
+              <span className="btn__hint">30 saniye</span>
+            </a>
+            <a href="#saha" className="btn btn--ghost btn--large">
+              Saha Defteri'ni Aç <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <ol className="hero__route" aria-label="Daldan pasaporta Patik yolu">
+            {ROUTE.map((step, index) => (
+              <li key={step}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{step}</strong>
+              </li>
+            ))}
+          </ol>
+
+          <p className="hero__etymology">
+            <strong>Patik:</strong> Yarı kuru kayısının çekirdeğini tek tek elle çıkarma
+            mesaisi. Markanın adı da kaydın özeni de o el emeğinden gelir.
+          </p>
+        </div>
+
+        <div className="hero__collage" aria-label="Patik görsel vitrini">
+          <figure className="hero__photo hero__photo--main">
+            <img
+              src="/img/sergi.jpg"
+              alt="Karakaya kıyısındaki teraslarda bezler üzerinde kuruyan kayısı sergileri"
+              width={1600}
+              height={1000}
+              fetchPriority="high"
+            />
+            <figcaption>
+              <strong>Sergi zamanı</strong>
+              <span>Teraslarda güneş mesaisi</span>
+            </figcaption>
+          </figure>
+
+          <figure className="hero__photo hero__photo--hands">
+            <img
+              src="/img/patik.jpg"
+              alt="Tepsideki yarı kuru kayısıların çekirdeklerini elle çıkaran üretici elleri"
+              width={1200}
+              height={800}
+              loading="eager"
+            />
+            <figcaption>Patik · tek tek elle</figcaption>
+          </figure>
+
+          <aside className="hero__ticket" aria-label="Örnek lot pasaportu bileti">
+            <div className="hero__ticket-head">
+              <span>LOT BİLETİ</span>
+              <strong>PT-26-047</strong>
+            </div>
+            <dl>
+              <div>
+                <dt>Bahçe</dt>
+                <dd>Gölyaka Parseli</dd>
+              </div>
+              <div>
+                <dt>Hasat</dt>
+                <dd>29. hafta</dd>
+              </div>
+              <div>
+                <dt>Yol</dt>
+                <dd>Gün kurusu · 5 gün</dd>
+              </div>
+            </dl>
+            <button type="button" onClick={() => goToLot("PT-26-047")}>
+              Pasaportu aç <span aria-hidden="true">→</span>
+            </button>
+            <small>Temsilî demo kaydı</small>
+          </aside>
+
+          <div className="hero__round-stamp" aria-hidden="true">
+            <span>Baskil</span>
+            <strong>23</strong>
+            <span>Elazığ</span>
+          </div>
+        </div>
+      </div>
+
+      <nav className="hero__ledger-strip" aria-label="Patik kayıt evrenine hızlı giriş">
+        {LEDGER_LINKS.map((item) => (
+          <a key={`${item.label}-${item.href}`} href={item.href}>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+            <small>{item.note} →</small>
+          </a>
+        ))}
+      </nav>
+
+      <p className="hero__visual-note">
+        Görseller yapay zekâ ile üretilmiş temsilî çekimlerdir; gerçek bahçe veya üretici fotoğrafı değildir.
+      </p>
     </section>
   );
 }
