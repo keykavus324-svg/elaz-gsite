@@ -1,0 +1,12 @@
+run = "npm run dev"
+entrypoint = "index.html"
+
+[nix]
+channel = "stable-24_05"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[deployment]
+run = ["npm", "run", "build"]
