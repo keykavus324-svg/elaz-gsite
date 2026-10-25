@@ -13,6 +13,7 @@ import Faq from "./components/Faq";
 import Footer from "./components/Footer";
 import CartDrawer from "./components/CartDrawer";
 import Reveal from "./components/Reveal";
+import Prova from "./components/Prova";
 import { useCart } from "./cart";
 
 const WORDS = [
@@ -61,7 +62,8 @@ function FloatingCta() {
     };
   }, []);
 
-  if (!past || builderVisible || cartOpen || toast) return null;
+  const provaMode = (() => { try { return new URLSearchParams(window.location.search).has("prova"); } catch { return false; } })();
+  if (!past || builderVisible || cartOpen || toast || provaMode) return null;
   return (
     <a href="#lotunu-kur" className="floating-cta">
       Lotunu Kur <span aria-hidden="true">→</span> <small>30 saniye</small>
@@ -101,6 +103,7 @@ export default function App() {
       </main>
       <Footer />
       <CartDrawer />
+      <Prova />
       <FloatingCta />
       <Toast />
     </>

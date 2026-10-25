@@ -8,7 +8,7 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 | Rol | İş |
 |---|---|
 | **Kaptan / Sunucu** | 90 sn metin (SUNUM.md), jüri sorularında ilk söz |
-| **Demo Sürücüsü** | Sunum sırasında siteyi kullanan kişi; provayı o yapar |
+| **Demo Sürücüsü** | Sunum sırasında siteyi kullanan kişi; provayı o yapar, siteyi `?prova=1` ile açar |
 | **Teknik** | Replit kopyası, ağ/yedek plan, radyo ses testi |
 | **İçerik & Masa** | Basılı lot pasaportu, son metin okuması, jüri soru yedekleri |
 
@@ -24,11 +24,11 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
   son göz; yazılı pasaport çıktısı al (Lot Sorgula → Yazdır) — jüri masasına bırakılacak.
 - **13.30–15.30 Geliştirme penceresi:** Yalnızca küçük, güvenli işler. Büyük özellik
   eklemek yok; her değişiklikten sonra `npm run build` + ana akış testi.
-- **15.30–16.30 Prova ×3:** Kronometreyle 90 saniye. Sürücü tıklama sırasını ezberler
+- **15.30–16.30 Prova ×3:** Prova Modu'nun yerleşik 90 saniye sayacıyla. Sürücü tıklama sırasını ezberler
   (SUNUM.md §B). Biri jüri rolüyle §C'deki 5 soruyu sorar.
 - **16.30–17.00 Dondur:** Kod değişikliği bitti. Son build, son bakış, pasaport
   baskıları hazır, telefon sessizde, su içildi.
-- **Sunum:** Derin nefes. Önce sorun cümlesi, sonra canlı akış. Radyoyu bonus
+- **Sunum:** Derin nefes. Prova konsolunu P ile küçült. Önce sorun cümlesi, sonra canlı akış. Radyoyu bonus
   bölümde aç; jüriden bir kişiyi Patik Ustası'nda oynatmak buzları eritir.
 
 ## Risk tablosu

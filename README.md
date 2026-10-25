@@ -42,13 +42,13 @@ site yedek yazı tipleriyle aynen çalışır; görseller yereldir (`public/img/
 
 ```
 index.html            Başlık, meta/OG etiketleri, yazı tipleri, favicon
-public/img/           Yapay zekâ ile üretilmiş temsilî görseller (8 adet)
+public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî görseller (11 adet)
 public/favicon.svg    El çizimi SVG kayısı amblemi
 src/data.ts           Ürün, lot, süreç verileri + öneri motoru (tüm demo içeriği burada)
 src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları
-src/components/       Header, Hero, Compare (gün/islim), Process (6 adım), Producer,
-                      LotBuilder (imza), Products, LotLookup, LotPassport, Faq,
-                      CartDrawer (demo sipariş), Footer
+src/components/       Header, Hero, Compare, Process, Producer, Mola (radyo/oyun),
+                      LotBuilder (imza), Products, Mutfak, LotLookup, LotPassport,
+                      Faq, CartDrawer, Footer, Prova (gizli sunum konsolu)
 src/styles.css        Tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
 KAYNAKLAR.md          Kaynakça, görsel ve lisans notları, temsilî içerik listesi
 DEMO-SENARYO.md       Etkinlik günü koşu planı: roller, saatler, riskler, jüri masası kiti
@@ -71,6 +71,9 @@ SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri s
 - Lot sorgulama: büyük/küçük harf ve boşluk toleranslı, hatalı kodda anlaşılır uyarı
 - Sepet: adet artır/azalt/kaldır, ücretsiz kargo barı (750 ₺), kalıcı sepet (localStorage)
 - Demo sipariş formu: Türkçe doğrulama ve hata mesajları → sipariş özeti + lot kodları
+- **Prova Modu (ekip içi):** adrese `?prova=1` eklenince 6 adımlı konuşmacı
+  konsolu, 90 saniye sayacı, klavye adımları (←/→) ve P ile küçültme açılır;
+  normal ziyaretçi adresinde görünmez
 
 ## Demo ve dürüstlük notları
 

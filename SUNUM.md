@@ -97,9 +97,14 @@ diye sunulmadı.
 - **Tasarım/Ux:** 360 px telefondan baştan sona akış testi, tıklanabilir alan kontrolü.
 - **Teknik:** Replit'te projeyi açıp `Run` doğrulama, yedek ekran görüntüleri.
 
+**Prova Modu:** Demo sürücüsü siteyi `?prova=1` ile açsın. Konsol altı adımı,
+konuşma notlarını ve 90 saniye sayacını gösterir; ←/→ ile ilerlenir. Sahnede
+ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçültün.
+
 ## E) Son 20 dakika kontrol listesi
 
 - [ ] Replit'te Run → sayfa açılıyor, konsolda kırmızı hata yok
+- [ ] Prova Modu (`?prova=1`) açılıyor; sayaç, ←/→ adımları ve P ile küçültme çalışıyor
 - [ ] Lotunu Kur → 3 soru → sonuç → sepete ekle → çekmece açılıyor
 - [ ] Formu boş gönder → hata mesajları görünüyor; doldur → demo özeti geliyor
 - [ ] Lot sorgula: PT-26-047 açılıyor; hatalı kod uyarı veriyor
