@@ -838,6 +838,59 @@ body { overflow-x: clip; }
 .floating-cta:hover { color: #fff; }
 @media (min-width: 860px) { .floating-cta { display: none; } }
 
+/* ---- Mevsim & Mutfak ---- */
+.mutfak__grid { display: grid; gap: 22px; }
+
+.season-card, .hosaf-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.season-chips {
+  display: flex; gap: 8px; padding: 16px 16px 6px; overflow-x: auto; scrollbar-width: thin;
+}
+.season-chip {
+  flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
+  background: var(--cream); border: 1.5px solid var(--line); border-radius: 13px; padding: 9px 14px;
+  cursor: pointer; font-family: var(--sans); color: var(--ink); text-align: left;
+}
+.season-chip.is-active { background: var(--ink); color: #fdf3df; border-color: var(--ink); }
+.season-chip__chip { font-size: .68rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; color: var(--sun-dark); }
+.season-chip.is-active .season-chip__chip { color: var(--amber); }
+.season-chip__name { font-weight: 800; font-size: .93rem; white-space: nowrap; }
+
+.season-panel { margin: 10px 16px 18px; animation: fadeUp .35s ease; }
+.season-panel img { width: 100%; aspect-ratio: 16 / 8.8; object-fit: cover; border-radius: 16px; }
+.season-panel figcaption { margin-top: 13px; display: grid; gap: 5px; }
+.season-panel figcaption strong { font-family: var(--serif); font-size: 1.25rem; }
+.season-panel figcaption span { color: #4c3620; max-width: 60ch; }
+
+.hosaf-card__img { width: 100%; aspect-ratio: 16 / 8.5; object-fit: cover; object-position: 50% 60%; }
+.hosaf-card__body { padding: 20px; display: grid; gap: 13px; }
+.hosaf-card__sub { color: #4c3620; }
+.hosaf-card__slider-label { font-weight: 700; display: flex; justify-content: space-between; align-items: baseline; }
+.hosaf-card__slider { width: 100%; accent-color: var(--sun-dark); height: 34px; cursor: pointer; }
+.hosaf-card__results { margin: 2px 0; display: grid; }
+.hosaf-card__results div {
+  display: flex; justify-content: space-between; gap: 14px; align-items: baseline;
+  padding: 9px 0; border-bottom: 1px dashed var(--line);
+}
+.hosaf-card__results dt { font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--sun-dark); }
+.hosaf-card__results dd { margin: 0; text-align: right; }
+.hosaf-card__results dd span { color: var(--pit-soft); font-size: .86rem; font-weight: 600; margin-left: 5px; }
+.hosaf-card__cta {
+  background: var(--sand); border-radius: 15px; padding: 14px 16px; display: grid; gap: 11px; justify-items: start;
+}
+.hosaf-card__tip { font-size: .86rem; color: var(--pit-soft); }
+
+@media (min-width: 960px) {
+  .mutfak__grid { grid-template-columns: 1.12fr .88fr; align-items: start; }
+}
+
+/* Lot sorgulama aksiyonları */
+.lot-actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.lot-actions__btn { color: #ffdfae; border-color: #ffdfae; }
+.lot-actions__btn:hover { background: rgba(255,223,174,.12); color: #fff; }
+.lot-actions__note { flex-basis: 100%; font-size: .85rem; color: #d9c49a; }
+
 /* ------------------------------ Hareket azaltma ------------------------------ */
 
 @media (prefers-reduced-motion: reduce) {

@@ -301,3 +301,126 @@ export function formatTL(v: number): string {
 
 export const FREE_SHIPPING_LIMIT = 750;
 export const SHIPPING_FEE = 69;
+
+/* --------------------- Mevsim takvimi --------------------- */
+
+export interface Season {
+  id: string;
+  name: string;
+  chip: string;
+  text: string;
+  img: string;
+  alt: string;
+}
+
+export const SEASONS: Season[] = [
+  {
+    id: "ilkbahar",
+    name: "Çiçek & Bekleyiş",
+    chip: "İlkbahar",
+    text: "Bahçe çiçek açar; o yılın kayısısının kaderi birkaç haftaya sığar. Geç don ya da çiçekte yağan yağmur rekolteyi sessizce belirler. Baskil'de herkes önce göğe, sonra dallara bakar.",
+    img: "/img/cicek.jpg",
+    alt: "Dalında beyaz-pembe kayısı çiçekleri, arkada flu tepeler",
+  },
+  {
+    id: "hasat",
+    name: "Hasat",
+    chip: "Temmuz başı",
+    text: "Yazla birlikte bahçeler hareketlenir; asıl hasat temmuzda başlar, ağustos ortasına uzanır. Olgun meyve bekletilmez: dalından kasaya, kasadan kurutma alanına. Doğru hasat günü, kutudaki tadın ilk kararıdır.",
+    img: "/img/dal.jpg",
+    alt: "Dalında olgunlaşmış altın sarısı kayısılar",
+  },
+  {
+    id: "sergi",
+    name: "Sergi · Patik · Çir",
+    chip: "Temmuz – Ağustos",
+    text: "Yazın kalbi sergide atar: kayısı islim ya da gün yolunu seçer, güneşte kıvam alır, çekirdeği patikte tek tek çıkarılır ve son güneşte çir olur. Patik'in lot kayıtları tam da bu haftalarda yazılır.",
+    img: "/img/sergi.jpg",
+    alt: "Göl kıyısı yamaçta bezler üzerinde kuruyan kayısı sergileri",
+  },
+  {
+    id: "eleme",
+    name: "Eleme & Kutu",
+    chip: "Sonbahar",
+    text: "Hava serinleyince kuru kayısı boylanır, bahçe bahçe lotlanır ve kutulanır. Her kutunun içine lot pasaportu girer; yazın güneşi artık kâğıda dökülmüş, kodu kapağa basılmıştır.",
+    img: "/img/hediye.jpg",
+    alt: "Üç bölmeli kraft kutuda lotlarına ayrılmış kayısılar",
+  },
+  {
+    id: "sofra",
+    name: "Sofra Zamanı",
+    chip: "Kış",
+    text: "Kışın kuru kayısı hoşaf olur, çayın yanına çıkar, hediye kutusunda başka bir sofraya misafir gider. Kutudaki kodu sorgulayan herkes, temmuzun bahçesine tek tıkla geri döner.",
+    img: "/img/hosaf.jpg",
+    alt: "Cam kasede altın rengi kayısı hoşafı ve yanında kuru kayısılar",
+  },
+];
+
+/* --------------------- Hoşaf hesapçısı --------------------- */
+/* Patik mutfağının kendi önerisidir; dış kaynaklı tarif iddiası değildir. */
+
+export interface HosafResult {
+  persons: number;
+  grams: number;
+  pieces: number;
+  waterMl: number;
+  sugarTsp: number;
+  packs500: number;
+}
+
+export function hosafFor(personsRaw: number, kind: "islimli" | "gun"): HosafResult {
+  const persons = Math.min(12, Math.max(1, Math.round(personsRaw) || 1));
+  const perGram = kind === "islimli" ? 45 : 40; // gün kurusu daha yoğun, azı yeter
+  const grams = persons * perGram;
+  return {
+    persons,
+    grams,
+    pieces: persons * 6,
+    waterMl: persons * 300,
+    sugarTsp: persons,
+    packs500: Math.ceil(grams / 500),
+  };
+}
+
+/* ----------------- Yazdırılabilir lot pasaportu ----------------- */
+
+export function buildPassportPrintHtml(lot: Lot): string {
+  const rows: Array<[string, string]> = [
+    ["Ürün", lot.productName],
+    ["Kurutma biçimi", lot.method],
+    ["Bahçe / parsel", lot.bahce],
+    ["Konum", lot.koy + " · Elazığ"],
+    ["Hasat", lot.hasat],
+    ["Kurutma", lot.kurutma],
+    ["Patik", lot.patik],
+    ["Eleme", lot.eleme],
+    ["Üretici", lot.uretici],
+    ["Saklama", lot.saklama],
+  ];
+  const trs = rows
+    .map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`)
+    .join("");
+  return `<!doctype html><html lang="tr"><head><meta charset="utf-8">
+<title>Lot Pasaportu ${lot.code} — Patik</title>
+<style>
+  body{font-family:Georgia,'Times New Roman',serif;color:#2e1c0e;margin:0;padding:36px;background:#fbf3e4}
+  .card{max-width:640px;margin:0 auto;background:#fffdf6;border:2.5px solid #5a3a22;border-radius:16px;overflow:hidden}
+  .head{background:#f2a93b;padding:18px 24px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:2.5px dashed #5a3a22}
+  .brand{font-size:26px;font-weight:800;letter-spacing:.12em}
+  .brand small{display:block;font-size:11px;letter-spacing:.18em;font-weight:700}
+  .code{font-size:22px;font-weight:800;letter-spacing:.1em;background:#fff9ee;padding:6px 14px;border-radius:10px;border:1.5px solid #5a3a22}
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:10px 24px;text-align:left;font-size:15px;border-bottom:1px dotted #b99b6e}
+  th{width:170px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7a5a3d;vertical-align:top;padding-top:13px}
+  .foot{padding:16px 24px;font-size:12.5px;color:#7a5a3d;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .stamp{border:1.5px dashed #b5501b;color:#b5501b;border-radius:999px;padding:2px 10px;font-weight:700}
+  @media print{body{background:#fff;padding:0}}
+</style></head><body>
+<div class="card">
+  <div class="head"><div class="brand">PATİK<small>BASKİL KAYISI ATÖLYESİ · LOT PASAPORTU</small></div><div class="code">${lot.code}</div></div>
+  <table>${trs}</table>
+  <div class="foot"><span>Bu pasaport, kutudaki lot koduyla siteden de sorgulanabilir.</span><span class="stamp">Temsilî demo kaydı · GakCoding</span></div>
+</div>
+</body></html>`;
+}
+

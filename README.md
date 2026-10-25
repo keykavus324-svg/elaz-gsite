@@ -51,6 +51,7 @@ src/components/       Header, Hero, Compare (gün/islim), Process (6 adım), Pro
                       CartDrawer (demo sipariş), Footer
 src/styles.css        Tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
 KAYNAKLAR.md          Kaynakça, görsel ve lisans notları, temsilî içerik listesi
+DEMO-SENARYO.md       Etkinlik günü koşu planı: roller, saatler, riskler, jüri masası kiti
 SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri soruları
 ```
 
@@ -64,6 +65,8 @@ SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri s
   yedek yolu gösterilir, sitenin geri kalanı internetsiz çalışmayı sürdürür
 - Mobilde kaydırdıkça beliren "Lotunu Kur" yüzer eylem düğmesi
 - Lotunu Kur: 3 soru → gerekçeli ürün/gramaj önerisi → çekirdek ekleme → sepete
+- Mevsim & Mutfak: 5 mevsimlik hasat takvimi + Hoşaf Hesapçısı (kişi sayısı → gram/su/paket hesabı ve sepete bağlar)
+- Lot pasaportunu paylaşma: `?lot=PT-26-047` derin bağlantısı, panoya kopyalama ve yazdırılabilir/PDF pasaport
 - Ürün kartlarında gramaj seçimi, lot kodu ile pasaporta atlama
 - Lot sorgulama: büyük/küçük harf ve boşluk toleranslı, hatalı kodda anlaşılır uyarı
 - Sepet: adet artır/azalt/kaldır, ücretsiz kargo barı (750 ₺), kalıcı sepet (localStorage)

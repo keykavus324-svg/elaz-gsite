@@ -1,0 +1,57 @@
+# DEMO SENARYOSU — Etkinlik Günü Koşu Planı (1 Kasım 2026)
+
+Patik takımı için günün akışı. Amaç: sunum anına sıfır sürprizle çıkmak.
+Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa).
+
+## Roller (4 kişi)
+
+| Rol | İş |
+|---|---|
+| **Kaptan / Sunucu** | 90 sn metin (SUNUM.md), jüri sorularında ilk söz |
+| **Demo Sürücüsü** | Sunum sırasında siteyi kullanan kişi; provayı o yapar |
+| **Teknik** | Replit kopyası, ağ/yedek plan, radyo ses testi |
+| **İçerik & Masa** | Basılı lot pasaportu, son metin okuması, jüri soru yedekleri |
+
+## Saat saat
+
+- **11.00–11.30 Kurulum:** Masaya yerleş, priz/üçlü, su. Projeyi Replit'e aktar:
+  *Import from GitHub* → `arena/a9c83a62-elaz-gsite` dalı → Run. Açılışı telefon
+  ve dizüstünden doğrula. (Yedek: USB'de repo zip'i + telefonda akış videosu çekili.)
+- **11.30–12.30 Canlı test:** SUNUM.md §E listesini koş. Radyoyu salonda dene:
+  TRT Türkü açılıyor mu, ses hoparlöre gidiyor mu? Açılmıyorsa sunumda radyo
+  bölümünü "çevrimiçi katman" diye anlat, ekran görüntüsü göster — panik yok.
+- **12.30–13.30 İçerik rötuşu:** Takım adını, kaptan adını footer'a işle; fiyatlara
+  son göz; yazılı pasaport çıktısı al (Lot Sorgula → Yazdır) — jüri masasına bırakılacak.
+- **13.30–15.30 Geliştirme penceresi:** Yalnızca küçük, güvenli işler. Büyük özellik
+  eklemek yok; her değişiklikten sonra `npm run build` + ana akış testi.
+- **15.30–16.30 Prova ×3:** Kronometreyle 90 saniye. Sürücü tıklama sırasını ezberler
+  (SUNUM.md §B). Biri jüri rolüyle §C'deki 5 soruyu sorar.
+- **16.30–17.00 Dondur:** Kod değişikliği bitti. Son build, son bakış, pasaport
+  baskıları hazır, telefon sessizde, su içildi.
+- **Sunum:** Derin nefes. Önce sorun cümlesi, sonra canlı akış. Radyoyu bonus
+  bölümde aç; jüriden bir kişiyi Patik Ustası'nda oynatmak buzları eritir.
+
+## Risk tablosu
+
+| Risk | Önlem |
+|---|---|
+| Salon interneti yok/zayıf | Site yerelden çalışır; radyo hariç her şey çevrimdışı. Telefon hotspot hazır |
+| Replit yavaş açılıyor | Yedek: telefonda önceden çekilmiş 60 sn akış videosu + ekran görüntüleri |
+| Projeksiyon renkleri bozuk | Koyu metin/açık krem zaten kontrastı yüksek; parlaklığı kontrol et |
+| Radyo HTTPS'te açılmaz | TRT Türkü birincil; FM 23 takılırsa çalar açıklar, resmî siteye geç |
+| Sepet eski veriyle dolu | Sunum öncesi gizli sekme kullan (temiz localStorage) |
+| Jüri "gerçek mi?" derse | Gülümse: "Açıkça etiketledik" → §C/2 cevabı + KAYNAKLAR.md göster |
+
+## Jüri masası kiti
+
+1. Basılı lot pasaportu (PT-26-047) — elden ele geçsin
+2. Açık site (dizüstü + telefon yedeği)
+3. Tek sayfa not: slogan, üç cümlelik fikir, iletişim/takım adı
+4. (Varsa) gerçek bir avuç kuru kayısı — tadımlık küçük kase. *Not: fiziksel
+   ürün getirirseniz "bunlar temsilî ürün değil, Baskil esnafından demo
+   tadımlığı" diye ayırın; markanın kendi ürünüymüş gibi sunmayın.*
+
+## Sahnede son cümle
+
+> "Patik: bahçeden kutuna, lotuyla. Teşekkürler — şimdi isterseniz kendi
+> lotunuzu 30 saniyede kuralım."

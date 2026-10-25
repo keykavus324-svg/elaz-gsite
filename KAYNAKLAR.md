@@ -83,11 +83,9 @@ temsilî görsel" notu düşülür.
 | `public/img/cekirdek.jpg` | Ürün | Kayısı çekirdeği içi |
 | `public/img/hediye.jpg` | Ürün + süreç adımı 06 | Etiketsiz/yazısız kraft kutu (bilinçli tercih) |
 
-**Bilinen görsel notu:** `sergi.jpg`'nin ortasında, üretim artefaktı olarak stok filigranına
-benzeyen çok soluk bir iz bulunmaktadır. Görsel sitede alt banda kırpılarak
-(`object-position: 50% 88%`) kullanılır ve iz büyük ölçüde kadraj dışında kalır.
-Yarışma günü süre elverirse bu tek görselin yeniden üretilmesi önerilir; site bu hâliyle
-de çalışır durumda teslim edilmiştir.
+Ek görseller: `public/img/mola.jpg` (radyo + çay + kayısı köşesi, Çay Molası), `public/img/cicek.jpg` (kayısı çiçeği, mevsim takvimi), `public/img/hosaf.jpg` (kayısı hoşafı, mutfak bölümü). Hepsi yapay zekâ üretimi temsilî çekimlerdir.
+`sergi.jpg`, ilk sürümündeki soluk filigran-benzeri üretim izi giderilerek ikinci sürümde yeniden üretilmiştir; uzakta küçük çalışan figürleri görünür, temsilî olduğu alt yazıda belirtilir ve görsel alt banda kırpılarak kullanılır.
+Hoşaf Hesapçısı ölçüleri Patik mutfağının kendi önerisidir; dış kaynaklı tarif iddiası değildir. Mevsim takvimindeki hasat/sergi ayları §2'deki haber kaynaklarına, çiçek-don riski vurgusu aynı haberlerdeki rekolte anlatımlarına dayanır; 'eleme & kutu' ve 'sofra' adımları markanın kendi akışıdır.
 
 **Marka amblemi** (`public/favicon.svg` ve başlık içi SVG) proje için kod ile çizilmiş
 özgün vektördür; ikon kütüphanesi kullanılmamıştır.

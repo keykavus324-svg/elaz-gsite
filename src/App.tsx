@@ -5,6 +5,7 @@ import Compare from "./components/Compare";
 import Process from "./components/Process";
 import Producer from "./components/Producer";
 import Mola from "./components/Mola";
+import Mutfak from "./components/Mutfak";
 import LotBuilder from "./components/LotBuilder";
 import Products from "./components/Products";
 import LotLookup from "./components/LotLookup";
@@ -94,6 +95,7 @@ export default function App() {
         <Reveal><Mola /></Reveal>
         <Reveal><LotBuilder /></Reveal>
         <Reveal><Products /></Reveal>
+        <Reveal><Mutfak /></Reveal>
         <Reveal><LotLookup /></Reveal>
         <Reveal><Faq /></Reveal>
       </main>

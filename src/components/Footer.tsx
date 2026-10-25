@@ -27,6 +27,7 @@ export default function Footer() {
           <a href="#mola">Çay Molası: Radyo & Oyun</a>
           <a href="#lotunu-kur">Lotunu Kur</a>
           <a href="#urunler">Ürünler</a>
+          <a href="#mutfak">Mevsim & Mutfak · Hoşaf Hesapçısı</a>
           <a href="#lot-sorgula">Lot Sorgula</a>
           <a href="#sss">Sık Sorulanlar</a>
         </nav>
