@@ -41,7 +41,8 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 | Radyo HTTPS'te açılmaz | TRT Türkü birincil; FM 23 takılırsa çalar açıklar, resmî siteye geç |
 | Sepet eski veriyle dolu | Sunum öncesi gizli sekme kullan (temiz localStorage) |
 | Jüri "gerçek mi?" derse | Gülümse: "Açıkça etiketledik" → §C/2 cevabı + KAYNAKLAR.md göster |
-| Atlas sayıları gerçek sanılırsa | 811 kaydın tamamının temsilî arayüz ölçeği olduğunu ilk cümlede söyle; kanonik akışın 3 lotla çalıştığını göster |
+| Atlas/Evren sayıları gerçek sanılırsa | 811 Atlas + 989 Evren kaydının temsilî arayüz ölçeği olduğunu ilk cümlede söyle; kanonik akışın 3 lotla çalıştığını göster |
+| Sayfa uzunluğu jüriyi yorarsa | Ana akışı Lotunu Kur → Sepet → Pasaport sırasıyla bitir; Atlas ve Evreni yalnızca bonus ölçek kanıtı olarak aç |
 
 ## Jüri masası kiti
 

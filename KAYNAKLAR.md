@@ -136,13 +136,23 @@ hasat, stok, satış veya verim kaydı değildir. Ana alışveriş akışındaki
 (`PT-26-047`, `PT-26-112`, `PT-26-089`) Atlas defterinden ayrı tutulur. Veri tekrar
 üretimi: `npm run content:generate`; bütünlük denetimi: `npm run verify:atlas`.
 
+## 5c) Patik Evreni verisinin kökeni
+
+Evren'deki 989 kayıt `scripts/generate-universe-content.mjs` ile deterministik üretilir:
+365 günlük temsilî sezon günlüğü, 48 parsel blok profili, 192 kalite kontrolü, 144 kutu
+hattı koşusu, 120 hediye senaryosu ve 120 öğrenme dersi. Günlükteki hava ifadeleri tahmin
+veya gerçekleşmiş hava kaydı değildir; parsel özellikleri, kalite yüzdeleri ve kutu sayıları
+gerçek arazi/üretim verisi değildir. Hediye senaryoları yalnızca var olan dört demo ürüne
+bağlanır; öğrenme dersleri sitenin kendi kontrol edilebilir anlatımını tekrar eder. Yeniden
+üretim: `npm run content:generate:universe`; denetim: `npm run verify:universe`.
+
 ## 6) Temsilî (kurgusal) içerik listesi
 
 Aşağıdakiler demo amacıyla **uydurulmuş** ve sitede öyle etiketlenmiştir:
 
 - "Patik — Baskil Kayısı Atölyesi" markası ve sloganı (gerçek işletme değildir)
 - Üretici profili: "Fatma & Ali D., Çavuşlu Köyü" ve sözü (gerçek kişi değildir)
-- Parsel adları (Gölyaka/Kıyıdüzü), lot kodları, lot kayıt içerikleri ve Atlas'taki 811 genişletilmiş demo kaydı
+- Parsel adları (Gölyaka/Kıyıdüzü), lot kodları, lot kayıt içerikleri, Atlas'taki 811 ve Evren'deki 989 genişletilmiş demo kaydı
 - Tüm fiyatlar, kargo baremi ve sipariş numarası üretimi
 - 2026 hasadına ait haftalar (tarih kurgusu, mevsim takvimi gerçeğe uygundur)
 

@@ -11,7 +11,10 @@
     "typecheck": "tsc --noEmit",
     "content:generate": "node scripts/generate-atlas-content.mjs",
     "verify:atlas": "node scripts/verify-atlas.mjs",
-    "verify": "npm run typecheck && npm run verify:atlas && npm run build"
+    "verify": "npm run typecheck && npm run verify:atlas && npm run verify:universe && npm run build",
+    "content:generate:universe": "node scripts/generate-universe-content.mjs",
+    "content:generate:all": "npm run content:generate && npm run content:generate:universe",
+    "verify:universe": "node scripts/verify-universe.mjs"
   },
   "dependencies": {
     "hls.js": "^1.7.3",

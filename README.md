@@ -26,9 +26,10 @@ npm run dev        # http://localhost:5000
 npm run build      # dist/ altında üretim çıktısı
 npm run preview    # üretim çıktısını önizle
 npm run typecheck  # TypeScript tip kontrolü
-npm run content:generate # Atlas veri dosyalarını kaynaktan yeniden üret
-npm run verify:atlas     # 811 kayıt + 20.000 satır hedefini doğrula
-npm run verify           # typecheck + Atlas denetimi + üretim derlemesi
+npm run content:generate:all # Atlas + Evren veri dosyalarını kaynaktan yeniden üret
+npm run verify:atlas         # 811 Atlas kaydı + 40.000 satır hedefini doğrula
+npm run verify:universe      # 989 Evren kaydı, 365 gün ve panel bağlantılarını doğrula
+npm run verify               # typecheck + Atlas + Evren denetimi + üretim derlemesi
 ```
 
 ### Replit'te
@@ -49,12 +50,16 @@ public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî g�
 public/favicon.svg    El çizimi SVG kayısı amblemi
 src/data.ts           Ürün, lot, süreç verileri + öneri motoru (tüm demo içeriği burada)
 src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları
-src/components/       Header, Hero, Compare, Process, Producer, Mola (radyo/oyun), Atlas,
+src/components/       Header, Hero, Compare, Process, Producer, Mola (radyo/oyun), Atlas, Universe,
+                      universe/ altında Operasyon, 365 Gün, Kalite, Kutu Hattı, Hediye ve Okul panelleri
                       LotBuilder (imza), Products, Mutfak, LotLookup, LotPassport,
                       Faq, CartDrawer, Footer, Prova (gizli sunum konsolu)
-src/content/          Atlas veri katmanı: 204 lot + 52 hafta + 155 kavram + 96 tarif +
+src/content/          Atlas çekirdeği: 204 lot + 52 hafta + 155 kavram + 96 tarif +
                       160 bilgi kartı + 144 soru = 811 temsilî kayıt
+                      Evren katmanı: 365 gün + 48 parsel + 192 kalite + 144 kutu +
+                      120 hediye + 120 ders = 989 temsilî kayıt
 src/atlas.css         Atlas için ayrı yüklenen sakin kâğıt tonlu arayüz stilleri
+src/universe.css      Evren panellerinin ayrı yüklenen panoları, takvimleri ve simülasyon stilleri
 src/styles.css        Tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
 scripts/              Atlas veri üreticisi, kaynak listeleri ve bütünlük doğrulaması
 KAYNAKLAR.md          Kaynakça, görsel ve lisans notları, temsilî içerik listesi
@@ -73,6 +78,9 @@ SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri s
 - Mobilde kaydırdıkça beliren "Lotunu Kur" yüzer eylem düğmesi
 - Lotunu Kur: 3 soru → gerekçeli ürün/gramaj önerisi → çekirdek ekleme → sepete
 - Mevsim & Mutfak: 5 mevsimlik hasat takvimi + Hoşaf Hesapçısı (kişi sayısı → gram/su/paket hesabı ve sepete bağlar)
+- **Patik Evreni:** Atlas verisini işleten ikinci katman. Operasyon panosu ve teras haritası,
+  365 günlük sezon planı, 192 kalite kontrolü, çalıştırılabilir kutu hattı simülasyonu,
+  sepete bağlı 120 hediye senaryosu ve ilerlemesi tarayıcıda saklanan 120 derslik Patik Okulu
 - **Patik Atlası:** 811 temsilî kayıt üzerinde çalışan aranabilir lot defteri, 52 haftalık
   sezon planı, 155 kavramlık sözlük, 96 tarif kartı, senaryolu bilgi kartları ve 144 soruluk
   çalışma bankası; ana paketi ağırlaştırmadan ayrı chunk olarak yüklenir
@@ -91,7 +99,8 @@ SUNUM.md              90 saniyelik jüri metni, 5 adımlık canlı demo, jüri s
   Form verileri hiçbir yere gönderilmez.
 - Üretici profili ("Fatma & Ali D."), fiyatlar, parsel bilgileri ve lot kayıtları
   **temsilîdir** ve sitede açıkça böyle etiketlenir. Atlas'taki 204 lotluk geniş defter
-  ve operasyon miktarları da gerçek kayıt değildir; kanonik alışveriş akışı 3 demo lotla çalışır.
+  ve operasyon miktarları da gerçek kayıt değildir. Evren'deki 989 parsel/günlük/kalite/kutu/
+  hediye/ders kaydı da aynı temsilî çerçevededir; kanonik alışveriş akışı 3 demo lotla çalışır.
 - Sağlık/beslenme iddiası, sahte ödül/sertifika/müşteri yorumu kullanılmamıştır.
   Baskil kayısının coğrafi işaret durumu sitede dürüstçe anlatılır (bkz. SSS).
 - Görseller yapay zekâ ile üretilmiştir; gerçek üretici veya tesis fotoğrafı olarak

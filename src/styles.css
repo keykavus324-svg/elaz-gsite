@@ -944,6 +944,7 @@ body { overflow-x: clip; }
 
 /* Atlas ayrı paketten gelirken sayfa sıçramasını azalt */
 .atlas--loading { min-height: 520px; }
+.universe--loading { min-height: 560px; }
 
 /* ---- v6 sakin cila: düzeni ve marka dilini değiştirmeden yumuşatma ---- */
 ::selection { background: var(--amber); color: var(--ink); }

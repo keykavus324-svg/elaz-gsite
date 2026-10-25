@@ -3,7 +3,7 @@
  * Patik Atlası doğrulama betiği.
  *
  * Amaç yalnızca dosya boyutuna bakmak değildir:
- * - src/ toplamının 20.000 satırı aştığını,
+ * - src/ toplamının güncel 40.000 satır hedefini aştığını,
  * - üretilen her veri kümesinin beklenen kayıt sayısını,
  * - Atlas bağlantılarının ve temsilî içerik uyarılarının yerinde olduğunu
  * tek komutla kontrol eder.
@@ -108,8 +108,8 @@ async function verifyLineBudget() {
   }
 
   console.log(`src/ toplamı: ${new Intl.NumberFormat("tr-TR").format(sourceLines)} satır`);
-  if (sourceLines >= 20_000) pass("20.000 satır hedefi aşıldı");
-  else fail(`20.000 satır hedefinin altında: ${sourceLines}`);
+  if (sourceLines >= 40_000) pass("40.000 satır hedefi aşıldı");
+  else fail(`40.000 satır hedefinin altında: ${sourceLines}`);
 }
 
 async function verifyContentSets() {

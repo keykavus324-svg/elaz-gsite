@@ -47,7 +47,7 @@
    "Patik gerçek işletme mi?" ile "tescil" cevaplarını göster. Kapatırken sloganı söyle:
    **"Bahçeden kutuna, lotuyla."**
 
-**Zaman kalırsa (bonus 30 sn):** Patik Atlası'nda tek filtreyle 204 temsilî lot satırını saniyeler içinde daraltıp "üç lotla anlattığımız fikir ölçeklenince böyle aranır" deyin; sayıların gerçek kayıt olmadığını özellikle söyleyin. Sonra Çay Molası'nda TRT Türkü'yü açın (Harput eseri denk
+**Zaman kalırsa (bonus 45 sn):** Patik Atlası'nda tek filtreyle 204 temsilî lot satırını daraltın; ardından Evren'de kutu hattı simülasyonunu bir adım çalıştırıp "üç lotla anlattığımız fikir operasyona dönünce böyle izlenir" deyin. Sayıların gerçek kayıt olmadığını özellikle söyleyin. Sonra Çay Molası'nda TRT Türkü'yü açın (Harput eseri denk
 gelirse altın vuruş), *Patik Ustası*'nda jüriden birini 30 saniye oynatın — "gerçek
 patik böyle hızlı olmaz ama refleksinizi gördük" esprisiyle kapatın. FM 23 akışı
 HTTPS'te tarayıcı politikasına takılırsa şaşırmayın; çalar bunu açıklayıp resmî
@@ -108,6 +108,7 @@ ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçül
 - [ ] Lotunu Kur → 3 soru → sonuç → sepete ekle → çekmece açılıyor
 - [ ] Formu boş gönder → hata mesajları görünüyor; doldur → demo özeti geliyor
 - [ ] Lot sorgula: PT-26-047 açılıyor; hatalı kod uyarı veriyor
-- [ ] Atlas açılıyor; bir lot filtresi, bir sözlük araması ve bir soru çalışıyor (`npm run verify:atlas` temiz)
+- [ ] Atlas açılıyor; bir lot filtresi, bir sözlük araması ve bir soru çalışıyor
+- [ ] Evren açılıyor; bir parsel seçimi, günlük kontrol listesi, kutu simülasyonu, hediye sepete ekleme ve bir ders tamamlama çalışıyor (`npm run verify` temiz)
 - [ ] Telefonda (ya da dar pencerede) yatay taşma yok, menü çalışıyor
 - [ ] Tüm görseller yükleniyor (özellikle sergi bandı)

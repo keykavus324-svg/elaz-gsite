@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Compare from "./components/Compare";
@@ -17,6 +17,7 @@ import Prova from "./components/Prova";
 import { useCart } from "./cart";
 
 const Atlas = lazy(() => import("./components/Atlas"));
+const Universe = lazy(() => import("./components/Universe"));
 
 const WORDS = [
   "PATİK", "tek tek elle", "GÜN KURUSU", "islimsiz güneş", "İSLİM DAMI", "canlı renk",
@@ -83,6 +84,66 @@ function AtlasFallback() {
   );
 }
 
+function UniverseFallback() {
+  return (
+    <section className="section universe universe--loading" id="evren" aria-labelledby="evren-yukleme-baslik">
+      <p className="kicker">Patik Evreni</p>
+      <h2 id="evren-yukleme-baslik">Çalışma sahası hazırlanıyor</h2>
+      <p className="section__lede">Operasyon panosu, 365 günlük plan ve okul modülleri ayrı paketlerle geliyor.</p>
+    </section>
+  );
+}
+
+/** Evren yalnızca ziyaretçi bölüme yaklaşınca ya da düğmeye basınca yüklenir. */
+function DeferredUniverse() {
+  const shellRef = useRef<HTMLElement | null>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    if (shouldLoad) return;
+    const target = shellRef.current;
+    if (!target || typeof IntersectionObserver === "undefined") {
+      setShouldLoad(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "900px 0px" }
+    );
+    io.observe(target);
+    return () => io.disconnect();
+  }, [shouldLoad]);
+
+  if (shouldLoad) {
+    return (
+      <Suspense fallback={<UniverseFallback />}>
+        <Universe />
+      </Suspense>
+    );
+  }
+
+  return (
+    <section ref={shellRef} className="section universe universe--loading" id="evren" aria-labelledby="evren-acilis-baslik">
+      <p className="kicker">Patik Evreni</p>
+      <h2 id="evren-acilis-baslik">Kayıt odasından çalışma sahasına in.</h2>
+      <p className="section__lede">
+        989 yeni temsilî kayıt; operasyon panosu, 365 günlük plan, kalite masası,
+        kutu hattı simülasyonu, hediye stüdyosu ve Patik Okulu ile çalışır.
+      </p>
+      <p>
+        <button type="button" className="btn btn--primary btn--large" onClick={() => setShouldLoad(true)}>
+          Patik Evreni'ni Aç →
+        </button>
+      </p>
+    </section>
+  );
+}
+
 function Toast() {
   const { toast, setCartOpen, cartOpen } = useCart();
   if (!toast || cartOpen) return null;
@@ -111,6 +172,7 @@ export default function App() {
         <Reveal><Products /></Reveal>
         <Reveal><Mutfak /></Reveal>
         <Suspense fallback={<AtlasFallback />}><Atlas /></Suspense>
+        <DeferredUniverse />
         <Reveal><LotLookup /></Reveal>
         <Reveal><Faq /></Reveal>
       </main>

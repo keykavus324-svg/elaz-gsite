@@ -29,6 +29,7 @@ export default function Footer() {
           <a href="#urunler">Ürünler</a>
           <a href="#mutfak">Mevsim & Mutfak · Hoşaf Hesapçısı</a>
           <a href="#atlas">Patik Atlası: Lot Defteri ve Sözlük</a>
+          <a href="#evren">Patik Evreni: Operasyon, Günlük ve Okul</a>
           <a href="#lot-sorgula">Lot Sorgula</a>
           <a href="#sss">Sık Sorulanlar</a>
         </nav>
