@@ -29,7 +29,7 @@ type Cut = {
 };
 
 /** İki kesme arasındaki en kısa süre (ms) — hızlı kaydırmada üst üste binmesin. */
-const MIN_GAP = 1600;
+const MIN_GAP = 2400;
 
 export default function Cuts() {
   const [cut, setCut] = useState<Cut | null>(null);
