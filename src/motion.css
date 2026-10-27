@@ -1,0 +1,270 @@
+/* ==================================================================
+   HAREKET KATMANI
+   ------------------------------------------------------------------
+   Kaydırma motorunun (src/scrollEngine.ts) beslediği ortak efektler:
+     1) Paralaks: [data-parallax] taşıyan öğeler görünür alanda
+        ilerledikçe farklı hızda kayar.
+     2) Maskeli metin açılışı (.mask-text).
+     3) Bölüm kenar çizgileri (.edge-rule).
+     4) Kâğıt greni çok yavaş süzülür — sayfa "canlı" hissettirir.
+   ================================================================== */
+
+/* ------------------------------------------------------------------
+   1) Paralaks
+   ------------------------------------------------------------------ */
+
+[data-parallax] {
+  --py: 0px;
+  transform: translate3d(0, var(--py), 0);
+  will-change: transform;
+}
+
+/* ------------------------------------------------------------------
+   2) Maskeli metin
+   ------------------------------------------------------------------ */
+
+.mask-text {
+  margin: 0;
+}
+
+.mask-line {
+  display: block;
+  overflow: hidden;
+  /* Alt uçlar (g, j, y) kırpılmasın; yerleşim değişmesin. */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.mask-line__in {
+  display: block;
+  transform: translateY(112%);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+.mask-text.is-in .mask-line__in {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mask-line__in {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   3) Bölüm kenar çizgisi
+   ------------------------------------------------------------------ */
+
+.edge-rule {
+  position: relative;
+  height: 1px;
+  margin: 0 auto;
+  max-width: var(--max, 1240px);
+  background: rgba(46, 28, 14, 0.14);
+  overflow: hidden;
+}
+
+.edge-rule::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 34%;
+  background: linear-gradient(90deg, transparent, var(--ledger-red, #a73d25), transparent);
+  transform: translateX(-120%);
+  animation: edgeSweep 7s ease-in-out infinite;
+}
+
+@keyframes edgeSweep {
+  0%,
+  100% {
+    transform: translateX(-120%);
+  }
+  50% {
+    transform: translateX(320%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edge-rule::after {
+    animation: none;
+    opacity: 0.4;
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   4) Kâğıt greni süzülmesi
+   ------------------------------------------------------------------
+   Doku katmanı ekranı biraz büyütülür ve çok yavaş kayar. Yalnızca
+   transform değiştiği için GPU'da harmanlanır; her karede yeniden
+   boyama yapılmaz.
+   ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+  body::after {
+    inset: -80px;
+    animation: grainDrift 64s linear infinite;
+  }
+}
+
+@keyframes grainDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-38px, 24px, 0);
+  }
+}
+
+/* ------------------------------------------------------------------
+   5) VİDEO OYNATICI ÇUBUĞU
+   ------------------------------------------------------------------
+   Sayfa bir film gibi gösterilir: zaman kodu, bulunulan bölüm ve
+   ince bir scrub çizgisi. Masaüstünde tam genişlik, dar ekranda
+   sadeleşmiş hâlde altta sabit durur.
+   ------------------------------------------------------------------ */
+
+/* Sabit oynatıcı çubuğu sayfa içeriğinin son satırını kapatmasın. */
+:root {
+  --player-h: 38px;
+}
+
+body {
+  padding-bottom: var(--player-h);
+}
+
+.player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 68;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 clamp(12px, 3vw, 28px);
+  height: 38px;
+  background: rgba(14, 10, 6, 0.92);
+  border-top: 1px solid rgba(246, 232, 207, 0.16);
+  color: rgba(246, 232, 207, 0.82);
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.player__line {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ember, #f2a93b), #f7ead2);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.player__glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(246, 232, 207, 0.45);
+  border-radius: 999px;
+  font-size: 0.46rem;
+  color: var(--ember, #f2a93b);
+}
+
+.player__tc {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.player__tc i {
+  font-style: normal;
+  opacity: 0.55;
+}
+
+.player__chapter {
+  color: #f7ead2;
+  font-weight: 700;
+}
+
+.player__brand {
+  margin-left: auto;
+  opacity: 0.42;
+}
+
+@media (max-width: 860px) {
+  :root {
+    --player-h: 30px;
+  }
+
+  .player {
+    height: 30px;
+    gap: 10px;
+    font-size: 0.6rem;
+  }
+
+  .player__brand {
+    display: none;
+  }
+
+  /* Yüzer eylem düğmesi oynatıcı çubuğunun üstünde kalsın. */
+  .floating-cta {
+    bottom: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .player__line {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   6) BÖLÜM BAŞLIKLARININ PERDE AÇILIŞI
+   ------------------------------------------------------------------
+   Başlık, görünür alana girince alttan yukarı "silinerek" açılır.
+   Gizli durum yalnızca JavaScript çalışıyorken (html.has-js)
+   uygulanır; betik çalışmazsa başlıklar her zaman görünür kalır.
+   ------------------------------------------------------------------ */
+
+.has-js .section__head h2 {
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    clip-path 950ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 600ms ease,
+    transform 950ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.has-js .section__head.is-in h2 {
+  clip-path: inset(0 0 -18% 0);
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-js .section__head h2 {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media print {
+  .has-js .section__head h2 {
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

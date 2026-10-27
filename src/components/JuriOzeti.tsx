@@ -1,3 +1,4 @@
+import { BUILD_STATS, trNumber } from "../content/buildStats";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { LogoMark } from "./Header";
@@ -44,7 +45,7 @@ const NUMBERS = [
   ["96", "tarif"],
   ["155", "terim"],
   ["365", "sezon günü"],
-  ["11", "yapay zekâ görseli"],
+  [trNumber(BUILD_STATS.yzGorseli), "yapay zekâ görseli"],
   ["6", "oyun"],
 ];
 
@@ -132,7 +133,8 @@ export default function JuriOzeti() {
           <h2>Şeffaflık notu</h2>
           <p>
             Tüm ürün, fiyat, lot, üretici ve bahçe bilgileri <strong>temsilîdir</strong>; gerçek
-            bir satış, ödeme, üyelik veya takip kodu yoktur. 11 görselin tamamı yapay zekâ ile
+            bir satış, ödeme, üyelik veya takip kodu yoktur. {trNumber(BUILD_STATS.yzGorseli)}{" "}
+            görselin tamamı yapay zekâ ile
             üretilmiş temsilî çekimlerdir. Form verisi sunucuya gönderilmez. Yapay zekâ
             özelliği tarayıcı içinde, kural tabanlı çalışır.
           </p>

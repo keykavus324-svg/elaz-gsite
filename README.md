@@ -63,7 +63,7 @@ https://keykavus324-svg.github.io/elaz-gsite/
 
 ```
 index.html            Başlık, meta/OG etiketleri, yazı tipleri, favicon
-public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî görseller (15 adet)
+public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî görseller (16 adet)
 public/favicon.svg    El çizimi SVG kayısı amblemi
 src/data.ts           Ürün, lot, süreç verileri + öneri motoru (tüm demo içeriği burada)
 src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları

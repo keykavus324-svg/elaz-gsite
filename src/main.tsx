@@ -8,6 +8,8 @@ import "./editorial.css";
 import "./oyun.css";
 import "./juri.css";
 import "./pin.css";
+import "./film.css";
+import "./motion.css";
 
 createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

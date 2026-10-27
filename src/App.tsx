@@ -1,6 +1,8 @@
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Bant from "./components/Bant";
+import Film from "./components/Film";
+import { useParallaxScan, useRevealScan } from "./scrollEngine";
 import Hero from "./components/Hero";
 import Compare from "./components/Compare";
 import Process from "./components/Process";
@@ -235,6 +237,8 @@ function SideRail() {
 }
 
 export default function App() {
+  useParallaxScan();
+  useRevealScan();
   useIdlePrefetch();
   return (
     <>
@@ -245,6 +249,7 @@ export default function App() {
         <Hero />
         <Marquee />
         <Bant />
+        <Film />
         <Suspense fallback={<FieldDeskFallback />}>
           <SectionBoundary title="Saha Defteri" note="Günün kayıt fişleri burada çalışıyor.">
             <FieldDesk />

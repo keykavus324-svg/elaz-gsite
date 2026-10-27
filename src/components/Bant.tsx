@@ -1,4 +1,5 @@
 import { publicAsset } from "../assets";
+import MaskText from "./MaskText";
 
 /**
  * STATEMENT BAND — "Gece Sergisi" öncesi tam genişlik editoryal bant.
@@ -10,9 +11,10 @@ import { publicAsset } from "../assets";
  */
 export default function Bant() {
   return (
-    <section className="bant" aria-labelledby="bant-baslik">
+    <section className="bant" aria-label="Bahçeden kutuna, lotuyla">
       <img
         className="bant__img"
+        data-parallax="0.24"
         src={publicAsset("img/band-bahce.jpg")}
         alt="Baskil sergi bandında gün kurusu kayısılarının yayıldığı basamaklar, akşam ışığında"
         width={1376}
@@ -27,11 +29,11 @@ export default function Bant() {
           <span aria-hidden="true">✦</span> Patik · Baskil kayısı atölyesi · 2026 hasadı
         </p>
 
-        <h2 className="bant__title" id="bant-baslik">
-          Bahçeden
-          <br />
-          <em>kutuna,</em> lotuyla.
-        </h2>
+        <MaskText
+          as="h2"
+          className="bant__title"
+          lines={["Bahçeden", <><em>kutuna,</em> lotuyla.</>]}
+        />
 
         <p className="bant__script" aria-hidden="true">
           gün kurur, kaydı kalır
