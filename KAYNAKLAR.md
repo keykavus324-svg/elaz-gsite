@@ -82,6 +82,10 @@ temsilî görsel" notu düşülür.
 | `public/img/islimli.jpg` | Karşılaştırma + ürün | Parlak islimli görünümü |
 | `public/img/cekirdek.jpg` | Ürün | Kayısı çekirdeği içi |
 | `public/img/hediye.jpg` | Ürün + süreç adımı 06 | Etiketsiz/yazısız kraft kutu (bilinçli tercih) |
+| `public/img/band-bahce.jpg` | Ana sayfa "sergi bandı" (statement band) | Baskil sergi basamaklarının akşam ışığındaki geniş görünümü; bantta "yapay zekâ ile üretilmiş temsilî çekimdir" notu vardır |
+| `public/img/islim.jpg` | Süreç adımı 02 (islim damı) | Taş islim odasında ahşap raflarda yarım kayısılar; temsilî çekimdir |
+| `public/img/cir.jpg` | Süreç adımı 05 (çir) | Taş duvar üzerindeki beze serilmiş son kurutma kayısıları; temsilî çekimdir |
+| `public/img/pasaport.jpg` | Lot Sorgula boş durumu | Krem kâğıt üzerinde kraft kutu, boş lot kartı ve kalem; temsilî çekimdir |
 
 Ek görseller: `public/img/mola.jpg` (radyo + çay + kayısı köşesi, Çay Molası), `public/img/cicek.jpg` (kayısı çiçeği, mevsim takvimi), `public/img/hosaf.jpg` (kayısı hoşafı, mutfak bölümü). Hepsi yapay zekâ üretimi temsilî çekimlerdir.
 `sergi.jpg`, ilk sürümündeki soluk filigran-benzeri üretim izi giderilerek ikinci sürümde yeniden üretilmiştir; uzakta küçük çalışan figürleri görünür, temsilî olduğu alt yazıda belirtilir ve görsel alt banda kırpılarak kullanılır.

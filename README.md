@@ -63,7 +63,7 @@ https://keykavus324-svg.github.io/elaz-gsite/
 
 ```
 index.html            Başlık, meta/OG etiketleri, yazı tipleri, favicon
-public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî görseller (11 adet)
+public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî görseller (15 adet)
 public/favicon.svg    El çizimi SVG kayısı amblemi
 src/data.ts           Ürün, lot, süreç verileri + öneri motoru (tüm demo içeriği burada)
 src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları
@@ -86,9 +86,12 @@ src/yz.css            Yapay Zekâ Defteri paneli, eşleştirici kartı ve üreti
 src/styles.css        Temel tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
 src/redesign.css      Hasat Defteri vitrini, Saha Defteri, bölüm rayı ve yeni sayfa ritmi
 src/editorial.css     Editoryal katman: kâğıt greni, folio rakamları, saç teli çizgiler,
-                      el yazısı notu, koyu "gece sergisi" paleti, hero paralaksı
+                      el yazısı notu, koyu "gece sergisi" paleti, hero paralaksı,
+                      fotoğrafın üstünden geçen dev "BASKIL" serif'i
 src/oyun.css          Oyun Masası: koyu lüks sahne, HUD, düello/yol/pusula/ligi stilleri
 src/juri.css          Jüri Özeti tek sayfası + yazdırma (A4) düzeni
+src/pin.css           Pinterest editoryal katmanı: sergi bandı, dikey kenar etiketleri,
+                      el yazısı imza, arşiv duotone derecelendirmesi
 src/img/grain.png     128×128 kâğıt greni karosu (SVG feTurbulence yerine PNG: çok daha hızlı)
 scripts/              Atlas veri üreticisi, kaynak listeleri ve bütünlük doğrulaması
 KAYNAKLAR.md          Kaynakça, görsel ve lisans notları, temsilî içerik listesi
@@ -120,6 +123,14 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 - **Hero dev serif:** fotoğrafın üstünden geçen “BASKIL” kelimesi (koyu mürekkep, hafif eğim) —
   sayfanın ilk karesinde editoryal vitrin imzası
 - **Jüri Özeti:** alt bilgideki düğme tek sayfalık, yazdırılabilir/PDF olarak kaydedilebilir özet açar
+- **Sergi bandı (statement band):** hero'nun ardından tam genişlik, koyu Baskil sergi fotoğrafı;
+  üstünden dev şampanya serif ile "Bahçeden kutuna, lotuyla." sloganı, el yazısı alt satır,
+  ✦ mikro etiket ve "Lot sorgula" hap düğmesi
+- **Dikey kenar etiketleri:** 1240 px üstünde bölümlerin sağ kenarında aşağıdan yukarı okunan,
+  harf aralığı açılmış mikro başlıklar ("OUR ESSENTIALS" hareketi)
+- **El yazısı imza:** alt bilgide Caveat ile "Patik" imzası
+- **Arşiv duotone:** üretici bölümünün fotoğrafları sepya-kontrast duotone derecelendirmesiyle
+  hero'daki renkli hâllerinden ayrışır
 - Mobilde kaydırdıkça beliren "Lotunu Kur" yüzer eylem düğmesi
 - Lotunu Kur: 3 soru → gerekçeli ürün/gramaj önerisi → çekirdek ekleme → sepete
 - **Yapay Zekâ Defteri:** serbest cümleyi okuyup tarayıcıda, kural tabanlı ve çevrimdışı çalışan bir

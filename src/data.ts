@@ -181,8 +181,8 @@ export const PROCESS: ProcessStep[] = [
     kicker: "Kutunun karakteri burada belli olur",
     text: "Kayısının bir kısmı rengini korumak için islim damına (kükürt odası) girer, bir kısmı hiç islim görmeden doğrudan sergiye çıkar. İslimli parlak ve diri kalır; gün kurusu koyulaşır, tadı yoğunlaşır. Patik, bu ayrımı kutunun üstünde saklamaz — yazar.",
     chip: "İslim damı ≈ 1 gün",
-    img: publicAsset("img/hero.jpg"),
-    alt: "Ahşap kasadan dökülen koyu gün kurusu ve parlak islimli kayısılar",
+    img: publicAsset("img/islim.jpg"),
+    alt: "Taş islim odasında ahşap raflarda islim damına girmiş yarım kayısılar (temsilî görsel)",
   },
   {
     no: "03",
@@ -208,8 +208,8 @@ export const PROCESS: ProcessStep[] = [
     kicker: "Son kurutma",
     text: "Çekirdeği çıkan kayısı son kez güneşe serilir. Yaklaşık üç günün sonunda halk arasında çir denen, kutuya girmeye hazır kuru kayısıya dönüşür. Bu sürece önceden karar verilemez; hava ne derse o olur.",
     chip: "Son kuruma ≈ 3 gün",
-    img: publicAsset("img/gun-kurusu.jpg"),
-    alt: "Kasede son kurutması tamamlanmış koyu renkli kuru kayısılar",
+    img: publicAsset("img/cir.jpg"),
+    alt: "Taş duvar üzerindeki beze serilmiş, son kurutmasını tamamlayan çir kayısıları (temsilî görsel)",
   },
   {
     no: "06",
