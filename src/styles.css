@@ -621,10 +621,26 @@ section[id] { scroll-margin-top: 104px; }
 .site-footer__nav a { color: #e9dabb; text-decoration: none; font-weight: 600; }
 .site-footer__nav a:hover { color: var(--amber); }
 .site-footer__demo ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: .92rem; }
+.site-footer__demo a { color: var(--amber); font-weight: 700; }
+.site-footer__team {
+  display: grid; gap: 8px; margin: 16px 0 0; padding: 14px 16px;
+  border: 1.5px solid rgba(242,169,59,.42); border-radius: 14px 4px 14px 4px;
+  background: rgba(242,169,59,.08); font-size: .9rem; line-height: 1.5;
+}
+.site-footer__team-badge {
+  justify-self: start; font-weight: 900; letter-spacing: .12em; font-size: .78rem;
+  text-transform: uppercase; color: var(--ledger-ink); background: var(--amber);
+  padding: 4px 12px; border-radius: 999px;
+}
+.site-footer__team strong { color: #fff4dc; }
+.site-footer__team-links { display: flex; flex-wrap: wrap; gap: 16px; }
+.site-footer__team-links a { color: var(--amber); font-weight: 700; text-decoration: none; }
+.site-footer__team-links a:hover { color: #ffd98a; text-decoration: underline; }
 .site-footer__bottom {
   max-width: var(--max); margin: 0 auto; padding: 18px; border-top: 1px solid rgba(233,218,187,.22);
   font-size: .86rem; text-align: center; opacity: .85;
 }
+.site-footer__team-name { display: block; margin-top: 6px; color: var(--amber); font-weight: 800; letter-spacing: .08em; }
 @media (min-width: 900px) {
   .site-footer__grid { grid-template-columns: 1.15fr .7fr 1.15fr; gap: 44px; }
 }

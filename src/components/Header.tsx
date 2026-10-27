@@ -3,11 +3,12 @@ import { useCart } from "../cart";
 
 const NAV = [
   { href: "#saha", label: "Saha" },
-  { href: "#surec", label: "Yolculuk" },
+  { href: "#surec", label: "Süreç" },
   { href: "#lotunu-kur", label: "Lotunu Kur" },
+  { href: "#yz-defteri", label: "Yapay Zekâ" },
   { href: "#urunler", label: "Kutular" },
   { href: "#mutfak", label: "Mutfak" },
-  { href: "#mola", label: "Çay Molası" },
+  { href: "#mola", label: "Mola" },
   { href: "#atlas", label: "Atlas" },
   { href: "#evren", label: "Evren" },
   { href: "#lot-sorgula", label: "Pasaport" },

@@ -66,7 +66,7 @@ src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları
 src/components/       Header, Hero, FieldDesk (Saha Defteri), ChapterRail, Compare, Process, Producer,
                       Mola (radyo/oyun), Atlas, Universe,
                       universe/ altında Operasyon, 365 Gün, Kalite, Kutu Hattı, Hediye ve Okul panelleri
-                      LotBuilder (imza), Products, Mutfak, LotLookup, LotPassport,
+                      LotBuilder (imza), YzDefteri (YZ Defteri), Products, Mutfak, LotLookup, LotPassport,
                       Faq, CartDrawer, Footer, Prova (gizli sunum konsolu)
 src/content/          Atlas çekirdeği: 204 lot + 52 hafta + 155 kavram + 96 tarif +
                       160 bilgi kartı + 144 soru = 811 temsilî kayıt
@@ -74,6 +74,7 @@ src/content/          Atlas çekirdeği: 204 lot + 52 hafta + 155 kavram + 96 ta
                       120 hediye + 120 ders = 989 temsilî kayıt
 src/atlas.css         Atlas için ayrı yüklenen sakin kâğıt tonlu arayüz stilleri
 src/universe.css      Evren panellerinin ayrı yüklenen panoları, takvimleri ve simülasyon stilleri
+src/yz.css            Yapay Zekâ Defteri paneli, eşleştirici kartı ve üretim kaydı stilleri
 src/styles.css        Temel tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
 src/redesign.css      Hasat Defteri vitrini, Saha Defteri, bölüm rayı ve yeni sayfa ritmi
 scripts/              Atlas veri üreticisi, kaynak listeleri ve bütünlük doğrulaması
@@ -97,6 +98,9 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
   yedek yolu gösterilir, sitenin geri kalanı internetsiz çalışmayı sürdürür
 - Mobilde kaydırdıkça beliren "Lotunu Kur" yüzer eylem düğmesi
 - Lotunu Kur: 3 soru → gerekçeli ürün/gramaj önerisi → çekirdek ekleme → sepete
+- **Yapay Zekâ Defteri:** serbest cümleyi okuyup tarayıcıda, kural tabanlı ve çevrimdışı çalışan bir
+  eşleştiriciyle gerekçeli lot önerisine çevirir (anlaşılan boyutlar, gramaj, lot kodu, pasaport ve
+  sepete bağlanır); yanında sitenin yapay zekâ destekli üretim kaydı (5 adım + doğrulama sayıları) durur
 - Mevsim & Mutfak: 5 mevsimlik hasat takvimi + Hoşaf Hesapçısı (kişi sayısı → gram/su/paket hesabı ve sepete bağlar)
 - **Patik Evreni:** Atlas verisini işleten ikinci katman. Operasyon panosu ve teras haritası,
   365 günlük sezon planı, 192 kalite kontrolü, çalıştırılabilir kutu hattı simülasyonu,
@@ -121,6 +125,10 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
   **temsilîdir** ve sitede açıkça böyle etiketlenir. Atlas'taki 204 lotluk geniş defter
   ve operasyon miktarları da gerçek kayıt değildir. Evren'deki 989 parsel/günlük/kalite/kutu/
   hediye/ders kaydı da aynı temsilî çerçevededir; kanonik alışveriş akışı 3 demo lotla çalışır.
+- Site **yapay zekâ destekli araçlarla** üretilmiştir (kod, metin, görsel, kayıt verisi). Bu, sitede
+  "Yapay Zekâ Defteri" bölümünde açıkça anlatılır. Buna karşılık çalışma zamanında hiçbir dış API'ye
+  bağımlılık yoktur: "Cümleni anlat" eşleştiricisi tarayıcıda, kural tabanlı ve çevrimdışı çalışır;
+  bu yüzden bir dil modeli çağırdığımız iddiasında değiliz.
 - Sağlık/beslenme iddiası, sahte ödül/sertifika/müşteri yorumu kullanılmamıştır.
   Baskil kayısının coğrafi işaret durumu sitede dürüstçe anlatılır (bkz. SSS).
 - Görseller yapay zekâ ile üretilmiştir; gerçek üretici veya tesis fotoğrafı olarak

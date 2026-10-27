@@ -125,6 +125,25 @@ yapılmıştır. Çalar, hata hâlinde bunu kullanıcıya açıkça söyler.
 - **React 18, ReactDOM, Vite 6, @vitejs/plugin-react, TypeScript** — MIT lisansı.
   Bunlar dışında üretim bağımlılığı yoktur; analitik/takip betiği bulunmaz.
 
+## 5a) Yapay zekâ destekli üretim — açık kayıt
+
+Bu sitenin kodu, metinleri, görselleri ve kayıt verisi **yapay zekâ destekli araçlarla**
+üretilmiş, ardından insan eliyle düzenlenmiştir. Bunu gizlemiyoruz; sitedeki
+"Yapay Zekâ Defteri" bölümünde de aynı kayıt bulunur.
+
+| Ne | Nasıl üretildi | İnsan denetimi |
+|---|---|---|
+| Kod (React + TypeScript + CSS) | Yapay zekâ asistanıyla tasarlandı ve yazıldı | `npm run typecheck` + `npm run verify` (tip kontrolü, iki bütünlük denetimi, üretim derlemesi) |
+| Metinler (süreç, tarif, sözlük, SSS) | Yapay zekâ asistanıyla taslaklandı | Kaynaklara karşı tek tek doğrulandı; tescil ve sağlık iddiası olmayan ifadeler çıkarıldı |
+| 11 görsel (`public/img/`) | Yapay zekâ ile üretildi | Gerçek fotoğraf gibi sunulmadı; her görselin altında "temsilî" notu var |
+| 1.800 temsilî kayıt (Atlas + Evren) | `scripts/generate-*.mjs` betikleriyle, kısa kaynak listelerinden deterministik olarak | `npm run verify:atlas` ve `npm run verify:universe` sayıları ve panel bağlantılarını denetler |
+| Cümleyle eşleştirici (Yapay Zekâ Defteri) | Kural tabanlı, elle yazılmış eşleştirme mantığı (`src/data.ts`) | Dil modeli **çağırmaz**; tarayıcıda ve çevrimdışı çalışır, dış API'ye bağlı değildir |
+
+**Neden çalışma zamanında yapay zekâ çağırmıyoruz?** Etkinlik salonunun interneti bize ait
+değil. Üçüncü taraf bir API'ye bağımlı bir "yapay zekâ" demosu, bağlantı kesildiği anda
+çöker ve jüri önünde bozulur. Bu yüzden yapay zekâyı **üretim** tarafında kullandık;
+**çalışma zamanında** ise siteye hiçbir dış bağımlılık eklemedik. Bu, sitede açıkça yazılıdır.
+
 ## 5b) Patik Atlası verisinin kökeni
 
 Atlas'taki 811 kayıt, `scripts/atlas-source-data.mjs` içindeki kısa kaynak listelerinden

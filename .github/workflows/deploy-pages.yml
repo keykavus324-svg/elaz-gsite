@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - arena/a9c83a62-elaz-gsite
+      - arena/f7221951-elaz-gsite
   workflow_dispatch:
 
 permissions:

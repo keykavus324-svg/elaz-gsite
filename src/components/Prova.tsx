@@ -17,39 +17,44 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    title: "1/7 · Açılış — Hasat Defteri",
+    title: "1/8 · Açılış — Hasat Defteri",
     anchor: "#top",
     line: "Yeni başlıkla aç: “Kayısı kurur. Kaydı kalır.” Beş duraklı yolu ve çalışan lot biletini işaret et. Mesaj: ürün değil, ürünün izlenebilir kaydı satılır.",
   },
   {
-    title: "2/7 · Saha Defteri — Kayıtlar vitrinde",
+    title: "2/8 · Saha Defteri — Kayıtlar vitrinde",
     anchor: "#saha",
     line: "Bir istasyon değiştir ve “Başka kayıt”a bas: “1.800 temsilî kayıt sayfanın altında saklanmaz; günün işi, lot, kalite ve ders buradan çalışır.”",
   },
   {
-    title: "3/7 · Sorun — Gün mü İslim mi?",
+    title: "3/8 · Sorun — Gün mü İslim mi?",
     anchor: "#karsilastir",
     line: "Kaydırıcıyı sağa-sola oynat: “Aynı kase, aynı ışık; tek fark kurutma yolu.” Sonra sekmelerde bir satır oku (doku ya da saklama), abartma.",
   },
   {
-    title: "4/7 · İmza — Lotunu Kur",
+    title: "4/8 · İmza — Lotunu Kur",
     anchor: "#lotunu-kur",
     line: "3 soruyu cevapla: Atıştırmalık → Koyu/yoğun → Aileyle paylaşılır. Gerekçeleri işaret et, pasaport önizlemesini göster, çekirdeği de ekleyip “Bu lotu sepete ekle”ye bas.",
   },
   {
-    title: "5/7 · Sepet & Demo Sipariş",
+    title: "5/8 · Sepet & Demo Sipariş",
     action: "cart",
     line: "Sepet açık: kargo barını göster, adedi bir artır. “Demo siparişe geç” → formu bir kez boş gönder (doğrulama kanıtı), hızlıca doldur ve özeti al.",
   },
   {
-    title: "6/7 · Lot Pasaportu (altın vuruş)",
+    title: "6/8 · Lot Pasaportu (altın vuruş)",
     action: "lot",
     line: "Pasaport açık: “Hediyeyi alan kişi tam bunu görür.” Şimdi basılı pasaportu jüriye elden uzat; isteyen telefonundan ?lot=PT-26-047 ile açsın.",
   },
   {
-    title: "7/7 · Kapanış — Çay Molası",
+    title: "7/8 · Kapanış — Çay Molası",
     anchor: "#mola",
-    line: "TRT Türkü'yü kısık sesle aç, bir jüri üyesini Patik Ustası'nda 30 sn oynat: “Gerçek patik böyle hızlı olmaz ama refleksinizi gördük.” Final: “Patik — bahçeden kutuna, lotuyla. Teşekkürler.”",
+    line: "TRT Türkü'yu kısık sesle aç, bir jüri üyesini Patik Ustası'nda 30 sn oynat: “Gerçek patik böyle hızlı olmaz ama refleksinizi gördük.” Final: “Patik — bahçeden kutuna, lotuyla. Teşekkürler.”",
+  },
+  {
+    title: "8/8 · BONUS — Yapay Zekâ Defteri",
+    anchor: "#yz-defteri",
+    line: "Zaman varsa: bir cümle yaz (“çayın yanına koyacağım, koyu olsun”) → eşleştirici gerekçeli lotu pasaportuyla birlikte göstersin. Sonra sağdaki üretim kaydını aç: “Bu site bir yapay zekâ atölyesinden çıktı, nasıl kurulduğunu saklamadık.” Soru gelirse: “Dil modeli çağırmıyoruz; eşleştirici tarayıcıda, çevrimdışı çalışıyor.”",
   },
 ];
 

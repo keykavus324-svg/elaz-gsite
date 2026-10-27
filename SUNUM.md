@@ -20,14 +20,16 @@
 > gramajı gerekçesiyle öneriyor — çaya yumuşak gün kurusu, hoşafa dağılmayan islimli,
 > hediyeye üç lotlu kutu gibi. Pasaportun önizlemesini de sepete atmadan gösteriyoruz."
 >
-> **[60–80 sn — dürüstlük ve akış]**
-> "İki şeyi özellikle yaptık. Bir: tescil konusunda dürüstüz — Baskil bugün Malatya
+> **[60–82 sn — dürüstlük ve akış]**
+> "Üç şeyi özellikle yaptık. Bir: tescil konusunda dürüstüz — Baskil bugün Malatya
 > işaretinin sınırında anılıyor, biz rozet satmıyoruz, izlenebilirlik satıyoruz;
 > sitede bu açıkça yazıyor. İki: akış uçtan uca çalışıyor — öneri, sepet, ücretsiz
 > kargo barı, doğrulamalı demo sipariş ve sonunda kutularınıza işlenecek lot kodları.
-> Demo olduğunu da her adımda söylüyoruz; kişisel verinizi almıyoruz."
+> Demo olduğunu da her adımda söylüyoruz; kişisel verinizi almıyoruz. Üç: bu site
+> bir yapay zekâ atölyesinden çıktı — kod, görsel, kayıtlar. Nasıl kurulduğunu
+> saklamadık; üretim defteri sayfada açık."
 >
-> **[80–90 sn — kapanış]**
+> **[82–90 sn — kapanış]**
 > "Özetle Patik; Baskil kayısının kendi adıyla, kaydı kitabıyla sofraya gelme hâli.
 > Teşekkürler — şimdi isterseniz 30 saniyede kendi lotunuzu kuralım."
 
@@ -49,8 +51,14 @@
    "Patik gerçek işletme mi?" ile "tescil" cevaplarını göster. Kapatırken sloganı söyle:
    **"Bahçeden kutuna, lotuyla."**
 
-**Zaman kalırsa (bonus 45 sn):** Gün/İslim kaydırıcısını oynatın; Patik Atlası'nda tek filtreyle 204 temsilî lot satırını daraltın; ardından Evren'de kutu hattı simülasyonunu bir adım çalıştırıp "üç lotla anlattığımız fikir operasyona dönünce böyle izlenir" deyin. Sayıların gerçek kayıt olmadığını özellikle söyleyin. Sonra Çay Molası'nda TRT Türkü'yü açın (Harput eseri denk
-gelirse altın vuruş), *Patik Ustası*'nda jüriden birini 30 saniye oynatın — "gerçek
+**Zaman kalırsa (bonus 45 sn):** Önce **Yapay Zekâ Defteri**'ni aç: cümle kutusuna "çayın yanına
+koyacağım, koyu olsun" yazıp **Eşleştir**'e bas — gerekçeli lot önerisi, anlaşılan boyutlar ve lot
+kodu gelecek; "Bu lotu sepete ekle"ye bas. Sağdaki **Üretim kaydı**nı göster: "Bu site bir yapay zekâ
+atölyesinden çıktı, nasıl kurulduğunu saklamadık." Sonra Gün/İslim kaydırıcısını oynatın; Patik
+Atlası'nda tek filtreyle 204 temsilî lot satırını daraltın; ardından Evren'de kutu hattı
+simülasyonunu bir adım çalıştırıp "üç lotla anlattığımız fikir operasyona dönünce böyle izlenir"
+deyin. Sayıların gerçek kayıt olmadığını özellikle söyleyin. Sonra Çay Molası'nda TRT Türkü'yü açın
+(Harput eseri denk gelirse altın vuruş), *Patik Ustası*'nda jüriden birini 30 saniye oynatın — "gerçek
 patik böyle hızlı olmaz ama refleksinizi gördük" esprisiyle kapatın. FM 23 akışı
 HTTPS'te tarayıcı politikasına takılırsa şaşırmayın; çalar bunu açıklayıp resmî
 siteye yönlendirir (bunu "hata hâlinde bile dürüst geri bildirim" diye anlatın).
@@ -58,7 +66,7 @@ siteye yönlendirir (bunu "hata hâlinde bile dürüst geri bildirim" diye anlat
 **Yedek plan:** İnternet giderse site yerelden çalışmaya devam eder (görseller yereldir,
 yazı tipleri yedeğe düşer). Akışın tamamı çevrimdışı da işler; radyo hariç (o zaten canlı yayın).
 
-## C) Muhtemel 5 jüri sorusu — dürüst cevaplar
+## C) Muhtemel 6 jüri sorusu — dürüst cevaplar
 
 **1) "Neden tescilli orcik veya Ağın leblebisi değil de Baskil kayısısı?"**
 Üç konsepti de değerlendirdik. Orcik ve Ağın leblebisinin tescili var; ancak görsel
@@ -92,6 +100,15 @@ kişisel veri toplamayan güvenli bir demo istedik. Replit'te tek "Run" ile aç�
 üretim derlemesi ve tip kontrolü hatasız. Görseller AI ile üretildi, gerçek fotoğraf
 diye sunulmadı.
 
+**6) "Yapay zekâyı nerede kullandınız — sitede gerçekten yapay zekâ var mı?"**
+İki yeri ayırıyoruz. **Üretimde** kullandık: kod, metin, görsel ve kayıt verisi yapay zekâ
+destekli araçlarla üretildi, insan eliyle düzeltildi; bunun beş adımlı kaydı sitede açık
+("Yapay Zekâ Defteri"). **Çalışma zamanında bilerek çağırmıyoruz:** "Cümleni anlat"
+eşleştiricisi tarayıcıda, kural tabanlı ve çevrimdışı çalışıyor; bunu bir dil modeli
+diye sunmuyoruz. Gerekçe: etkinlik salonunun interneti bize ait değil — üçüncü taraf
+bir API'ye bağımlı bir demo, bağlantı kesildiği anda çöker. Karşılığında site toplamı
+1.800 temsilî kaydı sorunsuz taşıyor ve hiçbir veri dışarı çıkmıyor.
+
 ## D) Takım içi iş dağılımı önerisi (4 kişi, etkinlik günü)
 
 - **Sunucu:** 90 saniyelik metin + canlı demo akışı (bu dosya).
@@ -100,7 +117,8 @@ diye sunulmadı.
 - **Teknik:** Replit'te projeyi açıp `Run` doğrulama, yedek ekran görüntüleri.
 
 **Prova Modu:** Demo sürücüsü siteyi `?prova=1` ile açsın. Konsol yedi adımı,
-konuşma notlarını ve 105 saniye sayacını gösterir; ←/→ ile ilerlenir. Sahnede
+konuşma notlarını ve 105 saniye sayacını gösterir (8. adım bonus: Yapay Zekâ Defteri);
+←/→ ile ilerlenir. Sahnede
 ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçültün.
 
 ## E) Son 20 dakika kontrol listesi
@@ -108,6 +126,7 @@ ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçül
 - [ ] Replit'te Run → sayfa açılıyor, konsolda kırmızı hata yok
 - [ ] Prova Modu (`?prova=1`) açılıyor; sayaç, ←/→ adımları ve P ile küçültme çalışıyor
 - [ ] Saha Defteri açılıyor; bir istasyon ve "Başka kayıt" çalışıyor
+- [ ] Yapay Zekâ Defteri açılıyor; örnek cümleye tıklanıyor → gerekçeli öneri + lot kodu çıkıyor
 - [ ] Lotunu Kur → 3 soru → sonuç → sepete ekle → çekmece açılıyor
 - [ ] Formu boş gönder → hata mesajları görünüyor; doldur → demo özeti geliyor
 - [ ] Lot sorgula: PT-26-047 açılıyor; hatalı kod uyarı veriyor

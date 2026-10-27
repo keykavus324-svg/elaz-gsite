@@ -7,6 +7,7 @@ import Producer from "./components/Producer";
 import Mola from "./components/Mola";
 import Mutfak from "./components/Mutfak";
 import LotBuilder from "./components/LotBuilder";
+import YzDefteri from "./components/YzDefteri";
 import Products from "./components/Products";
 import LotLookup from "./components/LotLookup";
 import Faq from "./components/Faq";
@@ -183,6 +184,7 @@ export default function App() {
         <Reveal><Producer /></Reveal>
         <Reveal><Mola /></Reveal>
         <Reveal><LotBuilder /></Reveal>
+        <Reveal><YzDefteri /></Reveal>
         <Reveal><Products /></Reveal>
         <Reveal><Mutfak /></Reveal>
         <Suspense fallback={<AtlasFallback />}><Atlas /></Suspense>

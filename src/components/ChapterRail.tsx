@@ -6,11 +6,12 @@ const CHAPTERS = [
   { id: "karsilastir", no: "03", label: "Gün / İslim" },
   { id: "surec", no: "04", label: "Yolculuk" },
   { id: "lotunu-kur", no: "05", label: "Lotunu Kur" },
-  { id: "urunler", no: "06", label: "Kutular" },
-  { id: "mola", no: "07", label: "Çay Molası" },
-  { id: "atlas", no: "08", label: "Atlas" },
-  { id: "evren", no: "09", label: "Evren" },
-  { id: "lot-sorgula", no: "10", label: "Pasaport" },
+  { id: "yz-defteri", no: "06", label: "Yapay Zekâ" },
+  { id: "urunler", no: "07", label: "Kutular" },
+  { id: "mola", no: "08", label: "Çay Molası" },
+  { id: "atlas", no: "09", label: "Atlas" },
+  { id: "evren", no: "10", label: "Evren" },
+  { id: "lot-sorgula", no: "11", label: "Pasaport" },
 ];
 
 /**

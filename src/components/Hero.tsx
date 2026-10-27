@@ -73,7 +73,8 @@ export default function Hero() {
               alt="Karakaya kıyısındaki teraslarda bezler üzerinde kuruyan kayısı sergileri"
               width={1600}
               height={1000}
-              fetchPriority="high"
+              /* React 18'de öznitelik küçük harfle geçirilmeli; aksi hâlde konsola uyarı düşer. */
+              {...({ fetchpriority: "high" } as Record<string, string>)}
             />
             <figcaption>
               <strong>Sergi zamanı</strong>
