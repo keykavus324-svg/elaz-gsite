@@ -126,8 +126,12 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 - **Yolculuk filmi:** kaydırmayla oynayan beş sahneli sinematik bölüm (HASAT → İSLİM →
   SERGİ → PATİK → PASAPORT); yapışkan sahne, Ken Burns, duotone derecelendirme, zaman kodu
   (`00:00 / 01:36`) ve tıklanabilir film şeridi
+- **Üretim terminali:** Yapay Zekâ Defteri'nde gerçek bir konsol penceresi —
+  `npm run content:generate` ve `npm run verify` komutlarının **gerçek** çıktısı
+  (`scripts/generate-build-stats.mjs` betiği her derlemede yeniden çalıştırıp yazar)
 - **Oynatıcı çubuğu:** sayfa bir film gibi gösterilir — altta zaman kodu, bulunulan bölümün
-  adı ve ince bir scrub çizgisi; bölüm rayıyla aynı veriden beslenir
+  adı ve ince bir scrub çizgisi; bölüm rayıyla aynı veriden beslenir. Çubuğun herhangi bir
+  yerine tıklamak o konuma atlar, bölüm adı o bölüme götürür
 - **Maskeli açılışlar:** bölüm başlıkları ekrana perdeli gelir, sayılar görünürlüğe girince
   sayar; tüm hareketler tek bir kaydırma motorundan (`src/scrollEngine.ts`) beslenir
 - **Sergi bandı (statement band):** hero'nun ardından tam genişlik, koyu Baskil sergi fotoğrafı;

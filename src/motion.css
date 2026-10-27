@@ -157,9 +157,27 @@ body {
   backdrop-filter: blur(8px);
 }
 
+/* Çubuğun tamamı bir scrub alanı: tıklanan yere kaydırır. */
+.player__scrub {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.player__scrub:hover,
+.player__scrub:focus-visible {
+  background: rgba(246, 232, 207, 0.1);
+}
+
 .player__line {
   position: absolute;
   top: -1px;
+  z-index: 1;
+  pointer-events: none;
   left: 0;
   width: 100%;
   height: 2px;
@@ -169,6 +187,9 @@ body {
 }
 
 .player__glyph {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -181,6 +202,9 @@ body {
 }
 
 .player__tc {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -192,11 +216,26 @@ body {
 }
 
 .player__chapter {
+  position: relative;
+  z-index: 2;
   color: #f7ead2;
   font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(246, 232, 207, 0.32);
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.player__chapter:hover {
+  color: var(--ember, #f2a93b);
+  border-bottom-color: var(--ember, #f2a93b);
 }
 
 .player__brand {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
   margin-left: auto;
   opacity: 0.42;
 }

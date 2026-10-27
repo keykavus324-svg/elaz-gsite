@@ -147,6 +147,7 @@ Bu sitenin kodu, metinleri, görselleri ve kayıt verisi **yapay zekâ destekli 
 | Kod (React + TypeScript + CSS) | Yapay zekâ asistanıyla tasarlandı ve yazıldı | `npm run typecheck` + `npm run verify` (tip kontrolü, iki bütünlük denetimi, üretim derlemesi) |
 | Metinler (süreç, tarif, sözlük, SSS) | Yapay zekâ asistanıyla taslaklandı | Kaynaklara karşı tek tek doğrulandı; tescil ve sağlık iddiası olmayan ifadeler çıkarıldı |
 | 16 görsel (`public/img/`) | Yapay zekâ ile üretildi | Gerçek fotoğraf gibi sunulmadı; her görselin altında "temsilî" notu var |
+| Terminal çıktısı (Yapay Zekâ Defteri) | `scripts/generate-build-stats.mjs` betiği üretim ve doğrulama betiklerini **gerçekten çalıştırıp** konsol çıktısını `src/content/buildStats.ts` içine yazar | Uydurma satır yoktur: aynı komutlar jürinin kendi makinesinde aynı çıktıyı üretir; her derlemede otomatik tazelenir |
 | 1.800 temsilî kayıt (Atlas + Evren) | `scripts/generate-*.mjs` betikleriyle, kısa kaynak listelerinden deterministik olarak | `npm run verify:atlas` ve `npm run verify:universe` sayıları ve panel bağlantılarını denetler |
 | Cümleyle eşleştirici (Yapay Zekâ Defteri) | Kural tabanlı, elle yazılmış eşleştirme mantığı (`src/data.ts`) | Dil modeli **çağırmaz**; tarayıcıda ve çevrimdışı çalışır, dış API'ye bağlı değildir |
 
