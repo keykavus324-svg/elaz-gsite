@@ -11,6 +11,7 @@ export default function Producer() {
       <figure className="producer__banner">
         <img
           src={publicAsset("img/sergi.jpg")}
+          className="grade-warm"
           alt="Karakaya Baraj Gölü'ne bakan yamaç teraslarında bezlerle kayısı kurutulan sergi alanı"
           width={1920}
           height={1080}
@@ -50,6 +51,7 @@ export default function Producer() {
         <aside className="producer__card" aria-labelledby="uretici-kart-baslik">
           <img
             src={publicAsset("img/patik.jpg")}
+            className="grade-warm"
             alt="Yarı kuru kayısıların çekirdeklerini tepsi başında elle çıkaran üretici elleri"
             width={1200}
             height={800}

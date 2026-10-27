@@ -1,0 +1,347 @@
+/* ============================================================
+   PATİK — EDİTORİYAL KATMAN
+   Pinterest/awwwards referanslarından damıtılmış tasarım dili:
+   dev display serif, mikro etiketler, numaralı indeks, saç teli
+   çizgiler, el yazısı notlar, koyu lüks "gece sergisi" bölümü.
+   Mevcut "hasat defteri" kimliğini bozmadan üstüne oturan katman.
+   ============================================================ */
+
+:root {
+  --hand: "Caveat", "Segoe Script", "Bradley Hand", cursive;
+  --mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --rule: rgba(74, 45, 20, 0.16);
+
+  /* Gece sergisi — koyu lüks bölümler */
+  --night: #14100b;
+  --night-2: #1f160d;
+  --night-3: #2a1d10;
+  --champagne: #f2ddb8;
+  --champagne-dim: rgba(242, 221, 184, 0.66);
+  --ember: #e8762c;
+  --ember-soft: #f2a93b;
+  --night-line: rgba(242, 221, 184, 0.18);
+}
+
+/* ---------------- Kâğıt graini ---------------- */
+/* Sayfaya basılı bir mürekkep dokusu ekler: tüm ekranı tek bir
+   baskı işi gibi gösterir. Tıklamayı engellemez. */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.62;
+  /* Blend modu (multiply) yazılım rasterizasyonunda tüm ekranı her
+     karede yeniden harmanladığı için ölçülüp kaldırıldı; doku aynı,
+     maliyet dörtte biri. */
+  background-image: url("./img/grain.png");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* Grain dokusu bilerek SABİT: blend modu + sürekli animasyon her karede
+   tüm ekranı yeniden harmanlar; etkinlik gününde akıcılık önemlidir. */
+@media (prefers-reduced-motion: reduce) {
+  body::after { opacity: 0.3; }
+}
+
+/* ---------------- Bölüm indeksi (folio) ---------------- */
+
+/* Rakamlar src/chapters.ts'teki bölüm dizininden gelir; buradaki
+   counter-set'ler o dizini sayfa üzerine yansıtır. */
+
+body { counter-reset: patik-bolum; }
+
+.section { position: relative; }
+
+#saha { counter-set: patik-bolum 2; }
+#karsilastir { counter-set: patik-bolum 3; }
+#surec { counter-set: patik-bolum 4; }
+#uretici { counter-set: patik-bolum 5; }
+#mola { counter-set: patik-bolum 6; }
+#oyun-masasi { counter-set: patik-bolum 7; }
+#lotunu-kur { counter-set: patik-bolum 8; }
+#yz-defteri { counter-set: patik-bolum 9; }
+#urunler { counter-set: patik-bolum 10; }
+#mutfak { counter-set: patik-bolum 11; }
+#atlas { counter-set: patik-bolum 12; }
+#evren { counter-set: patik-bolum 13; }
+#lot-sorgula { counter-set: patik-bolum 14; }
+
+/* Bölüm başlığının üstünde saç teli çizgi + indeks rakamı.
+   Referans: "01 VELVET STUDIO", "OUR ESSENTIALS" düzeni. */
+
+.section__head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -14px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.15;
+}
+
+.section__head .kicker::before {
+  content: counter(patik-bolum, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  opacity: 0.9;
+  padding-right: 11px;
+  margin-right: 1px;
+  border-right: 1px solid currentColor;
+  line-height: 1.5;
+}
+
+/* ---------------- Display tipografi ---------------- */
+
+.section__head h2 {
+  font-size: clamp(2.3rem, 5.4vw, 3.9rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.section__head h2 em,
+.section__head h2 i {
+  font-style: italic;
+}
+
+.section__lede {
+  font-size: 1.09rem;
+  line-height: 1.62;
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* Sayaçlar hizalı rakam kullansın. */
+.hero__ledger-strip strong,
+.yz__stats dd,
+.game__stat strong,
+.universe__stats strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------- El yazısı notlar ---------------- */
+
+.hand {
+  font-family: var(--hand);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.hand-note {
+  position: relative;
+  display: inline-block;
+  font-family: var(--hand);
+  font-size: 1.35rem;
+  color: var(--gun);
+  transform: rotate(-2.2deg);
+  padding: 6px 14px;
+  line-height: 1.1;
+}
+
+.hand-note::before {
+  content: "";
+  position: absolute;
+  inset: 2px -4px -2px 4px;
+  background: rgba(242, 169, 59, 0.26);
+  border-radius: 10px 4px 12px 4px;
+  z-index: -1;
+  transform: rotate(1.4deg);
+}
+
+.hand-note--sun { color: var(--sun-dark); }
+.hand-note--sun::before { background: rgba(232, 118, 44, 0.22); }
+
+/* ---------------- Fotoğraf renk derecelendirmesi ---------------- */
+/* 11 yapay zekâ görseli tek bir magazin çekimi gibi görünsün diye
+   sıcak, doygun ve hafif baskılı bir derecelendirme. */
+
+.grade-warm {
+  filter: sepia(0.3) saturate(1.16) contrast(1.05) brightness(0.99);
+  transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grade-warm:hover {
+  filter: sepia(0.16) saturate(1.3) contrast(1.07) brightness(1.01);
+}
+
+/* ---------------- Sol kenar dikey rayı ---------------- */
+/* Referanstaki "OUR ESSENTIALS" dikey metni gibi sabit kenar etiketi. */
+
+.patik-rail {
+  display: none;
+}
+
+@media (min-width: 1560px) {
+  .patik-rail {
+    display: flex;
+    position: fixed;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    z-index: 30;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--pit-soft);
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .patik-rail::before,
+  .patik-rail::after {
+    content: "";
+    width: 1px;
+    height: 46px;
+    background: currentColor;
+    opacity: 0.5;
+  }
+}
+
+/* ---------------- Pill buton dili ---------------- */
+/* Referans: ince kenarlı hap butonlar + minik yıldız ikon. */
+
+.btn--pill {
+  border-radius: 999px;
+  padding-inline: 24px;
+}
+
+.btn--pill .btn__star {
+  font-size: 0.7em;
+  opacity: 0.8;
+}
+
+/* ---------------- Seçim ve odak ---------------- */
+
+::selection {
+  background: var(--sun);
+  color: #fff7e5;
+}
+
+.hero__title,
+.hero__title-accent {
+  letter-spacing: -0.035em;
+}
+
+/* ---------------- Gece sergisi (koyu bölümler) ---------------- */
+
+.night {
+  --cream: var(--night);
+  --paper: var(--night-2);
+  --sand: var(--night-3);
+  --ink: var(--champagne);
+  --pit: var(--champagne-dim);
+  --pit-soft: var(--champagne-dim);
+  --sun: var(--ember);
+  --sun-dark: var(--ember-soft);
+  --amber: var(--ember-soft);
+  --gun: var(--champagne);
+  --leaf: #9cbd7a;
+  --river: #7fc0bb;
+  --line: var(--night-line);
+  background:
+    radial-gradient(120% 80% at 15% 0%, rgba(232, 118, 44, 0.16), transparent 60%),
+    radial-gradient(90% 70% at 95% 25%, rgba(242, 169, 59, 0.1), transparent 55%),
+    linear-gradient(180deg, #14100b 0%, #171109 55%, #120d08 100%);
+  color: var(--champagne);
+  position: relative;
+  isolation: isolate;
+}
+
+.night::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(242, 221, 184, 0.045) 0 1px, transparent 1px 84px),
+    repeating-linear-gradient(180deg, transparent 0 39px, rgba(242, 221, 184, 0.04) 39px 40px);
+}
+
+/* Izgaranın altta sönümlenmesi. CSS maskesi yerine düz gradyan:
+   maske her boyamada tüm katmanı yeniden rasterize ediyordu. */
+.night::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 42%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, #120d08 92%);
+}
+
+.night .section__head::after {
+  background: var(--champagne);
+  opacity: 0.2;
+}
+
+.night .section__head .kicker {
+  color: var(--ember-soft);
+}
+
+.night .section__head .kicker::before {
+  color: var(--ember-soft);
+  border-right-color: var(--ember-soft);
+}
+
+.night .section__lede {
+  color: var(--champagne-dim);
+}
+
+.night .kicker::after {
+  background: var(--ember);
+}
+
+.night h2,
+.night h3 {
+  color: var(--champagne);
+}
+
+.night .btn--primary {
+  background: var(--ember);
+  border-color: var(--ember-soft);
+  color: #1a0f06;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.45);
+}
+
+.night .btn--primary:hover {
+  background: var(--ember-soft);
+  color: #1a0f06;
+}
+
+.night .btn--ghost {
+  color: var(--champagne);
+  border-color: rgba(242, 221, 184, 0.45);
+}
+
+.night .btn--ghost:hover {
+  background: rgba(242, 221, 184, 0.12);
+  color: var(--champagne);
+}
+
+/* ---------------- Yazdırma ---------------- */
+
+@media print {
+  body::after { display: none; }
+}

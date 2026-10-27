@@ -5,6 +5,7 @@ import Compare from "./components/Compare";
 import Process from "./components/Process";
 import Producer from "./components/Producer";
 import Mola from "./components/Mola";
+import OyunMasasi from "./components/OyunMasasi";
 import Mutfak from "./components/Mutfak";
 import LotBuilder from "./components/LotBuilder";
 import YzDefteri from "./components/YzDefteri";
@@ -222,12 +223,23 @@ function useIdlePrefetch() {
   }, []);
 }
 
+/** Sol kenarda dikey yazan sabit kenar etiketi (geniş ekranlarda). */
+function SideRail() {
+  return (
+    <p className="patik-rail" aria-hidden="true">
+      <span>Patik · Baskil Kayısı Atölyesi</span>
+      <span>2026</span>
+    </p>
+  );
+}
+
 export default function App() {
   useIdlePrefetch();
   return (
     <>
       <Header />
       <ChapterRail />
+      <SideRail />
       <main id="icerik">
         <Hero />
         <Marquee />
@@ -240,6 +252,7 @@ export default function App() {
         <Reveal><Process /></Reveal>
         <Reveal><Producer /></Reveal>
         <Reveal><Mola /></Reveal>
+        <Reveal><OyunMasasi /></Reveal>
         <Reveal><LotBuilder /></Reveal>
         <Reveal><YzDefteri /></Reveal>
         <Reveal><Products /></Reveal>

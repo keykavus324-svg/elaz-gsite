@@ -70,6 +70,7 @@ export default function Hero() {
           <figure className="hero__photo hero__photo--main">
             <img
               src={publicAsset("img/sergi.jpg")}
+              className="grade-warm"
               alt="Karakaya kıyısındaki teraslarda bezler üzerinde kuruyan kayısı sergileri"
               width={1600}
               height={1000}
@@ -85,6 +86,7 @@ export default function Hero() {
           <figure className="hero__photo hero__photo--hands">
             <img
               src={publicAsset("img/patik.jpg")}
+              className="grade-warm"
               alt="Tepsideki yarı kuru kayısıların çekirdeklerini elle çıkaran üretici elleri"
               width={1200}
               height={800}

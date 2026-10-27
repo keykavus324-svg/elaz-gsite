@@ -71,6 +71,9 @@ section[id] {
     z-index: 34;
     display: block;
     width: 148px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     transform: translateY(-50%);
     padding: 14px 10px 12px;
     color: var(--ledger-ink);
@@ -266,7 +269,9 @@ section[id] {
   font-weight: 850;
   line-height: 1.1;
   text-decoration: none;
-  counter-increment: mainnav;
+  /* Folio rakamı bölüm dizininden gelir (src/chapters.ts); menü sırası
+     değişse de rakamlar kaymaz. */
+  counter-reset: mainnav var(--navNo, 1);
 }
 
 .site-header__nav a::before {
@@ -333,6 +338,14 @@ section[id] {
     font-size: 0.78rem;
   }
 
+}
+
+/* Dar üst menüde ikincil bölümler gizlenir; sayılar bölüm dizininden
+   geldiği için gizlenen bölümün rakamı kaymaz. */
+@media (max-width: 1399px) {
+  .site-header__nav a.is-optional {
+    display: none;
+  }
 }
 
 @media (max-width: 1080px) {

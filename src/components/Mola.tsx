@@ -154,7 +154,7 @@ function RadioPlayer() {
 
   return (
     <div className="radio">
-      <img src={publicAsset("img/mola.jpg")} alt="Ahşap radyolu masada çay bardağı ve kuru kayısı kasesi, arkada kilim asılı duvar" width={1200} height={800} loading="lazy" className="radio__img" />
+      <img src={publicAsset("img/mola.jpg")} alt="Ahşap radyolu masada çay bardağı ve kuru kayısı kasesi, arkada kilim asılı duvar" width={1200} height={800} loading="lazy" className="radio__img grade-warm" />
       <div className="radio__body">
         <p className="radio__live">
           <span className={`radio__dot${status === "playing" ? " is-on" : ""}`} aria-hidden="true" />

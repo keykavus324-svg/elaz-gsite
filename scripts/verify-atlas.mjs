@@ -139,6 +139,7 @@ async function verifyAtlasIntegration() {
   const app = await readProjectFile("src/App.tsx");
   const header = await readProjectFile("src/components/Header.tsx");
   const footer = await readProjectFile("src/components/Footer.tsx");
+  const chapters = await readProjectFile("src/chapters.ts");
 
   const checks = [
     [atlas.includes("LOT_LEDGER"), "Atlas lot defterini kullanıyor"],
@@ -157,7 +158,11 @@ async function verifyAtlasIntegration() {
       "Atlas paketi önden ısıtılabiliyor (idle prefetch)",
     ],
     [app.includes("<Atlas />"), "Atlas ana akışa bağlı"],
-    [header.includes('href: "#atlas"'), "Üst menü Atlas bağlantısı içeriyor"],
+    [
+      header.includes('href: "#atlas"') ||
+        (header.includes("NAV_CHAPTERS") && chapters.includes('id: "atlas"')),
+      "Üst menü Atlas bağlantısı içeriyor",
+    ],
     [footer.includes('href="#atlas"'), "Alt bilgi Atlas bağlantısı içeriyor"],
   ];
 
