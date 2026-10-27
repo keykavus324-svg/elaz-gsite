@@ -20,7 +20,13 @@
 > gramajı gerekçesiyle öneriyor — çaya yumuşak gün kurusu, hoşafa dağılmayan islimli,
 > hediyeye üç lotlu kutu gibi. Pasaportun önizlemesini de sepete atmadan gösteriyoruz."
 >
-> **[60–82 sn — dürüstlük ve akış]**
+> **[60–74 sn — oyun masası]**
+> "Sitede bir de oyun masası var; altı oyun, ama hiçbiri boş yere değil — hepsi
+> sitedeki gerçek kayıtlarla çalışıyor. Mesela bu düelloda sizin bize gün kurusu
+> mu islimli mi dediğiniz cevaplanıyor. Ya da şu pusula: 204 lotluk defterden bir
+> lotu bulmanız gerekiyor. Kısacası oyun da bir vitrin."
+>
+> **[74–86 sn — dürüstlük ve akış]**
 > "Üç şeyi özellikle yaptık. Bir: tescil konusunda dürüstüz — Baskil bugün Malatya
 > işaretinin sınırında anılıyor, biz rozet satmıyoruz, izlenebilirlik satıyoruz;
 > sitede bu açıkça yazıyor. İki: akış uçtan uca çalışıyor — öneri, sepet, ücretsiz
@@ -29,11 +35,11 @@
 > bir yapay zekâ atölyesinden çıktı — kod, görsel, kayıtlar. Nasıl kurulduğunu
 > saklamadık; üretim defteri sayfada açık."
 >
-> **[82–90 sn — kapanış]**
+> **[86–90 sn — kapanış]**
 > "Özetle Patik; Baskil kayısının kendi adıyla, kaydı kitabıyla sofraya gelme hâli.
 > Teşekkürler — şimdi isterseniz 30 saniyede kendi lotunuzu kuralım."
 
-## B) Canlı demoda 6 adım (tıklama sırasıyla)
+## B) Canlı demoda 7 adım (tıklama sırasıyla)
 
 1. **Vitrinde dur (8 sn):** "Kayısı kurur. Kaydı kalır." Beş duraklı yolu ve **PT-26-047**
    lot biletini göster; mesajı kur: satılan şey yalnız kayısı değil, kayısının izlenebilir kaydı.
@@ -47,11 +53,17 @@
    sonra hızlıca doldur ve onayla.
 5. **Başarı ekranındaki lot koduna tıkla (15 sn):** Pasaport sayfada açılsın; "İşte hediye
    ettiğiniz kişi tam bunu görecek." Bir de hatalı kod yazıp dostça hata mesajını göster.
-6. **Dürüstlük turu (20 sn):** Üretici bölümünde "temsilî profil" etiketini ve SSS'deki
+6. **Oyun Masası (14 sn):** Koyu "gece sergisi" bölümüne geç. *İslim mi Gün mü* düellosunda
+   bir jüri üyesini 16 saniye oynat (←/→ tuşları). Sonra **Lot Pusulası**'nda bir ipucu
+   kartını göster: "Bu 204 lot kaydının hepsi sitede." Cümle: "Oyunlar süs değil; sitedeki
+   veriyle çalışıyorlar."
+7. **Dürüstlük turu (16 sn):** Üretici bölümünde "temsilî profil" etiketini ve SSS'deki
    "Patik gerçek işletme mi?" ile "tescil" cevaplarını göster. Kapatırken sloganı söyle:
    **"Bahçeden kutuna, lotuyla."**
 
-**Zaman kalırsa (bonus 45 sn):** Önce **Yapay Zekâ Defteri**'ni aç: cümle kutusuna "çayın yanına
+**Zaman kalırsa (bonus 45 sn):** Önce alt bilgideki **Jüri Özeti** düğmesine bas: açılan tek
+sayfayı jüriye göster ("sizin için bastım, PDF olarak da alabilirsiniz"), kapat. Sonra
+**Yapay Zekâ Defteri**'ni aç: cümle kutusuna "çayın yanına
 koyacağım, koyu olsun" yazıp **Eşleştir**'e bas — gerekçeli lot önerisi, anlaşılan boyutlar ve lot
 kodu gelecek; "Bu lotu sepete ekle"ye bas. Sağdaki **Üretim kaydı**nı göster: "Bu site bir yapay zekâ
 atölyesinden çıktı, nasıl kurulduğunu saklamadık." Sonra Gün/İslim kaydırıcısını oynatın; Patik
@@ -66,7 +78,7 @@ siteye yönlendirir (bunu "hata hâlinde bile dürüst geri bildirim" diye anlat
 **Yedek plan:** İnternet giderse site yerelden çalışmaya devam eder (görseller yereldir,
 yazı tipleri yedeğe düşer). Akışın tamamı çevrimdışı da işler; radyo hariç (o zaten canlı yayın).
 
-## C) Muhtemel 6 jüri sorusu — dürüst cevaplar
+## C) Muhtemel 7 jüri sorusu — dürüst cevaplar
 
 **1) "Neden tescilli orcik veya Ağın leblebisi değil de Baskil kayısısı?"**
 Üç konsepti de değerlendirdik. Orcik ve Ağın leblebisinin tescili var; ancak görsel
@@ -87,27 +99,36 @@ gerekçeli öneri → aynı lotun pasaportu → sipariş sonunda kutuya işlenec
 kodun sorgulanabilir olması. Yani öneri, izlenebilirlik hikâyesinin girişi; hepsi
 çalışan tek akış. 60 saniyenin altında baştan sona gösterilebiliyor.
 
-**4) "Gerçek hayatta bu işler mi? Üretici lot tutabilir mi?"**
+**4) "Oyunlar sadece eğlence mi, bir anlamları var mı?"**
+Her oyun sitedeki gerçek bir veri katmanını çalıştırıyor: *Patik Yolu* üretim akışını
+(`PROCESS`), *Lot Pusulası* 204 lotluk defteri, *Patik Ligi* 144 soruluk bilgi bankasını,
+düello ise karşılaştırma bölümünün gerçek iddialarını. Amaç oyunu koymak değil, ziyaretçiye
+"bu defteri okumayı öğretmek"ti. Aynı şekilde hepsi temsilî veriyle çalışıyor ve
+sunucuya hiçbir şey gitmiyor.
+
+**5) "Gerçek hayatta bu işler mi? Üretici lot tutabilir mi?"**
 Bugünkü hâli konsept kanıtı. Lot tutmak üretici tarafında "bahçe + kurutma partisi"
 kadar basit tutulabilir; kod, kutuya baskı bir etikettir. Ölçeklenince asıl iş,
 kayıtların doğrulanması ve lojistik — onu da saklamıyoruz. Ama konsept, aracısız
 satışta güveni rozetten ziyade kayıtla kurmanın mümkün olduğunu gösteriyor.
 
-**5) "Teknik olarak ne kullandınız, neden bu kadar sade?"**
+**6) "Teknik olarak ne kullandınız, neden bu kadar sade?"**
 React + Vite + TypeScript, tek sayfa, neredeyse sıfır bağımlılık; backend yok çünkü
 demo için gerekmiyor. Sepet tarayıcınızda saklanır, form verisi gönderilmez —
 kişisel veri toplamayan güvenli bir demo istedik. Replit'te tek "Run" ile açılır;
 üretim derlemesi ve tip kontrolü hatasız. Görseller AI ile üretildi, gerçek fotoğraf
 diye sunulmadı.
 
-**6) "Yapay zekâyı nerede kullandınız — sitede gerçekten yapay zekâ var mı?"**
+**7) "Yapay zekâyı nerede kullandınız — sitede gerçekten yapay zekâ var mı?"**
 İki yeri ayırıyoruz. **Üretimde** kullandık: kod, metin, görsel ve kayıt verisi yapay zekâ
 destekli araçlarla üretildi, insan eliyle düzeltildi; bunun beş adımlı kaydı sitede açık
 ("Yapay Zekâ Defteri"). **Çalışma zamanında bilerek çağırmıyoruz:** "Cümleni anlat"
 eşleştiricisi tarayıcıda, kural tabanlı ve çevrimdışı çalışıyor; bunu bir dil modeli
 diye sunmuyoruz. Gerekçe: etkinlik salonunun interneti bize ait değil — üçüncü taraf
 bir API'ye bağımlı bir demo, bağlantı kesildiği anda çöker. Karşılığında site toplamı
-1.800 temsilî kaydı sorunsuz taşıyor ve hiçbir veri dışarı çıkmıyor.
+1.800 temsilî kaydı sorunsuz taşıyor ve hiçbir veri dışarı çıkmıyor. Oyun Masası'ndaki
+ağır veri paketleri (lot defteri, soru bankası) yalnızca oynanırken ayrı paketten
+yükleniyor; ilk açılışta ana paket şişmiyor.
 
 ## D) Takım içi iş dağılımı önerisi (4 kişi, etkinlik günü)
 
@@ -116,8 +137,9 @@ bir API'ye bağımlı bir demo, bağlantı kesildiği anda çöker. Karşılığ
 - **Tasarım/Ux:** 360 px telefondan baştan sona akış testi, tıklanabilir alan kontrolü.
 - **Teknik:** Replit'te projeyi açıp `Run` doğrulama, yedek ekran görüntüleri.
 
-**Prova Modu:** Demo sürücüsü siteyi `?prova=1` ile açsın. Konsol yedi adımı,
-konuşma notlarını ve 105 saniye sayacını gösterir (8. adım bonus: Yapay Zekâ Defteri);
+**Prova Modu:** Demo sürücüsü siteyi `?prova=1` ile açsın. Konsol dokuz adımı,
+konuşma notlarını ve 105 saniye sayacını gösterir (7. adım Oyun Masası, 9. adım bonus:
+Yapay Zekâ Defteri);
 ←/→ ile ilerlenir. Sahnede
 ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçültün.
 
@@ -132,5 +154,8 @@ ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçül
 - [ ] Lot sorgula: PT-26-047 açılıyor; hatalı kod uyarı veriyor
 - [ ] Atlas açılıyor; bir lot filtresi, bir sözlük araması ve bir soru çalışıyor
 - [ ] Evren açılıyor; bir parsel seçimi, günlük kontrol listesi, kutu simülasyonu, hediye sepete ekleme ve bir ders tamamlama çalışıyor (`npm run verify` temiz)
+- [ ] Oyun Masası açılıyor: düello başlıyor (←/→ çalışıyor), Patik Yolu 6 kart, Lot Pusulası ipuçları geliyor, Patik Ligi soru soruyor
+- [ ] Jüri Özeti düğmesi tek sayfayı açıyor; "Yazdır / PDF kaydet" çalışıyor
+- [ ] Ses düğmesi "Ses açık / kapalı" olarak çevrilebiliyor
 - [ ] Telefonda (ya da dar pencerede) yatay taşma yok, menü çalışıyor
 - [ ] Tüm görseller yükleniyor (özellikle sergi bandı)

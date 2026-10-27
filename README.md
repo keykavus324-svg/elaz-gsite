@@ -22,6 +22,10 @@ kayısının çekirdeğini elle çıkarma mesaisinin adı) bunu iki imzayla çö
 2. **Lot Pasaportu** — her kutunun bahçesi, hasat haftası ve kurutma geçmişi kutudaki
    kodla (örn. `PT-26-047`) siteden sorgulanabilir.
 
+Bunların yanına iki farklı imza daha eklendi: **Yapay Zekâ Defteri** (serbest cümleden
+gerekçeli lot önerisi, tamamen tarayıcıda) ve **Oyun Masası** (altı oyun; hepsi sitedeki
+gerçek veriyle çalışır).
+
 ## Çalıştırma
 
 ### Yerelde
@@ -63,11 +67,15 @@ public/img/           Yapay zekâ ile üretilmiş, optimize edilmiş temsilî g�
 public/favicon.svg    El çizimi SVG kayısı amblemi
 src/data.ts           Ürün, lot, süreç verileri + öneri motoru (tüm demo içeriği burada)
 src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları
+src/chapters.ts        Bölüm dizinin TEK kaynağı: numaralar, ray etiketleri, üst menü
+src/team.ts            Takım bilgisi (ITS NEXOR4) — alt bilgi ve jüri özeti aynı yerden
+src/sfx.ts             Web-Audio mini efektler (dosyasız; ses aç/kapa düğmesiyle)
 src/components/       Header, Hero, FieldDesk (Saha Defteri), ChapterRail, Compare, Process, Producer,
-                      Mola (radyo/oyun), Atlas, Universe,
+                      Mola (radyo/oyun), OyunMasasi (Oyun Masası) + oyun/ altında
+                      LotPusulasi ve PatikLigi (ayrı paketler), Atlas, Universe,
                       universe/ altında Operasyon, 365 Gün, Kalite, Kutu Hattı, Hediye ve Okul panelleri
                       LotBuilder (imza), YzDefteri (YZ Defteri), Products, Mutfak, LotLookup, LotPassport,
-                      Faq, CartDrawer, Footer, Prova (gizli sunum konsolu)
+                      Faq, CartDrawer, Footer, JuriOzeti (yazdırılabilir tek sayfa), Prova (gizli sunum konsolu)
 src/content/          Atlas çekirdeği: 204 lot + 52 hafta + 155 kavram + 96 tarif +
                       160 bilgi kartı + 144 soru = 811 temsilî kayıt
                       Evren katmanı: 365 gün + 48 parsel + 192 kalite + 144 kutu +
@@ -77,6 +85,11 @@ src/universe.css      Evren panellerinin ayrı yüklenen panoları, takvimleri v
 src/yz.css            Yapay Zekâ Defteri paneli, eşleştirici kartı ve üretim kaydı stilleri
 src/styles.css        Temel tasarım sistemi (sergi kremi / amber / çekirdek kahvesi), mobil önce
 src/redesign.css      Hasat Defteri vitrini, Saha Defteri, bölüm rayı ve yeni sayfa ritmi
+src/editorial.css     Editoryal katman: kâğıt greni, folio rakamları, saç teli çizgiler,
+                      el yazısı notu, koyu "gece sergisi" paleti, hero paralaksı
+src/oyun.css          Oyun Masası: koyu lüks sahne, HUD, düello/yol/pusula/ligi stilleri
+src/juri.css          Jüri Özeti tek sayfası + yazdırma (A4) düzeni
+src/img/grain.png     128×128 kâğıt greni karosu (SVG feTurbulence yerine PNG: çok daha hızlı)
 scripts/              Atlas veri üreticisi, kaynak listeleri ve bütünlük doğrulaması
 KAYNAKLAR.md          Kaynakça, görsel ve lisans notları, temsilî içerik listesi
 DEMO-SENARYO.md       Etkinlik günü koşu planı: roller, saatler, riskler, jüri masası kiti
@@ -94,8 +107,19 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 - 6 adımlık etkileşimli üretim süreci, kayan yöresel sözlük şeridi, görünüm animasyonları
 - **Çay Molası:** canlı radyo çaları (TRT Türkü HLS, Radyo FM 23 Elazığ; Radyo Fırat resmî
   site bağlantısı) ve iki mini oyun — *Patik Ustası* (30 sn refleks, rekor saklanır)
-  ve *Baskil Bilgisi* (5 soruluk bilgi yarışması); radyoda hata durumunda anlaşılır
-  yedek yolu gösterilir, sitenin geri kalanı internetsiz çalışmayı sürdürür
+  ve *Baskil Bilgisi* (10 soruluk, soru başına 15 saniyelik bilgi yarışması); radyoda hata
+  durumunda anlaşılır yedek yolu gösterilir, sitenin geri kalanı internetsiz çalışmayı sürdürür
+- **Oyun Masası (koyu “gece sergisi” bölümü):** dört oyun, hepsi sitedeki gerçek veriyle çalışır —
+  *İslim mi Gün mü* (16 sn hızlı düello, ←/→ tuşları), *Patik Yolu* (altı üretim durağını
+  `PROCESS` verisinden sıralama), *Lot Pusulası* (204 lot kaydından ipuçlarıyla bulma) ve
+  *Patik Ligi* (60 sn, 144 soruluk bankadan bilgi blitzi + `localStorage` skor tablosu).
+  Ağır oyunlar (lot defteri, soru bankası) yalnızca oynanırken ayrı paketten yüklenir
+- **Kâğıt greni + editoryal ritim:** sayfa boyunca basılı mürekkep dokusu, bölüm başlıklarında
+  folio rakamları (01–14, `src/chapters.ts` diziniyle eşleşir), saç teli çizgiler, el yazısı notlar
+- **Hero sorgu damgası:** biletteki “Kaydı sorgula” düğmesi `SORGULANDI` mührünü basar
+- **Hero dev serif:** fotoğrafın üstünden geçen “BASKIL” kelimesi (koyu mürekkep, hafif eğim) —
+  sayfanın ilk karesinde editoryal vitrin imzası
+- **Jüri Özeti:** alt bilgideki düğme tek sayfalık, yazdırılabilir/PDF olarak kaydedilebilir özet açar
 - Mobilde kaydırdıkça beliren "Lotunu Kur" yüzer eylem düğmesi
 - Lotunu Kur: 3 soru → gerekçeli ürün/gramaj önerisi → çekirdek ekleme → sepete
 - **Yapay Zekâ Defteri:** serbest cümleyi okuyup tarayıcıda, kural tabanlı ve çevrimdışı çalışan bir
@@ -113,9 +137,9 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 - Lot sorgulama: büyük/küçük harf ve boşluk toleranslı, hatalı kodda anlaşılır uyarı
 - Sepet: adet artır/azalt/kaldır, ücretsiz kargo barı (750 ₺), kalıcı sepet (localStorage)
 - Demo sipariş formu: Türkçe doğrulama ve hata mesajları → sipariş özeti + lot kodları
-- **Prova Modu (ekip içi):** adrese `?prova=1` eklenince 8 adımlı konuşmacı
-  konsolu (son adım bonus: Yapay Zekâ Defteri), 105 saniye sayacı, klavye adımları (←/→) ve P ile
-  küçültme açılır; normal ziyaretçi adresinde görünmez
+- **Prova Modu (ekip içi):** adrese `?prova=1` eklenince 9 adımlı konuşmacı
+  konsolu (7. adım Oyun Masası, son adım bonus: Yapay Zekâ Defteri), 105 saniye sayacı,
+  klavye adımları (←/→) ve P ile küçültme açılır; normal ziyaretçi adresinde görünmez
 - **Bağlantı dayanıklılığı:** Atlas/Evren/Saha Defteri paketleri sayfa boşta kaldığında önden
   indirilir; bir paket alınamazsa `SectionBoundary` o bölümü "yüklenemedi" mesajıyla kapatır —
   sayfa hiçbir koşulda tamamen boş kalmaz ve kanonik akış sürer
@@ -136,10 +160,15 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
   Baskil kayısının coğrafi işaret durumu sitede dürüstçe anlatılır (bkz. SSS).
 - Görseller yapay zekâ ile üretilmiştir; gerçek üretici veya tesis fotoğrafı olarak
   sunulmaz (alt yazılarda belirtilir). Ayrıntı: `KAYNAKLAR.md`.
+- Oyun Masası'ndaki veriler de temsilîdir: 204 lotluk defter, 144 soruluk banka ve
+  `PROCESS` akışı sitenin kendi demo içeriğidir; hiçbiri gerçek operasyon kaydı değildir.
 
 ## Erişilebilirlik
 
 Anlamsal HTML, görünür odak halkası, klavye ile kullanılabilir tüm kontroller,
 etiketli form alanları, `aria-live` geri bildirimleri, görsellerde alternatif metin,
-yeterli kontrast ve `prefers-reduced-motion` desteği. 320 px–1920 px arası tüm genişliklerde
-yatay taşma yoktur (`overflow-x: clip` ile taşma görsel olarak korunur ama kaydırılamaz).
+yeterli kontrast ve `prefers-reduced-motion` desteği (grain, paralaks ve oyun
+animasyonları bu tercihe göre kapanır). 320 px–1920 px arası tüm genişliklerde
+yatay kaydırma yoktur (`overflow-x: clip` ile taşma görsel olarak korunur ama kaydırılamaz).
+Oyunlar klavyeyle de oynanır (düelloda ←/→), ses efektleri kapatılabilir ve düğme
+durumu `aria-pressed` ile bildirilir.

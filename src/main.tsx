@@ -4,6 +4,9 @@ import App from "./App";
 import { CartProvider } from "./cart";
 import "./styles.css";
 import "./redesign.css";
+import "./editorial.css";
+import "./oyun.css";
+import "./juri.css";
 
 createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

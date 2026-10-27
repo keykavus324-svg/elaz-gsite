@@ -1,13 +1,6 @@
 import { LogoMark } from "./Header";
-
-/* Etkinlik günü öncesi tek yerden güncellenebilsin diye takım bilgisi ayrı tutuldu. */
-const TEAM = {
-  name: "ITS NEXOR4",
-  captain: "Fatma Türkmen",
-  members: ["Fatma Türkmen", "Nazlı Karaağaç", "Meryem Melek Şimşek", "Emine Zehra Duyar"],
-  repo: "https://github.com/keykavus324-svg/elaz-gsite",
-  live: "https://keykavus324-svg.github.io/elaz-gsite/",
-};
+import { TEAM } from "../team";
+import JuriOzeti from "./JuriOzeti";
 
 export default function Footer() {
   return (
@@ -72,6 +65,7 @@ export default function Footer() {
       <p className="site-footer__bottom">
         © 2026 Patik (kurgusal marka konsepti) · GakCoding — Elazığ · Kilimden koda, Baskil'den sofrana.
         <span className="site-footer__team-name">Takım {TEAM.name}</span>
+        <JuriOzeti />
       </p>
     </footer>
   );

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { publicAsset } from "../assets";
+import { sfx } from "../sfx";
 
 /* ================================================================== */
 /*  ÇAY MOLASI — Elazığ radyosu + iki mini oyun                       */
@@ -154,7 +155,7 @@ function RadioPlayer() {
 
   return (
     <div className="radio">
-      <img src={publicAsset("img/mola.jpg")} alt="Ahşap radyolu masada çay bardağı ve kuru kayısı kasesi, arkada kilim asılı duvar" width={1200} height={800} loading="lazy" className="radio__img" />
+      <img src={publicAsset("img/mola.jpg")} alt="Ahşap radyolu masada çay bardağı ve kuru kayısı kasesi, arkada kilim asılı duvar" width={1200} height={800} loading="lazy" className="radio__img grade-warm" />
       <div className="radio__body">
         <p className="radio__live">
           <span className={`radio__dot${status === "playing" ? " is-on" : ""}`} aria-hidden="true" />
@@ -252,6 +253,7 @@ function PatikUstasi() {
     try { return Number(localStorage.getItem("patik-usta-best") ?? 0) || 0; } catch { return 0; }
   });
   const [lastHit, setLastHit] = useState<string>("");
+  const [shake, setShake] = useState(false);
 
   const spawnTimer = useRef<number | undefined>(undefined);
   const tickTimer = useRef<number | undefined>(undefined);
@@ -323,6 +325,13 @@ function PatikUstasi() {
     streakRef.current = delta > 0 ? newStreak : 0;
     setStreak(streakRef.current);
     setLastHit(kind === "ham" ? "Ham kayısı! −15 (onu dalında bırak)" : kind === "jumbo" ? "Jumbo! +25" : "+10");
+    if (kind === "ham") {
+      setShake(true);
+      window.setTimeout(() => setShake(false), 420);
+      sfx("bad");
+    } else {
+      sfx(kind === "jumbo" ? "stamp" : "good");
+    }
     spawn();
   }
 
@@ -338,7 +347,7 @@ function PatikUstasi() {
       </div>
       <div className="game__timebar" aria-hidden="true"><span style={{ width: `${(timeLeft / 30) * 100}%` }} /></div>
 
-      <div className="game__grid" role="group" aria-label="Kayısı tepsileri">
+      <div className={`game__grid${shake ? " is-shake" : ""}`} role="group" aria-label="Kayısı tepsileri">
         {Array.from({ length: 9 }, (_, i) => (
           <button
             key={i}
@@ -408,6 +417,36 @@ const QUIZ = [
     correct: 1,
     why: "Biz rozet iddiası satmıyoruz; bahçeyi ve hasadı gösteren lot pasaportunu sunuyoruz.",
   },
+  {
+    q: "Lot pasaportu bir kutuda neleri gösterir?",
+    options: ["Yalnızca fiyatı", "Bahçe, hasat haftası ve kurutma yolunu", "Kargo takip numarasını"],
+    correct: 1,
+    why: "Her lotun kodu, bahçesi, hasat haftası ve izlenen yolu vardır; bu yüzden 'hangi bahçe?' sorusu cevaplanabilir.",
+  },
+  {
+    q: "Sergide ilk kuruma yaklaşık ne kadar sürer?",
+    options: ["İki gün", "İki hafta", "İki saat"],
+    correct: 0,
+    why: "Baskil'in güneşi kayısının suyunu iki günde alır; ardından çir kuraması gelir.",
+  },
+  {
+    q: "Lot kodu 'PT-26-047' neyi gösterir?",
+    options: ["Ürünün fiyatını", "Patik'in lot kayıt numarasını", "Kargo takip kodunu"],
+    correct: 1,
+    why: "Kod, defterdeki tek satırı gösterir: 2026 sezonunun 47 numaralı temsilî lot kaydı.",
+  },
+  {
+    q: "Patik hangi yörenin kayısısı üzerine kuruldu?",
+    options: ["Malatya", "Elazığ'ın Baskil ilçesi", "Erzurum"],
+    correct: 1,
+    why: "Baskil, Elazığ'ın ilçesidir; kayısının kalbi buradadır.",
+  },
+  {
+    q: "Gün kurusu en çok hangi kullanım için önerilir?",
+    options: ["Hediye kutusunda rengi korumak için", "Çayın yanına yoğun tat için", "Fırında kullanmak için"],
+    correct: 1,
+    why: "İslimli renk ve sunum için; gün kurusu ise yoğun tat ve yumuşak doku için önerilir.",
+  },
 ];
 
 function BilgiYarismasi() {
@@ -415,12 +454,38 @@ function BilgiYarismasi() {
   const [picked, setPicked] = useState<number | null>(null);
   const [dogru, setDogru] = useState(0);
   const [bitti, setBitti] = useState(false);
+  const [kalan, setKalan] = useState(15);
   const q = QUIZ[i];
+  const sureBitti = picked === -1;
+
+  /* Soru başına 15 saniye: süre bitince cevap verilmemiş sayılır. */
+  useEffect(() => {
+    if (bitti || picked !== null) return;
+    setKalan(15);
+    const bas = Date.now();
+    const t = window.setInterval(() => {
+      const left = 15 - (Date.now() - bas) / 1000;
+      if (left <= 0) {
+        window.clearInterval(t);
+        setKalan(0);
+        setPicked(-1);
+        sfx("bad");
+      } else {
+        setKalan(left);
+      }
+    }, 100);
+    return () => window.clearInterval(t);
+  }, [i, bitti, picked]);
 
   function sec(idx: number) {
     if (picked !== null) return;
     setPicked(idx);
-    if (idx === q.correct) setDogru((d) => d + 1);
+    if (idx === q.correct) {
+      setDogru((d) => d + 1);
+      sfx("good");
+    } else {
+      sfx("bad");
+    }
   }
 
   function sonraki() {
@@ -428,14 +493,14 @@ function BilgiYarismasi() {
     else { setI(i + 1); setPicked(null); }
   }
 
-  function basaDon() { setI(0); setPicked(null); setDogru(0); setBitti(false); }
+  function basaDon() { setI(0); setPicked(null); setDogru(0); setBitti(false); setKalan(15); }
 
   if (bitti) {
-    const unvan = dogru === 5 ? "Baskil Bilgesi" : dogru >= 4 ? "Sergi Gönüllüsü" : dogru >= 3 ? "Kayısı Meraklısı" : "Taze Gakko";
+    const unvan = dogru >= 9 ? "Baskil Bilgesi" : dogru >= 7 ? "Sergi Gönüllüsü" : dogru >= 5 ? "Kayısı Meraklısı" : "Taze Gakko";
     return (
       <div className="quizgame" aria-live="polite">
         <p className="game__result">{QUIZ.length} soruda <strong>{dogru}</strong> doğru — Unvanın: <strong>{unvan}</strong></p>
-        <p>{dogru === 5 ? "Beşte beş! Lot pasaportunu kaptın demektir." : "Cevapların hepsi sitede yazıyor; süreci ve karşılaştırmayı gezince tam puan cepte."}</p>
+        <p>{dogru >= 8 ? "Neredeyse tam! Lot pasaportunu kaptın demektir." : "Cevapların hepsi sitede yazıyor; süreci ve karşılaştırmayı gezince tam puan cepte."}</p>
         <div className="game__actions">
           <button type="button" className="btn btn--primary" onClick={basaDon}>Baştan oyna</button>
           <a href="#lotunu-kur" className="btn btn--ghost">Şimdi gerçek lotunu kur →</a>
@@ -447,7 +512,11 @@ function BilgiYarismasi() {
   return (
     <div className="quizgame">
       <p className="quizgame__progress">Soru {i + 1} / {QUIZ.length} · Doğru: {dogru}</p>
+      <div className="game__timebar quizgame__timebar" aria-hidden="true">
+        <span style={{ width: `${Math.max(0, (kalan / 15) * 100)}%` }} />
+      </div>
       <h3 className="quizgame__q">{q.q}</h3>
+      {sureBitti && <p className="quizgame__timeout">Süre doldu — doğru cevap aşağıda.</p>}
       <div className="quizgame__options">
         {q.options.map((o, idx) => {
           const cls = picked === null ? "" : idx === q.correct ? " is-correct" : idx === picked ? " is-wrong" : "";
@@ -484,7 +553,8 @@ export default function Mola() {
         <h2 id="mola-baslik">Radyoyu aç, tepsinin başına geç</h2>
         <p className="section__lede">
           Baskil'de patik mesaisi radyosuz olmaz. Aşağıda gerçek istasyonların canlı yayınları
-          ve 30 saniyelik iki küçük oyun var. Önce türküyü aç, sonra ustalaş.
+          ve iki küçük oyun var; kalan dört oyun <a href="#oyun-masasi">Oyun Masası</a>'nda.
+          Önce türküyü aç, sonra ustalaş.
         </p>
       </div>
 
@@ -502,10 +572,14 @@ export default function Mola() {
               Patik Ustası <span>30 sn refleks</span>
             </button>
             <button type="button" aria-pressed={tab === "bilgi"} className={`mola__tab${tab === "bilgi" ? " is-active" : ""}`} onClick={() => setTab("bilgi")}>
-              Baskil Bilgisi <span>5 soru</span>
+              Baskil Bilgisi <span>10 soru · 15 sn</span>
             </button>
           </div>
           {tab === "usta" ? <PatikUstasi /> : <BilgiYarismasi />}
+          <p className="mola__more-games">
+            Dört oyun daha var: <a href="#oyun-masasi">Oyun Masası</a> — düello, altı durak,
+            lot pusulası ve skor tablosu.
+          </p>
         </div>
       </div>
     </section>

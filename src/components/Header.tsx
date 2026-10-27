@@ -1,18 +1,9 @@
 import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 import { useCart } from "../cart";
+import { NAV_CHAPTERS } from "../chapters";
 
-const NAV = [
-  { href: "#saha", label: "Saha" },
-  { href: "#surec", label: "Süreç" },
-  { href: "#lotunu-kur", label: "Lotunu Kur" },
-  { href: "#yz-defteri", label: "Yapay Zekâ" },
-  { href: "#urunler", label: "Kutular" },
-  { href: "#mutfak", label: "Mutfak" },
-  { href: "#mola", label: "Mola" },
-  { href: "#atlas", label: "Atlas" },
-  { href: "#evren", label: "Evren" },
-  { href: "#lot-sorgula", label: "Pasaport" },
-];
+const NAV = NAV_CHAPTERS;
 
 export function LogoMark({ size = 34 }: { size?: number }) {
   return (
@@ -70,7 +61,15 @@ export default function Header() {
 
         <nav className="site-header__nav" aria-label="Ana menü">
           {NAV.map((item) => (
-            <a key={item.href} href={item.href}>{item.label}</a>
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              data-no={item.no}
+              className={item.optional ? "is-optional" : undefined}
+              style={{ "--navNo": Number(item.no) } as CSSProperties}
+            >
+              {item.nav}
+            </a>
           ))}
         </nav>
 
@@ -102,13 +101,12 @@ export default function Header() {
 
       {menuOpen && (
         <nav id="mobil-menu" className="site-header__mobile-nav" aria-label="Mobil menü">
-          {NAV.map((item, index) => (
-            <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              {item.label}
+          {NAV.map((item) => (
+            <a key={item.id} href={`#${item.id}`} onClick={() => setMenuOpen(false)}>
+              <span>{item.no}</span>
+              {item.nav}
             </a>
           ))}
-          <a href="#uretici" onClick={() => setMenuOpen(false)}>Üretici</a>
           <a href="#sss" onClick={() => setMenuOpen(false)}>Sorular</a>
         </nav>
       )}

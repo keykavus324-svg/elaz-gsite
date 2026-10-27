@@ -96,6 +96,20 @@ const FAQS: Array<{ q: string; a: React.ReactNode }> = [
       </>
     ),
   },
+  {
+    q: "Oyunlardaki veriler gerçek mi, oyunlar sadece eğlence mi?",
+    a: (
+      <>
+        Oyunlar süs değil, bir okuma biçimi: her biri sitedeki gerçek kayıt katmanını
+        çalıştırıyor. <a href="#oyun-masasi">Patik Yolu</a> üretim akışını,{" "}
+        <a href="#oyun-masasi">Lot Pusulası</a> 204 satırlık lot defterini,{" "}
+        <a href="#oyun-masasi">Patik Ligi</a> 144 soruluk bilgi bankasını kullanıyor. Yani oyun
+        oynarken sitedeki veriyi okumuş oluyorsunuz. Yine de bu veriler{" "}
+        <strong>temsilîdir</strong>: gerçek bahçe, üretici veya operasyon kaydı değildir.
+        Skor tablosu yalnızca kendi tarayıcınızda saklanır, hiçbir yere gönderilmez.
+      </>
+    ),
+  },
 ];
 
 export default function Faq() {
