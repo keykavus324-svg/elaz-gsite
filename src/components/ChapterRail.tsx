@@ -95,14 +95,31 @@ export default function ChapterRail() {
         </p>
       </nav>
 
-      <div className="player" aria-hidden="true">
-        <span className="player__line" style={{ transform: `scaleX(${progress})` }} />
-        <span className="player__glyph">▶</span>
-        <span className="player__tc">
+      <div className="player">
+        <button
+          type="button"
+          className="player__scrub"
+          aria-label="Sayfadaki konuma atla"
+          onClick={(event) => {
+            const rect = event.currentTarget.getBoundingClientRect();
+            const ratio = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
+            const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+            window.scrollTo({ top: Math.round(max * ratio), behavior: "smooth" });
+          }}
+        />
+        <span className="player__line" style={{ transform: `scaleX(${progress})` }} aria-hidden="true" />
+        <span className="player__glyph" aria-hidden="true">
+          ▶
+        </span>
+        <span className="player__tc" aria-hidden="true">
           {timecode} <i>/ {totalCode}</i>
         </span>
-        <span className="player__chapter">{activeChapter.label}</span>
-        <span className="player__brand">PATİK · BASKİL 2026</span>
+        <a className="player__chapter" href={`#${activeChapter.id}`}>
+          {activeChapter.label}
+        </a>
+        <span className="player__brand" aria-hidden="true">
+          PATİK · BASKİL 2026
+        </span>
       </div>
     </>
   );
