@@ -15,6 +15,10 @@ export default function Footer() {
             </span>
           </span>
           <p className="site-footer__motto">Bahçeden kutuna, lotuyla.</p>
+          <p className="patiksig" aria-hidden="true">
+            Patik
+            <small>Baskil · 2026 hasadı</small>
+          </p>
           <p>
             Patik, Baskil kayısının kendi adıyla ve izlenebilir kurutma kaydıyla tüketiciye
             ulaşabileceğini gösteren bir GakCoding konseptidir.

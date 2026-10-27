@@ -7,6 +7,7 @@ import "./redesign.css";
 import "./editorial.css";
 import "./oyun.css";
 import "./juri.css";
+import "./pin.css";
 
 createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

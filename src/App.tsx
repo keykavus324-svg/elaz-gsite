@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
+import Bant from "./components/Bant";
 import Hero from "./components/Hero";
 import Compare from "./components/Compare";
 import Process from "./components/Process";
@@ -243,6 +244,7 @@ export default function App() {
       <main id="icerik">
         <Hero />
         <Marquee />
+        <Bant />
         <Suspense fallback={<FieldDeskFallback />}>
           <SectionBoundary title="Saha Defteri" note="Günün kayıt fişleri burada çalışıyor.">
             <FieldDesk />

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { publicAsset } from "../assets";
 import { LOTS, buildPassportPrintHtml, findLot, type Lot } from "../data";
 import LotPassport from "./LotPassport";
 
@@ -157,6 +158,17 @@ export default function LotLookup() {
             <LotPassport lot={result} />
           ) : (
             <div className="lot-lookup__empty">
+              <figure className="lot-lookup__still">
+                <img
+                  src={publicAsset("img/pasaport.jpg")}
+                  alt="Krem kâğıt üzerinde kraft kutu, boş lot kartı ve kalem ile pasaport hazırlığı"
+                  width={1376}
+                  height={768}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Pasaportun hazırlığı — yapay zekâ ile üretilmiş temsilî çekimdir.</figcaption>
+              </figure>
               <p className="lot-lookup__empty-big">Pasaport burada açılacak</p>
               <p>
                 {searched
