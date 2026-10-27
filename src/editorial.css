@@ -547,3 +547,35 @@ h1, h2, h3, h4 {
     margin-top: 12px;
   }
 }
+
+/* ---------------- Hero: imleci izleyen sıcak ışık ---------------- */
+/* Vitrin fotoğraflarının üzerinde imleci takip eden yumuşak bir parlaklık.
+   İnce imleçli cihazlarda çalışır; dokunmatikte ve hareket azaltmada yok. */
+
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* Karışım yalnızca vitrinin kendisiyle olsun. */
+  isolation: isolate;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  background: radial-gradient(
+    420px circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(255, 228, 180, 0.3),
+    rgba(242, 169, 59, 0.12) 40%,
+    transparent 66%
+  );
+  mix-blend-mode: screen;
+}
+
+.hero__glow.is-on {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__glow {
+    display: none;
+  }
+}

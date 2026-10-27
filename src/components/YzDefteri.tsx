@@ -4,6 +4,7 @@ import { adviseFromText, formatTL, type Advice } from "../data";
 import { useCart } from "../cart";
 import { goToLot } from "./Products";
 import CountUp from "./CountUp";
+import YapimTerminal from "./YapimTerminal";
 import { BUILD_STATS } from "../content/buildStats";
 
 /* ================================================================== */
@@ -278,6 +279,8 @@ export default function YzDefteri() {
               </li>
             ))}
           </ol>
+
+          <YapimTerminal />
 
           <dl className="yz__stats">
             {STATS.map((s) => (

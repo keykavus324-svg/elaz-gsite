@@ -15,6 +15,8 @@ const ROUTE = ["Dal", "Sergi", "Patik", "Çir", "Pasaport"];
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement | null>(null);
+  const glowRef = useRef<HTMLDivElement | null>(null);
+  const collageRef = useRef<HTMLDivElement | null>(null);
   const [stamped, setStamped] = useState(false);
 
   /* Katmanlı paralaks: kahramanın her katmanı farklı hızda kayar —
@@ -27,6 +29,37 @@ export default function Hero() {
     const ratio = Math.max(-1, Math.min(1, top / Math.max(1, vh)));
     el.style.setProperty("--hero-d", (ratio * 100).toFixed(2));
   });
+
+  /* İmleci izleyen sıcak ışık: vitrin fotoğrafları üzerinde yumuşak bir
+     parlaklık. Yalnızca ince imleçli cihazlarda; hareket azaltmada kapalı. */
+  useEffect(() => {
+    const el = glowRef.current;
+    const area = collageRef.current;
+    if (!el || !area) return;
+    if (!window.matchMedia?.("(pointer: fine)").matches) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+
+    let raf = 0;
+    const onMove = (event: PointerEvent) => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = 0;
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty("--gx", `${event.clientX - rect.left}px`);
+        el.style.setProperty("--gy", `${event.clientY - rect.top}px`);
+        el.classList.add("is-on");
+      });
+    };
+    const onLeave = () => el.classList.remove("is-on");
+
+    area.addEventListener("pointermove", onMove);
+    area.addEventListener("pointerleave", onLeave);
+    return () => {
+      area.removeEventListener("pointermove", onMove);
+      area.removeEventListener("pointerleave", onLeave);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
+  }, []);
 
   return (
     <section
@@ -92,8 +125,9 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="hero__collage" aria-label="Patik görsel vitrini">
+        <div className="hero__collage" aria-label="Patik görsel vitrini" ref={collageRef}>
           <span className="hero__overlay" aria-hidden="true">BASKIL</span>
+          <span className="hero__glow" aria-hidden="true" ref={glowRef} />
           <figure className="hero__photo hero__photo--main">
             <img
               src={publicAsset("img/sergi.jpg")}
