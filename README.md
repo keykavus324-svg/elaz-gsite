@@ -117,6 +117,8 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 - **Kâğıt greni + editoryal ritim:** sayfa boyunca basılı mürekkep dokusu, bölüm başlıklarında
   folio rakamları (01–14, `src/chapters.ts` diziniyle eşleşir), saç teli çizgiler, el yazısı notlar
 - **Hero sorgu damgası:** biletteki “Kaydı sorgula” düğmesi `SORGULANDI` mührünü basar
+- **Hero dev serif:** fotoğrafın üstünden geçen “BASKIL” kelimesi (koyu mürekkep, hafif eğim) —
+  sayfanın ilk karesinde editoryal vitrin imzası
 - **Jüri Özeti:** alt bilgideki düğme tek sayfalık, yazdırılabilir/PDF olarak kaydedilebilir özet açar
 - Mobilde kaydırdıkça beliren "Lotunu Kur" yüzer eylem düğmesi
 - Lotunu Kur: 3 soru → gerekçeli ürün/gramaj önerisi → çekirdek ekleme → sepete

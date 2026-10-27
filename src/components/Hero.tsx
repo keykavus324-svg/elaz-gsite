@@ -106,6 +106,7 @@ export default function Hero() {
         </div>
 
         <div className="hero__collage" aria-label="Patik görsel vitrini">
+          <span className="hero__overlay" aria-hidden="true">BASKIL</span>
           <figure className="hero__photo hero__photo--main">
             <img
               src={publicAsset("img/sergi.jpg")}

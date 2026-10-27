@@ -340,6 +340,40 @@ h1, h2, h3, h4 {
   color: var(--champagne);
 }
 
+/* ---------------- Hero: fotoğrafın üstüne binen dev serif ---------------- */
+/* Referans düzeni: dev display serif, görselin üstünden geçer. */
+
+.hero__overlay {
+  position: absolute;
+  top: clamp(20px, 3.4vw, 54px);
+  left: -2.5%;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--serif, Georgia, serif);
+  font-size: clamp(2.8rem, 7.4vw, 6.4rem);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  color: var(--ledger-ink);
+  transform: rotate(-4.5deg);
+  text-shadow: 0 1px 0 rgba(255, 249, 238, 0.55), 0 10px 26px rgba(20, 10, 4, 0.22);
+}
+
+@media (max-width: 1024px) {
+  .hero__overlay {
+    left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero__overlay {
+    top: 14px;
+    left: 2px;
+    font-size: clamp(2rem, 11vw, 3.3rem);
+  }
+}
+
 /* ---------------- Hero paralaksı ---------------- */
 /* Sayfa kaydıkça görseller çok az kayar; "canlı" hissi verir ama
    dikkat dağıtmaz. Hareket azaltma tercihinde JavaScript hiç çalışmaz. */
