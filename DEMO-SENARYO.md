@@ -26,7 +26,7 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
   aynı yerden besleniyor. Sunumdan önce isimleri son kez gözden geçir.)
 - **13.30–15.30 Geliştirme penceresi:** Yalnızca küçük, güvenli işler. Büyük özellik
   eklemek yok; her değişiklikten sonra `npm run build` + ana akış testi.
-- **15.30–16.30 Prova ×3:** Prova Modu'nun yerleşik 105 saniye sayacıyla. Sürücü tıklama sırasını ezberler
+- **15.30–16.30 Prova ×3:** Prova Modu'nun yerleşik 112 saniye sayacıyla. Sürücü tıklama sırasını ezberler
   (SUNUM.md §B). Biri jüri rolüyle §C'deki 5 soruyu sorar.
 - **16.30–17.00 Dondur:** Kod değişikliği bitti. `npm run verify` çıktısını sakla; son build, son bakış, pasaport
   baskıları hazır, telefon sessizde, su içildi.

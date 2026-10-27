@@ -118,11 +118,18 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
   *Patik Ligi* (60 sn, 144 soruluk bankadan bilgi blitzi + `localStorage` skor tablosu).
   Ağır oyunlar (lot defteri, soru bankası) yalnızca oynanırken ayrı paketten yüklenir
 - **Kâğıt greni + editoryal ritim:** sayfa boyunca basılı mürekkep dokusu, bölüm başlıklarında
-  folio rakamları (01–14, `src/chapters.ts` diziniyle eşleşir), saç teli çizgiler, el yazısı notlar
+  folio rakamları (01–15, `src/chapters.ts` diziniyle eşleşir), saç teli çizgiler, el yazısı notlar
 - **Hero sorgu damgası:** biletteki “Kaydı sorgula” düğmesi `SORGULANDI` mührünü basar
 - **Hero dev serif:** fotoğrafın üstünden geçen “BASKIL” kelimesi (koyu mürekkep, hafif eğim) —
   sayfanın ilk karesinde editoryal vitrin imzası
 - **Jüri Özeti:** alt bilgideki düğme tek sayfalık, yazdırılabilir/PDF olarak kaydedilebilir özet açar
+- **Yolculuk filmi:** kaydırmayla oynayan beş sahneli sinematik bölüm (HASAT → İSLİM →
+  SERGİ → PATİK → PASAPORT); yapışkan sahne, Ken Burns, duotone derecelendirme, zaman kodu
+  (`00:00 / 01:36`) ve tıklanabilir film şeridi
+- **Oynatıcı çubuğu:** sayfa bir film gibi gösterilir — altta zaman kodu, bulunulan bölümün
+  adı ve ince bir scrub çizgisi; bölüm rayıyla aynı veriden beslenir
+- **Maskeli açılışlar:** bölüm başlıkları ekrana perdeli gelir, sayılar görünürlüğe girince
+  sayar; tüm hareketler tek bir kaydırma motorundan (`src/scrollEngine.ts`) beslenir
 - **Sergi bandı (statement band):** hero'nun ardından tam genişlik, koyu Baskil sergi fotoğrafı;
   üstünden dev şampanya serif ile "Bahçeden kutuna, lotuyla." sloganı, el yazısı alt satır,
   ✦ mikro etiket ve "Lot sorgula" hap düğmesi
@@ -148,8 +155,8 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 - Lot sorgulama: büyük/küçük harf ve boşluk toleranslı, hatalı kodda anlaşılır uyarı
 - Sepet: adet artır/azalt/kaldır, ücretsiz kargo barı (750 ₺), kalıcı sepet (localStorage)
 - Demo sipariş formu: Türkçe doğrulama ve hata mesajları → sipariş özeti + lot kodları
-- **Prova Modu (ekip içi):** adrese `?prova=1` eklenince 9 adımlı konuşmacı
-  konsolu (7. adım Oyun Masası, son adım bonus: Yapay Zekâ Defteri), 105 saniye sayacı,
+- **Prova Modu (ekip içi):** adrese `?prova=1` eklenince 10 adımlı konuşmacı
+  konsolu (2. adım Yolculuk filmi, 8. adım Oyun Masası, son adım bonus: Yapay Zekâ Defteri), 112 saniye sayacı,
   klavye adımları (←/→) ve P ile küçültme açılır; normal ziyaretçi adresinde görünmez
 - **Bağlantı dayanıklılığı:** Atlas/Evren/Saha Defteri paketleri sayfa boşta kaldığında önden
   indirilir; bir paket alınamazsa `SectionBoundary` o bölümü "yüklenemedi" mesajıyla kapatır —

@@ -3,7 +3,7 @@
 
 export const BUILD_STATS = {
   /** src/ klasöründeki toplam satır sayısı. */
-  satirKodu: 58369,
+  satirKodu: 58410,
   /** public/img/ içindeki üretilmiş görsel sayısı. */
   yzGorseli: 16,
 } as const;
