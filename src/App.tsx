@@ -63,6 +63,7 @@ function FloatingCta() {
   const { cartOpen, toast } = useCart();
   const [past, setPast] = useState(false);
   const [builderVisible, setBuilderVisible] = useState(false);
+  const [filmVisible, setFilmVisible] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setPast(window.scrollY > 650);
@@ -74,14 +75,22 @@ function FloatingCta() {
       io = new IntersectionObserver(([e]) => setBuilderVisible(e.isIntersecting));
       io.observe(target);
     }
+    // "Yolculuk" filmi tam ekran bir sahne: o sırada yüzer düğme görünmez.
+    let filmIo: IntersectionObserver | undefined;
+    const film = document.getElementById("film");
+    if (film && typeof IntersectionObserver !== "undefined") {
+      filmIo = new IntersectionObserver(([e]) => setFilmVisible(e.isIntersecting));
+      filmIo.observe(film);
+    }
     return () => {
       window.removeEventListener("scroll", onScroll);
       io?.disconnect();
+      filmIo?.disconnect();
     };
   }, []);
 
   const provaMode = (() => { try { return new URLSearchParams(window.location.search).has("prova"); } catch { return false; } })();
-  if (!past || builderVisible || cartOpen || toast || provaMode) return null;
+  if (!past || builderVisible || filmVisible || cartOpen || toast || provaMode) return null;
   return (
     <a href="#lotunu-kur" className="floating-cta">
       Lotunu Kur <span aria-hidden="true">→</span> <small>30 saniye</small>

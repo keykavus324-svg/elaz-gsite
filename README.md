@@ -68,7 +68,7 @@ public/favicon.svg    El çizimi SVG kayısı amblemi
 src/data.ts           Ürün, lot, süreç verileri + öneri motoru (tüm demo içeriği burada)
 src/cart.tsx          Sepet durumu (localStorage) + kargo/toplam kuralları
 src/chapters.ts        Bölüm dizinin TEK kaynağı: numaralar, ray etiketleri, üst menü
-src/team.ts            Takım bilgisi (ITS NEXOR4) — alt bilgi ve jüri özeti aynı yerden
+src/team.ts            Takım bilgisi (EHLİ KOD) — alt bilgi ve jüri özeti aynı yerden
 src/sfx.ts             Web-Audio mini efektler (dosyasız; ses aç/kapa düğmesiyle)
 src/components/       Header, Hero, FieldDesk (Saha Defteri), ChapterRail, Compare, Process, Producer,
                       Mola (radyo/oyun), OyunMasasi (Oyun Masası) + oyun/ altında
