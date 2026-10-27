@@ -261,7 +261,7 @@ section[id] { scroll-margin-top: 104px; }
   background: var(--paper); border: 1px solid var(--line); border-radius: 22px;
   overflow: hidden; box-shadow: var(--shadow-sm); animation: fadeUp .35s ease;
 }
-.process__figure { margin: 0; position: relative; }
+.process__figure { margin: 0; position: relative; overflow: hidden; }
 .process__figure img { width: 100%; aspect-ratio: 16 / 9.5; object-fit: cover; }
 .process__chip {
   position: absolute; left: 14px; bottom: 14px; background: var(--ink); color: #ffe9bf;

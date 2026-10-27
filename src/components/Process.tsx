@@ -38,7 +38,7 @@ export default function Process() {
 
         <article className="process__panel" key={step.no} aria-live="polite">
           <figure className="process__figure">
-            <img src={step.img} alt={step.alt} width={1440} height={960} loading="lazy" />
+            <img src={step.img} alt={step.alt} width={1440} height={960} loading="lazy" data-push="0.07" />
             <span className="process__chip">{step.chip}</span>
           </figure>
           <div className="process__body">
