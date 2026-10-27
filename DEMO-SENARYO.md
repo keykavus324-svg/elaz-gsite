@@ -48,6 +48,7 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 | Jüri oyunları "boş yere" sanırsa | Lot Pusulası'nın ipuç kartını göster: "204 lot kaydının hepsi sitede"; oyunun veriyi okuttuğunu söyle (SUNUM.md §C/4) |
 | Jüri "sitede gerçekten yapay zekâ var mı?" derse | "Üretimde kullandık, çalışma zamanında bilerek çağırmıyoruz" → Yapay Zekâ Defteri'ndeki 5 adımlı üretim kaydını göster, sonra eşleştiricinin çevrimdışı çalıştığını göster (SUNUM.md §C/7) |
 | Eşleştirici cümleyi yanlış anlarsa | Örnek cümleler (4 hazır chip) her zaman doğru sonucu verir; jüri bunlardan birine tıklarsa öneri kesin çıkar |
+| Kesme sesi salonu rahatsız eder | Site efektleri Oyun Masası'ndaki ses düğmesiyle açılıp kapanır (`patik-ses-v1`). Sunumdan önce bir kez aç/kapa düğmesine bas; zaten kapalıysa hiç ses gelmez. Bölüm geçişindeki perde sesi çok kısıktır (kazanç 0,028) |
 | Oyun Masası açılmazsa (ağ paketi) | Oyunlar ayrı paketten gelir; açılmazsa bölüm boş kalır ama sayfa çalışmaya devam eder. Yedek: Çay Molası'ndaki *Patik Ustası* ve *Baskil Bilgisi* her zaman ana pakette |
 | Oyun sesi rahatsız ederse | Bölümde "Ses açık / kapalı" düğmesi var; sunumdan önce kapalıya al |
 

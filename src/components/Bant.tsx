@@ -15,6 +15,7 @@ export default function Bant() {
       <img
         className="bant__img"
         data-parallax="0.24"
+        data-push="0.05"
         src={publicAsset("img/band-bahce.jpg")}
         alt="Baskil sergi bandında gün kurusu kayısılarının yayıldığı basamaklar, akşam ışığında"
         width={1376}

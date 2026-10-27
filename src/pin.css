@@ -303,6 +303,11 @@
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+/* Çerçeve: kamera itişi fotoğrafı büyütürken kenar/gölge sabit kalır. */
+.lot-lookup__frame {
+  overflow: hidden;
   border: 1px solid rgba(46, 28, 14, 0.22);
   box-shadow: 6px 8px 0 rgba(46, 28, 14, 0.08);
 }

@@ -45,6 +45,8 @@
 
 1. **Vitrinde dur (8 sn):** "Kayısı kurur. Kaydı kalır." Beş duraklı yolu ve **PT-26-047**
    lot biletini göster; mesajı kur: satılan şey yalnız kayısı değil, kayısının izlenebilir kaydı.
+   Sayfa açılırken başlık bir perdeden açılıyor, vitrin fotoğrafları kamerayla yerine
+   oturuyor — bunu bir cümleyle geç: "site bir film gibi açılıyor."
    Altındaki oynatıcı çubuğunu (zaman kodu + bölüm adı) bir kez göster: "sayfa bir film gibi."
 2. **Saha Defteri'ni çalıştır (10 sn):** Bir istasyon değiştir, **Başka kayıt** düğmesine bas.
    "1.800 temsilî kayıt sayfanın altında saklanmıyor; günün işi, lot, kalite ve ders burada çalışıyor."
@@ -66,7 +68,11 @@
 
 **Zaman kalırsa (bonus 45 sn):** Önce **Yolculuk filmini** bir kez kaydır: beş sahne
 (hasat → islim → sergi → patik → pasaport) zaman koduyla birlikte değişiyor, alt şeritten
-bir duraka atlayabiliyorsun; "bu bir video gibi" cümlesini bırakma. Sonra alt bilgideki
+bir duraka atlayabiliyorsun; "bu bir video gibi" cümlesini bırakma. Filmden çıkarken
+sayfanın bölümler arasında **perde gibi kestiğini** de gör: her bölüm geçişinde ekranın
+ortasından bir kuşak süpürülüyor ve üstünde o bölümün folio rakamı, başlığı ve tek
+satırlık tarifi beliriyor — "sayfa bölüm bölüm kurgulandı, bir film gibi kurgulandı."
+Sonra alt bilgideki
 **Jüri Özeti** düğmesine bas: açılan tek
 sayfayı jüriye göster ("sizin için bastım, PDF olarak da alabilirsiniz"), kapat. Sonra
 **Yapay Zekâ Defteri**'ni aç: cümle kutusuna "çayın yanına

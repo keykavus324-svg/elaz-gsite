@@ -86,8 +86,8 @@ export default function Hero() {
           </p>
 
           <h1 id="hero-baslik" className="hero__title">
-            Kayısı kurur.
-            <span className="hero__title-accent">Kaydı kalır.</span>
+            <span className="hero__title-line">Kayısı kurur.</span>
+            <span className="hero__title-line hero__title-accent">Kaydı kalır.</span>
           </h1>
 
           <p className="hero__sub">
@@ -135,6 +135,7 @@ export default function Hero() {
               alt="Karakaya kıyısındaki teraslarda bezler üzerinde kuruyan kayısı sergileri"
               width={1600}
               height={1000}
+              data-push="0.06"
               /* React 18'de öznitelik küçük harfle geçirilmeli; aksi hâlde konsola uyarı düşer. */
               {...({ fetchpriority: "high" } as Record<string, string>)}
             />
@@ -152,6 +153,7 @@ export default function Hero() {
               width={1200}
               height={800}
               loading="eager"
+              data-push="0.09"
             />
             <figcaption>Patik · tek tek elle</figcaption>
           </figure>

@@ -9,14 +9,17 @@ export default function Producer() {
       </div>
 
       <figure className="producer__banner">
-        <img
-          src={publicAsset("img/sergi.jpg")}
-          className="grade-ink"
-          alt="Karakaya Baraj Gölü'ne bakan yamaç teraslarında bezlerle kayısı kurutulan sergi alanı"
-          width={1920}
-          height={1080}
-          loading="lazy"
-        />
+        <div className="producer__frame">
+          <img
+            src={publicAsset("img/sergi.jpg")}
+            className="grade-ink"
+            alt="Karakaya Baraj Gölü'ne bakan yamaç teraslarında bezlerle kayısı kurutulan sergi alanı"
+            width={1920}
+            height={1080}
+            loading="lazy"
+            data-push="0.07"
+          />
+        </div>
         <figcaption>
           Karakaya kıyısında sergi zamanı. <span className="img-note">Yapay zekâ ile üretilmiş temsilî görsel; gerçek bir bahçe fotoğrafı değildir.</span>
         </figcaption>

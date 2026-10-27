@@ -159,14 +159,17 @@ export default function LotLookup() {
           ) : (
             <div className="lot-lookup__empty">
               <figure className="lot-lookup__still">
-                <img
-                  src={publicAsset("img/pasaport.jpg")}
-                  alt="Krem kâğıt üzerinde kraft kutu, boş lot kartı ve kalem ile pasaport hazırlığı"
-                  width={1376}
-                  height={768}
-                  loading="lazy"
-                  decoding="async"
-                />
+                <div className="lot-lookup__frame">
+                  <img
+                    src={publicAsset("img/pasaport.jpg")}
+                    alt="Krem kâğıt üzerinde kraft kutu, boş lot kartı ve kalem ile pasaport hazırlığı"
+                    width={1376}
+                    height={768}
+                    loading="lazy"
+                    decoding="async"
+                    data-push="0.08"
+                  />
+                </div>
                 <figcaption>Pasaportun hazırlığı — yapay zekâ ile üretilmiş temsilî çekimdir.</figcaption>
               </figure>
               <p className="lot-lookup__empty-big">Pasaport burada açılacak</p>

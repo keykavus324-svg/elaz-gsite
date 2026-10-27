@@ -119,6 +119,11 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
   Ağır oyunlar (lot defteri, soru bankası) yalnızca oynanırken ayrı paketten yüklenir
 - **Kâğıt greni + editoryal ritim:** sayfa boyunca basılı mürekkep dokusu, bölüm başlıklarında
   folio rakamları (01–15, `src/chapters.ts` diziniyle eşleşir), saç teli çizgiler, el yazısı notlar
+- **Açılış koreografisi:** site bir film gibi açılır — üst bilgi, dev başlık (perde silinerek),
+  metin, düğmeler ve vitrin fotoğrafları (kamera oturuyormuş gibi) sırayla yerine oturur
+  (`src/open.css`); hareket azaltma tercihinde ve yazdırmada kapalıdır
+- **Kamera itişi:** `[data-push]` taşıyan fotoğraflar kaydırmayla yavaşça yakınlaşır
+  (Ken Burns) — fotoğrafın çerçevesi sabit kalır, içerik büyür (`src/scrollEngine.ts`)
 - **Hero sorgu damgası:** biletteki “Kaydı sorgula” düğmesi `SORGULANDI` mührünü basar
 - **Hero dev serif:** fotoğrafın üstünden geçen “BASKIL” kelimesi (koyu mürekkep, hafif eğim) —
   sayfanın ilk karesinde editoryal vitrin imzası
@@ -132,6 +137,10 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 - **Oynatıcı çubuğu:** sayfa bir film gibi gösterilir — altta zaman kodu, bulunulan bölümün
   adı ve ince bir scrub çizgisi; bölüm rayıyla aynı veriden beslenir. Çubuğun herhangi bir
   yerine tıklamak o konuma atlar, bölüm adı o bölüme götürür
+- **Kesme (bölüm geçişi):** bir bölümden diğerine geçerken ekranın ortasından bir perde
+  süpürülür — koyu bir kuşak, iki kenarında ince amber kare çizgileri ve kartın üstünde
+  o bölümün folio rakamı, başlığı ve tek satırlık tarifi (`src/components/Cuts.tsx`,
+  `src/cuts.css`). Hareket azaltma tercihinde ve sunum (`?prova=1`) modunda hiç görünmez
 - **Maskeli açılışlar:** bölüm başlıkları ekrana perdeli gelir, sayılar görünürlüğe girince
   sayar; tüm hareketler tek bir kaydırma motorundan (`src/scrollEngine.ts`) beslenir
 - **Sergi bandı (statement band):** hero'nun ardından tam genişlik, koyu Baskil sergi fotoğrafı;
