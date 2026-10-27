@@ -6,6 +6,7 @@ on:
       - main
       - arena/a9c83a62-elaz-gsite
       - arena/f7221951-elaz-gsite
+      - arena/077a9bdf-elaz-gsite
   workflow_dispatch:
 
 permissions:
