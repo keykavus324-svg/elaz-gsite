@@ -340,6 +340,130 @@ h1, h2, h3, h4 {
   color: var(--champagne);
 }
 
+/* ---------------- Hero paralaksı ---------------- */
+/* Sayfa kaydıkça görseller çok az kayar; "canlı" hissi verir ama
+   dikkat dağıtmaz. Hareket azaltma tercihinde JavaScript hiç çalışmaz. */
+
+.hero__photo--main img {
+  transform: translate3d(0, calc(var(--hero-shift, 0) * 0.1px), 0) scale(1.045);
+}
+
+.hero__photo--hands img {
+  transform: translate3d(0, calc(var(--hero-shift, 0) * 0.2px), 0) scale(1.07);
+}
+
+.hero__wordmark {
+  transform: translate3d(0, calc(var(--hero-shift, 0) * -0.16px), 0);
+}
+
+/* ---------------- Hero: el yazısı not ---------------- */
+
+.hero__scribble {
+  margin: 18px 0 4px;
+  max-width: 22ch;
+}
+
+/* ---------------- Hero: sorgu damgası ---------------- */
+
+.hero__ticket-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.hero__ticket-actions button {
+  width: auto !important;
+  flex: 1 1 auto;
+  padding-inline: 14px;
+}
+
+.hero__ticket-verify {
+  padding: 8px 14px !important;
+  color: var(--ledger-ink) !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent !important;
+  border: 1.5px dashed var(--ledger-ink) !important;
+  border-radius: 999px !important;
+}
+
+.hero__ticket-verify:hover {
+  background: rgba(46, 28, 14, 0.08) !important;
+}
+
+.hero__ticket-seal {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  z-index: 6;
+  display: grid;
+  gap: 2px;
+  justify-items: center;
+  margin: 0;
+  padding: 7px 14px 6px;
+  color: var(--ledger-red);
+  background: rgba(255, 249, 238, 0.5);
+  border: 3px double currentColor;
+  border-radius: 8px;
+  transform: translate(-50%, -50%) rotate(-13deg);
+  pointer-events: none;
+  animation: hero-stamp 0.44s cubic-bezier(0.18, 1.5, 0.4, 1);
+  text-align: center;
+  opacity: 0.9;
+}
+
+.hero__ticket-seal strong {
+  font-family: var(--serif, Georgia, serif);
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  line-height: 1;
+}
+
+.hero__ticket-seal span {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+@keyframes hero-stamp {
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(-13deg) scale(2); }
+  55% { opacity: 0.95; }
+  100% { opacity: 0.9; transform: translate(-50%, -50%) rotate(-13deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__photo--main img,
+  .hero__photo--hands img,
+  .hero__wordmark {
+    transform: none;
+  }
+
+  .hero__ticket-seal {
+    animation: none;
+  }
+}
+
+/* ---------------- Erişilebilir küçük hedefler ---------------- */
+
+.lot-link {
+  min-height: 26px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---------------- Dar ekranda mühür gizlenir ---------------- */
+
+@media (max-width: 760px) {
+  .hero__round-stamp {
+    display: none;
+  }
+}
+
 /* ---------------- Yazdırma ---------------- */
 
 @media print {

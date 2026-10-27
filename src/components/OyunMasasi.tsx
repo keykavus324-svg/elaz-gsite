@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { PROCESS } from "../data";
 import { isSoundOn, setSoundOn, sfx } from "../sfx";
 
-/* Ağır oyunlar (811 lot kaydı, 145 bilgi sorusu) yalnızca oynanırken
+/* Ağır oyunlar (204 lot kaydı, 144 bilgi sorusu) yalnızca oynanırken
    ayrı paketten gelir; ana sayfa ilk açılışta şişmez. */
 const LotPusulasi = lazy(() => import("./oyun/LotPusulasi"));
 const PatikLigi = lazy(() => import("./oyun/PatikLigi"));
@@ -391,7 +391,7 @@ type GameId = "duel" | "yol" | "pusula" | "ligi";
 const GAMES: Array<{ id: GameId; label: string; hint: string }> = [
   { id: "duel", label: "İslim mi Gün mü", hint: "16 sn · ← → tuşları" },
   { id: "yol", label: "Patik Yolu", hint: "6 durak · sıralama" },
-  { id: "pusula", label: "Lot Pusulası", hint: "811 kayıttan bul" },
+  { id: "pusula", label: "Lot Pusulası", hint: "204 kayıttan bul" },
   { id: "ligi", label: "Patik Ligi", hint: "60 sn · skor tablosu" },
 ];
 
@@ -412,13 +412,13 @@ export default function OyunMasasi() {
         return <PatikYolu />;
       case "pusula":
         return (
-          <Suspense fallback={<p className="oyun__loading">811 lot kaydı yükleniyor…</p>}>
+          <Suspense fallback={<p className="oyun__loading">204 lot kaydı yükleniyor…</p>}>
             <LotPusulasi />
           </Suspense>
         );
       case "ligi":
         return (
-          <Suspense fallback={<p className="oyun__loading">145 bilgi sorusu yükleniyor…</p>}>
+          <Suspense fallback={<p className="oyun__loading">144 bilgi sorusu yükleniyor…</p>}>
             <PatikLigi />
           </Suspense>
         );
@@ -434,7 +434,7 @@ export default function OyunMasasi() {
         <h2 id="oyun-baslik">Kutuyu anlamanın en eğlenceli yolu</h2>
         <p className="section__lede">
           Dört oyun, dört ayrı ders — hepsi sitedeki gerçek veriyle çalışır: altı üretim durağı,
-          811 lot kaydı, 145 bilgi sorusu. Klavye de çalışır, fare de.
+          204 lot kaydı, 144 bilgi sorusu. Klavye de çalışır, fare de.
         </p>
       </div>
 

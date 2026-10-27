@@ -3,7 +3,7 @@ import { LOT_LEDGER } from "../../content/lotLedger";
 import { sfx } from "../../sfx";
 
 /**
- * Lot Pusulası — 811 temsilî lot kaydından birini ipuçlarıyla bul.
+ * Lot Pusulası — 204 temsilî lot kaydından birini ipuçlarıyla bul.
  *
  * Kayıtların tamamı src/content/lotLedger.ts'ten gelir; oyun yeni veri
  * uydurmaz, sitedeki gerçek defteri oynatır. Doğru bulunan lotun pasaportu
@@ -113,7 +113,7 @@ export default function LotPusulasi() {
           <p className="oyun__result-kicker">Sonuç</p>
           <h4 className="oyun__result-title">{title}</h4>
           <p className="oyun__result-note">
-            {score} / {ROUNDS} lot bulundu. Bu kayıtların tamamı site içindeki 811 satırlık
+            {score} / {ROUNDS} lot bulundu. Bu kayıtların tamamı site içindeki 204 satırlık
             temsilî defterden geldi; bir lotu bulmak, o defteri okumak demek.
           </p>
           <dl className="oyun__result-rows">

@@ -1,5 +1,7 @@
+import { useEffect, useRef, useState } from "react";
 import { goToLot } from "./Products";
 import { publicAsset } from "../assets";
+import { sfx } from "../sfx";
 
 const LEDGER_LINKS = [
   { value: "1.800", label: "temsilî kayıt", href: "#saha", note: "Saha Defteri'nde aç" },
@@ -11,8 +13,41 @@ const LEDGER_LINKS = [
 const ROUTE = ["Dal", "Sergi", "Patik", "Çir", "Pasaport"];
 
 export default function Hero() {
+  const heroRef = useRef<HTMLElement | null>(null);
+  const [stamped, setStamped] = useState(false);
+
+  /* Yumuşak paralaks: kahraman görselleri sayfa kaydıkça çok az kayar.
+     Hareket azaltma tercihi varsa hiç devreye girmez. */
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = 0;
+        const el = heroRef.current;
+        if (!el) return;
+        const top = el.getBoundingClientRect().top;
+        const ratio = Math.max(-1, Math.min(1, top / Math.max(1, window.innerHeight)));
+        el.style.setProperty("--hero-shift", String(ratio * 100));
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
-    <section className="hero hero--ledger" id="top" aria-labelledby="hero-baslik">
+    <section
+      className="hero hero--ledger"
+      id="top"
+      aria-labelledby="hero-baslik"
+      ref={heroRef}
+    >
       <div className="hero__wordmark" aria-hidden="true">PATİK</div>
       <div className="hero__ledger-lines" aria-hidden="true" />
 
@@ -60,6 +95,10 @@ export default function Hero() {
             ))}
           </ol>
 
+          <p className="hand-note hero__scribble">
+            Güneş kayısıyı kurutur — biz kaydını kurutuyoruz.
+          </p>
+
           <p className="hero__etymology">
             <strong>Patik:</strong> Yarı kuru kayısının çekirdeğini tek tek elle çıkarma
             mesaisi. Markanın adı da kaydın özeni de o el emeğinden gelir.
@@ -95,7 +134,7 @@ export default function Hero() {
             <figcaption>Patik · tek tek elle</figcaption>
           </figure>
 
-          <aside className="hero__ticket" aria-label="Örnek lot pasaportu bileti">
+          <aside className={`hero__ticket${stamped ? " is-stamped" : ""}`} aria-label="Örnek lot pasaportu bileti">
             <div className="hero__ticket-head">
               <span>LOT BİLETİ</span>
               <strong>PT-26-047</strong>
@@ -114,9 +153,27 @@ export default function Hero() {
                 <dd>Gün kurusu · 5 gün</dd>
               </div>
             </dl>
-            <button type="button" onClick={() => goToLot("PT-26-047")}>
-              Pasaportu aç <span aria-hidden="true">→</span>
-            </button>
+            <div className="hero__ticket-actions">
+              <button
+                type="button"
+                className="hero__ticket-verify"
+                onClick={() => {
+                  setStamped(true);
+                  sfx("stamp");
+                }}
+              >
+                Kaydı sorgula
+              </button>
+              <button type="button" onClick={() => goToLot("PT-26-047")}>
+                Pasaportu aç <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            {stamped && (
+              <p className="hero__ticket-seal" role="status">
+                <strong>SORGULANDI</strong>
+                <span>Demo kaydı · 29. hafta · Gölyaka Parseli</span>
+              </p>
+            )}
             <small>Temsilî demo kaydı</small>
           </aside>
 

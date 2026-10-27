@@ -5,7 +5,7 @@ import { sfx } from "../../sfx";
 /**
  * Patik Ligi — 60 saniyelik bilgi blitzi + kalıcı skor tablosu.
  *
- * Sorular src/content/quizBank.ts'teki 145 soruluk gerçek bankadan gelir.
+ * Sorular src/content/quizBank.ts'teki 144 soruluk gerçek bankadan gelir.
  * Skor tablosu yalnızca tarayıcının kendi deposunda tutulur; sunucuya
  * hiçbir veri gitmez (demo sitesi olduğu için de uygun).
  */

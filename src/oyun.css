@@ -865,6 +865,43 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* ---------------- Mola bölümü: oyun ekleri ---------------- */
+
+.mola__more-games {
+  margin: 0;
+  padding: 12px 18px 16px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--pit-soft);
+  border-top: 1px solid var(--line);
+}
+
+.mola__more-games a {
+  font-weight: 800;
+  color: var(--sun-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.quizgame__timebar {
+  margin: 0 0 14px;
+  height: 5px;
+}
+
+.quizgame__timeout {
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 750;
+  color: #a2371c;
+  background: rgba(198, 58, 30, 0.1);
+  border-radius: 8px;
+}
+
+.game__grid.is-shake {
+  animation: oyun-shake 0.4s ease;
+}
+
 /* ---------------- Animasyonlar ---------------- */
 
 @keyframes oyun-shake {
