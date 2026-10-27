@@ -119,6 +119,11 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
   Ağır oyunlar (lot defteri, soru bankası) yalnızca oynanırken ayrı paketten yüklenir
 - **Kâğıt greni + editoryal ritim:** sayfa boyunca basılı mürekkep dokusu, bölüm başlıklarında
   folio rakamları (01–15, `src/chapters.ts` diziniyle eşleşir), saç teli çizgiler, el yazısı notlar
+- **Açılış koreografisi:** site bir film gibi açılır — üst bilgi, dev başlık (perde silinerek),
+  metin, düğmeler ve vitrin fotoğrafları (kamera oturuyormuş gibi) sırayla yerine oturur
+  (`src/open.css`); hareket azaltma tercihinde ve yazdırmada kapalıdır
+- **Kamera itişi:** `[data-push]` taşıyan fotoğraflar kaydırmayla yavaşça yakınlaşır
+  (Ken Burns) — fotoğrafın çerçevesi sabit kalır, içerik büyür (`src/scrollEngine.ts`)
 - **Hero sorgu damgası:** biletteki “Kaydı sorgula” düğmesi `SORGULANDI` mührünü basar
 - **Hero dev serif:** fotoğrafın üstünden geçen “BASKIL” kelimesi (koyu mürekkep, hafif eğim) —
   sayfanın ilk karesinde editoryal vitrin imzası
