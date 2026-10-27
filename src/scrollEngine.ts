@@ -147,12 +147,16 @@ export function useElementProgress(
 }
 
 /* ------------------------------------------------------------------
-   Paralaks taraması
+   Paralaks ve kamera taraması
    ------------------------------------------------------------------
    Sayfadaki [data-parallax] taşıyan öğeleri bulur ve her karede
    görünür alandaki ilerlemelerine göre kaydırır. Tarama, sayfaya
    yeni bölüm eklendiğinde (tembel yüklenen Atlas/Evren) otomatik
    tekrarlanır.
+
+   [data-push] taşıyan öğeler ise "kamera itişi" yapar: görünür
+   alana girerken hafifçe büyük (yakın plan) başlar, ekranı geçerken
+   ölçeğini geri verir — bir fotoğrafın Ken Burns etkisi gibi.
    ------------------------------------------------------------------ */
 
 export function useParallaxScan(): void {
@@ -161,7 +165,7 @@ export function useParallaxScan(): void {
     let timer = 0;
 
     const scan = () => {
-      items = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"));
+      items = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax], [data-push]"));
     };
     scan();
 
@@ -176,9 +180,18 @@ export function useParallaxScan(): void {
         const rect = el.getBoundingClientRect();
         if (rect.bottom < -240 || rect.top > vh + 240) continue;
         const p = (vh - rect.top) / (vh + rect.height);
-        const factor = Number(el.dataset.parallax ?? "0.18");
-        const py = (p - 0.5) * factor * 100;
-        el.style.setProperty("--py", `${py.toFixed(2)}px`);
+        if (el.dataset.parallax !== undefined) {
+          const factor = Number(el.dataset.parallax ?? "0.18");
+          const py = (p - 0.5) * factor * 100;
+          el.style.setProperty("--py", `${py.toFixed(2)}px`);
+        }
+        if (el.dataset.push !== undefined) {
+          const amount = Number(el.dataset.push ?? "0.07");
+          // 0 = ekrana yeni girdi, 1 = ekrandan çıktı.
+          const t = Math.min(1, Math.max(0, p));
+          const scale = 1 + amount * t;
+          el.style.setProperty("--push", scale.toFixed(4));
+        }
       }
     });
 

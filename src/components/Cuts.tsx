@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { CHAPTERS } from "../chapters";
+import { sfx } from "../sfx";
 import { useReducedMotion, useScrollFrame } from "../scrollEngine";
 
 /* ==================================================================
@@ -84,6 +85,7 @@ export default function Cuts() {
       shown.current = current;
       lastAt.current = now;
       setCut({ no: chapter.no, label: chapter.label, tag: chapter.tag, key: now });
+      sfx("cut");
 
       window.clearTimeout(closer.current);
       closer.current = window.setTimeout(() => setCut(null), 2100);

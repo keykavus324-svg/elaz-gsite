@@ -6,7 +6,7 @@
  * Kullanıcı sesi açıp kapatabilir; tercih localStorage'da saklanır.
  */
 
-export type SfxKind = "click" | "good" | "bad" | "tick" | "win" | "stamp";
+export type SfxKind = "click" | "good" | "bad" | "tick" | "win" | "stamp" | "cut";
 
 const STORAGE_KEY = "patik-ses-v1";
 
@@ -86,6 +86,12 @@ const RECIPES: Record<SfxKind, Tone[]> = {
     { freq: 659, at: 0.1, dur: 0.12, type: "triangle", gain: 0.055 },
     { freq: 784, at: 0.2, dur: 0.12, type: "triangle", gain: 0.055 },
     { freq: 1046, at: 0.3, dur: 0.24, type: "triangle", gain: 0.05 },
+  ],
+  /* Bölüm kesme sesi: hızlı düşen testere — bir projektör perdesinin
+     geçişine benzer. Çok kısık tutulur; sayfa okunur kalsın. */
+  cut: [
+    { freq: 1400, to: 220, at: 0, dur: 0.16, type: "sawtooth", gain: 0.028 },
+    { freq: 2600, at: 0, dur: 0.018, type: "square", gain: 0.01 },
   ],
 };
 

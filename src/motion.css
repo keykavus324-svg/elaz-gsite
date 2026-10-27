@@ -10,12 +10,14 @@
    ================================================================== */
 
 /* ------------------------------------------------------------------
-   1) Paralaks
+   1) Paralaks ve kamera itişi
    ------------------------------------------------------------------ */
 
-[data-parallax] {
+[data-parallax],
+[data-push] {
   --py: 0px;
-  transform: translate3d(0, var(--py), 0);
+  --push: 1;
+  transform: translate3d(0, var(--py), 0) scale(var(--push));
   will-change: transform;
 }
 
