@@ -3,7 +3,7 @@
 
 export const BUILD_STATS = {
   /** src/ klasöründeki toplam satır sayısı. */
-  satirKodu: 59156,
+  satirKodu: 59386,
   /** public/img/ içindeki üretilmiş görsel sayısı. */
   yzGorseli: 16,
   /**
@@ -30,7 +30,7 @@ export const BUILD_STATS = {
     "Patik Evreni temsilî kayıt toplamı: 989",
     "",
     "$ npm run verify:atlas",
-    "src/ toplamı: 59.210 satır",
+    "src/ toplamı: 59.440 satır",
     "✓ 40.000 satır hedefi aşıldı",
     "✓ Lot defteri: 204 kayıt",
     "✓ 52 haftalık takvim: 52 kayıt",

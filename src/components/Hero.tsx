@@ -86,8 +86,8 @@ export default function Hero() {
           </p>
 
           <h1 id="hero-baslik" className="hero__title">
-            Kayısı kurur.
-            <span className="hero__title-accent">Kaydı kalır.</span>
+            <span className="hero__title-line">Kayısı kurur.</span>
+            <span className="hero__title-line hero__title-accent">Kaydı kalır.</span>
           </h1>
 
           <p className="hero__sub">
