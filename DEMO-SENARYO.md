@@ -37,7 +37,7 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 
 | Risk | Önlem |
 |---|---|
-| Salon interneti yok/zayıf | Site yerelden çalışır; radyo hariç her şey çevrimdışı. Telefon hotspot hazır |
+| Salon interneti yok/zayıf | Site yerelden çalışır; radyo hariç her şey çevrimdışı. Atlas/Evren paketleri sayfa boşta kaldığında önden indirilir; bir paket alınamazsa o bölüm "yüklenemedi" mesajıyla kapanır, **sayfanın geri kalanı çalışmaya devam eder** (sayfa asla boş kalmaz). Telefon hotspot hazır |
 | Replit yavaş açılıyor | Yedek: telefonda önceden çekilmiş 60 sn akış videosu + ekran görüntüleri |
 | Projeksiyon renkleri bozuk | Koyu metin/açık krem zaten kontrastı yüksek; parlaklığı kontrol et |
 | Radyo HTTPS'te açılmaz | TRT Türkü birincil; FM 23 takılırsa çalar açıklar, resmî siteye geç |

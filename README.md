@@ -113,9 +113,12 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 - Lot sorgulama: büyük/küçük harf ve boşluk toleranslı, hatalı kodda anlaşılır uyarı
 - Sepet: adet artır/azalt/kaldır, ücretsiz kargo barı (750 ₺), kalıcı sepet (localStorage)
 - Demo sipariş formu: Türkçe doğrulama ve hata mesajları → sipariş özeti + lot kodları
-- **Prova Modu (ekip içi):** adrese `?prova=1` eklenince 7 adımlı konuşmacı
-  konsolu, 105 saniye sayacı, klavye adımları (←/→) ve P ile küçültme açılır;
-  normal ziyaretçi adresinde görünmez
+- **Prova Modu (ekip içi):** adrese `?prova=1` eklenince 8 adımlı konuşmacı
+  konsolu (son adım bonus: Yapay Zekâ Defteri), 105 saniye sayacı, klavye adımları (←/→) ve P ile
+  küçültme açılır; normal ziyaretçi adresinde görünmez
+- **Bağlantı dayanıklılığı:** Atlas/Evren/Saha Defteri paketleri sayfa boşta kaldığında önden
+  indirilir; bir paket alınamazsa `SectionBoundary` o bölümü "yüklenemedi" mesajıyla kapatır —
+  sayfa hiçbir koşulda tamamen boş kalmaz ve kanonik akış sürer
 
 ## Demo ve dürüstlük notları
 

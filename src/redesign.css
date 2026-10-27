@@ -1684,6 +1684,42 @@ section[id] {
   color: #ffd98a;
 }
 
+/* ---------------- Bölüm sınırı: yüklenemeyen paketler ---------------- */
+
+.boundary {
+  background: linear-gradient(120deg, rgba(167, 61, 37, 0.07), rgba(242, 169, 59, 0.12)), var(--paper);
+  border-block: 2px solid var(--ledger-ink);
+}
+
+.boundary__box {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 26px 24px;
+  background: var(--ticket);
+  border: 2px solid var(--ledger-ink);
+  border-radius: 26px 7px 26px 7px;
+  box-shadow: var(--hard-shadow);
+}
+
+.boundary__box h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+}
+
+.boundary__text {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #4c3620;
+  margin: 14px 0 18px;
+}
+
+.boundary__text strong {
+  color: var(--ledger-ink);
+}
+
 /* ---------------- Karşılaştırma: iki kurutma yolu ---------------- */
 
 .compare {
