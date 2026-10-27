@@ -379,15 +379,24 @@ h1, h2, h3, h4 {
    dikkat dağıtmaz. Hareket azaltma tercihinde JavaScript hiç çalışmaz. */
 
 .hero__photo--main img {
-  transform: translate3d(0, calc(var(--hero-shift, 0) * 0.1px), 0) scale(1.045);
+  transform: translate3d(0, calc(var(--hero-d, 0) * 0.1px), 0) scale(1.045);
 }
 
 .hero__photo--hands img {
-  transform: translate3d(0, calc(var(--hero-shift, 0) * 0.2px), 0) scale(1.07);
+  transform: translate3d(0, calc(var(--hero-d, 0) * 0.2px), 0) scale(1.07);
 }
 
 .hero__wordmark {
-  transform: translate3d(0, calc(var(--hero-shift, 0) * -0.16px), 0);
+  transform: translate3d(0, calc(var(--hero-d, 0) * -0.16px), 0);
+}
+
+/* Bilet ve dev BASKIL yazısı daha yavaş katmanlarda yer alır. */
+.hero__ticket {
+  transform: translate3d(0, calc(var(--hero-d, 0) * 0.06px), 0);
+}
+
+.hero__overlay {
+  transform: translate3d(0, calc(var(--hero-d, 0) * 0.04px), 0);
 }
 
 /* ---------------- Hero: el yazısı not ---------------- */

@@ -2,8 +2,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { CHAPTERS } from "../chapters";
 
 /**
- * Defterin bölüm rayı.
- * Geniş ekranda sol kenarda durur; küçük ekranda yalnızca üst ilerleme çizgisi kalır.
+ * Defterin bölüm rayı + video oynatıcı çubuğu.
+ *
+ * Geniş ekranda sol kenarda durur; küçük ekranda yalnızca üst ilerleme
+ * çizgisi ve altta oynatıcı çubuğu kalır. Çubuk, sayfayı bir film gibi
+ * gösterir: zaman kodu, bulunulan bölüm ve ince bir scrub çizgisi.
  */
 export default function ChapterRail() {
   const [active, setActive] = useState("top");
@@ -13,7 +16,7 @@ export default function ChapterRail() {
 
   const activeChapter = useMemo(
     () => CHAPTERS.find((chapter) => chapter.id === active) ?? CHAPTERS[0],
-    [active]
+    [active],
   );
 
   useEffect(() => {
@@ -50,13 +53,19 @@ export default function ChapterRail() {
     window.addEventListener("scroll", updateProgress, { passive: true });
     window.addEventListener("resize", updateProgress);
     return () => {
-      cancelAnimationFrame(rafRef.current);
       window.removeEventListener("scroll", updateProgress);
       window.removeEventListener("resize", updateProgress);
+      cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
   if (isProva) return null;
+
+  /* Sayfa bir "film" gibi gösterilir: toplam süre 4 dakika. */
+  const TOTAL_SECONDS = 240;
+  const seconds = Math.round(progress * TOTAL_SECONDS);
+  const timecode = `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
+  const totalCode = `${String(Math.floor(TOTAL_SECONDS / 60)).padStart(2, "0")}:${String(TOTAL_SECONDS % 60).padStart(2, "0")}`;
 
   return (
     <>
@@ -85,6 +94,16 @@ export default function ChapterRail() {
           <strong>{activeChapter.label}</strong>
         </p>
       </nav>
+
+      <div className="player" aria-hidden="true">
+        <span className="player__line" style={{ transform: `scaleX(${progress})` }} />
+        <span className="player__glyph">▶</span>
+        <span className="player__tc">
+          {timecode} <i>/ {totalCode}</i>
+        </span>
+        <span className="player__chapter">{activeChapter.label}</span>
+        <span className="player__brand">PATİK · BASKİL 2026</span>
+      </div>
     </>
   );
 }

@@ -3,6 +3,8 @@ import "../yz.css";
 import { adviseFromText, formatTL, type Advice } from "../data";
 import { useCart } from "../cart";
 import { goToLot } from "./Products";
+import CountUp from "./CountUp";
+import { BUILD_STATS } from "../content/buildStats";
 
 /* ================================================================== */
 /*  YAPAY ZEKÂ DEFTERİ                                               */
@@ -27,7 +29,7 @@ const STEPS = [
   {
     no: "02",
     tag: "Görsel",
-    title: "11 temsilî görsel yapay zekâ ile üretildi",
+    title: `${BUILD_STATS.yzGorseli} temsilî görsel yapay zekâ ile üretildi`,
     text: "Hiçbiri gerçek üretici ya da tesis fotoğrafı diye sunulmadı; her görselin altında bu not açıkça duruyor.",
   },
   {
@@ -50,11 +52,13 @@ const STEPS = [
   },
 ];
 
+/* Sayılar elle yazılmaz: scripts/generate-build-stats.mjs bunları
+   src/ ve public/img/ klasörlerinden hesaplar ve buildStats.ts'e yazar. */
 const STATS = [
-  { value: "52.212", label: "satır kod" },
-  { value: "1.800", label: "temsilî kayıt" },
-  { value: "11", label: "YZ görseli" },
-  { value: "0", label: "sahte yorum" },
+  { value: BUILD_STATS.satirKodu, label: "satır kod" },
+  { value: 1800, label: "temsilî kayıt" },
+  { value: BUILD_STATS.yzGorseli, label: "YZ görseli" },
+  { value: 0, label: "sahte yorum" },
 ];
 
 const CONFIDENCE_LABEL: Record<Advice["confidence"], string> = {
@@ -279,7 +283,9 @@ export default function YzDefteri() {
             {STATS.map((s) => (
               <div key={s.label}>
                 <dt>{s.label}</dt>
-                <dd>{s.value}</dd>
+                <dd>
+                  <CountUp value={s.value} />
+                </dd>
               </div>
             ))}
           </dl>

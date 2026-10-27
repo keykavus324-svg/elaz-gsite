@@ -86,6 +86,7 @@ temsilî görsel" notu düşülür.
 | `public/img/islim.jpg` | Süreç adımı 02 (islim damı) | Taş islim odasında ahşap raflarda yarım kayısılar; temsilî çekimdir |
 | `public/img/cir.jpg` | Süreç adımı 05 (çir) | Taş duvar üzerindeki beze serilmiş son kurutma kayısıları; temsilî çekimdir |
 | `public/img/pasaport.jpg` | Lot Sorgula boş durumu | Krem kâğıt üzerinde kraft kutu, boş lot kartı ve kalem; temsilî çekimdir |
+| `public/img/hasat.jpg` | "Yolculuk" filmi 01 (hasat) | Elde toplanan kayısıların ahşap kasaya yerleştirilmesi; temsilî çekimdir |
 
 Ek görseller: `public/img/mola.jpg` (radyo + çay + kayısı köşesi, Çay Molası), `public/img/cicek.jpg` (kayısı çiçeği, mevsim takvimi), `public/img/hosaf.jpg` (kayısı hoşafı, mutfak bölümü). Hepsi yapay zekâ üretimi temsilî çekimlerdir.
 `sergi.jpg`, ilk sürümündeki soluk filigran-benzeri üretim izi giderilerek ikinci sürümde yeniden üretilmiştir; uzakta küçük çalışan figürleri görünür, temsilî olduğu alt yazıda belirtilir ve görsel alt banda kırpılarak kullanılır.
@@ -145,7 +146,7 @@ Bu sitenin kodu, metinleri, görselleri ve kayıt verisi **yapay zekâ destekli 
 |---|---|---|
 | Kod (React + TypeScript + CSS) | Yapay zekâ asistanıyla tasarlandı ve yazıldı | `npm run typecheck` + `npm run verify` (tip kontrolü, iki bütünlük denetimi, üretim derlemesi) |
 | Metinler (süreç, tarif, sözlük, SSS) | Yapay zekâ asistanıyla taslaklandı | Kaynaklara karşı tek tek doğrulandı; tescil ve sağlık iddiası olmayan ifadeler çıkarıldı |
-| 11 görsel (`public/img/`) | Yapay zekâ ile üretildi | Gerçek fotoğraf gibi sunulmadı; her görselin altında "temsilî" notu var |
+| 16 görsel (`public/img/`) | Yapay zekâ ile üretildi | Gerçek fotoğraf gibi sunulmadı; her görselin altında "temsilî" notu var |
 | 1.800 temsilî kayıt (Atlas + Evren) | `scripts/generate-*.mjs` betikleriyle, kısa kaynak listelerinden deterministik olarak | `npm run verify:atlas` ve `npm run verify:universe` sayıları ve panel bağlantılarını denetler |
 | Cümleyle eşleştirici (Yapay Zekâ Defteri) | Kural tabanlı, elle yazılmış eşleştirme mantığı (`src/data.ts`) | Dil modeli **çağırmaz**; tarayıcıda ve çevrimdışı çalışır, dış API'ye bağlı değildir |
 

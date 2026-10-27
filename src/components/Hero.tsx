@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { goToLot } from "./Products";
 import { publicAsset } from "../assets";
 import { sfx } from "../sfx";
+import { useScrollFrame } from "../scrollEngine";
 
 const LEDGER_LINKS = [
   { value: "1.800", label: "temsilî kayıt", href: "#saha", note: "Saha Defteri'nde aç" },
@@ -16,30 +17,16 @@ export default function Hero() {
   const heroRef = useRef<HTMLElement | null>(null);
   const [stamped, setStamped] = useState(false);
 
-  /* Yumuşak paralaks: kahraman görselleri sayfa kaydıkça çok az kayar.
-     Hareket azaltma tercihi varsa hiç devreye girmez. */
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0;
-    const onScroll = () => {
-      if (raf) return;
-      raf = window.requestAnimationFrame(() => {
-        raf = 0;
-        const el = heroRef.current;
-        if (!el) return;
-        const top = el.getBoundingClientRect().top;
-        const ratio = Math.max(-1, Math.min(1, top / Math.max(1, window.innerHeight)));
-        el.style.setProperty("--hero-shift", String(ratio * 100));
-      });
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (raf) window.cancelAnimationFrame(raf);
-    };
-  }, []);
+  /* Katmanlı paralaks: kahramanın her katmanı farklı hızda kayar —
+     fotoğraflar, bilet ve dev PATİK yazısı ayrı derinliklerde.
+     Tek kaydırma motoru besler; React yeniden çizilmez. */
+  useScrollFrame((vh) => {
+    const el = heroRef.current;
+    if (!el) return;
+    const top = el.getBoundingClientRect().top;
+    const ratio = Math.max(-1, Math.min(1, top / Math.max(1, vh)));
+    el.style.setProperty("--hero-d", (ratio * 100).toFixed(2));
+  });
 
   return (
     <section
