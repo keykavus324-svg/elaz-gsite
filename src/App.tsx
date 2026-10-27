@@ -20,6 +20,7 @@ import CartDrawer from "./components/CartDrawer";
 import Reveal from "./components/Reveal";
 import Prova from "./components/Prova";
 import ChapterRail from "./components/ChapterRail";
+import Cuts from "./components/Cuts";
 import SectionBoundary from "./components/SectionBoundary";
 import { useCart } from "./cart";
 
@@ -253,6 +254,7 @@ export default function App() {
     <>
       <Header />
       <ChapterRail />
+      <Cuts />
       <SideRail />
       <main id="icerik">
         <Hero />

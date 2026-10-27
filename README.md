@@ -132,6 +132,10 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 - **Oynatıcı çubuğu:** sayfa bir film gibi gösterilir — altta zaman kodu, bulunulan bölümün
   adı ve ince bir scrub çizgisi; bölüm rayıyla aynı veriden beslenir. Çubuğun herhangi bir
   yerine tıklamak o konuma atlar, bölüm adı o bölüme götürür
+- **Kesme (bölüm geçişi):** bir bölümden diğerine geçerken ekranın ortasından bir perde
+  süpürülür — koyu bir kuşak, iki kenarında ince amber kare çizgileri ve kartın üstünde
+  o bölümün folio rakamı, başlığı ve tek satırlık tarifi (`src/components/Cuts.tsx`,
+  `src/cuts.css`). Hareket azaltma tercihinde ve sunum (`?prova=1`) modunda hiç görünmez
 - **Maskeli açılışlar:** bölüm başlıkları ekrana perdeli gelir, sayılar görünürlüğe girince
   sayar; tüm hareketler tek bir kaydırma motorundan (`src/scrollEngine.ts`) beslenir
 - **Sergi bandı (statement band):** hero'nun ardından tam genişlik, koyu Baskil sergi fotoğrafı;

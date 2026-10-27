@@ -1,0 +1,235 @@
+/* ==================================================================
+   KESME KATMANI — SİNEMATİK BÖLÜM GEÇİŞİ
+   ------------------------------------------------------------------
+   Bölüm değişimlerinde ekranın ortasından bir perde geçer: koyu,
+   sıcak bir bant aşağıdan yukarı süpürülür ve bandın üstünde o
+   bölümün kartı (folio rakamı + başlık + tek satır) belirir.
+   Film hissi: bölümler birbirine değil, birbirinin *üzerinden* geçer.
+
+   Teknik notlar:
+     • Tamamen dekoratif: aria-hidden + pointer-events: none.
+     • z-index 39 → üst menü (40) bandın üstünde kalır; perde menünün
+       altından kayar, tıpkı bir film perdesi gibi.
+     • Hareket azaltma tercihinde bant hiç oluşmaz.
+   ================================================================== */
+
+.cuts {
+  position: fixed;
+  inset: 0;
+  z-index: 39;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------------
+   Perde bandı: ekranın tamamı, ama yalnızca orta yatay şerit opak.
+   ------------------------------------------------------------------ */
+
+.cuts__band {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  /* Perde: ortada neredeyse opak bir koyu kuşak, iki kenarında ince
+     amber "kare çizgisi" — bir film karesinin kenarı gibi. */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 8, 4, 0) 0%,
+      rgba(12, 8, 4, 0) 21%,
+      rgba(20, 13, 7, 0.6) 29%,
+      rgba(232, 149, 58, 0.55) 32.4%,
+      rgba(232, 149, 58, 0.55) 33.1%,
+      rgba(15, 9, 4, 0.985) 35.5%,
+      rgba(13, 8, 4, 0.99) 50%,
+      rgba(15, 9, 4, 0.985) 64.5%,
+      rgba(232, 149, 58, 0.55) 66.9%,
+      rgba(232, 149, 58, 0.55) 67.6%,
+      rgba(20, 13, 7, 0.6) 71%,
+      rgba(12, 8, 4, 0) 79%,
+      rgba(12, 8, 4, 0) 100%
+    );
+  animation: cutSweep 1900ms cubic-bezier(0.55, 0.06, 0.3, 1) both;
+}
+
+/* Sıcak ışık sızıntısı: perde geçerken ekranda bir lens parlaması. */
+.cuts__band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(242, 169, 59, 0) 26%,
+    rgba(242, 169, 59, 0.1) 42%,
+    rgba(255, 226, 176, 0.22) 49%,
+    rgba(242, 169, 59, 0.08) 58%,
+    rgba(242, 169, 59, 0) 74%
+  );
+  mix-blend-mode: screen;
+  animation: cutLeak 1900ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes cutSweep {
+  0% {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  26% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  70% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  93% {
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes cutLeak {
+  0%,
+  100% {
+    transform: translate3d(-38%, 0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(38%, 0, 0);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Kesme kartı
+   ------------------------------------------------------------------ */
+
+.cuts__card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 0 clamp(20px, 6vw, 80px);
+  text-align: center;
+  animation: cutCard 1900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cuts__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: rgba(242, 169, 59, 0.92);
+}
+
+.cuts__no {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.22em;
+}
+
+.cuts__rule {
+  width: clamp(28px, 6vw, 64px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(242, 169, 59, 0), rgba(242, 169, 59, 0.85), rgba(242, 169, 59, 0));
+}
+
+.cuts__word {
+  color: rgba(246, 232, 207, 0.62);
+}
+
+.cuts__title {
+  margin: 0;
+  font-family: var(--serif, Georgia, serif);
+  font-size: clamp(2.1rem, 7vw, 4.6rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #f7ead2;
+  text-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+
+.cuts__tag {
+  margin: 0;
+  font-family: var(--serif, Georgia, serif);
+  font-style: italic;
+  font-size: clamp(0.85rem, 2.1vw, 1.12rem);
+  color: rgba(246, 232, 207, 0.74);
+}
+
+@keyframes cutCard {
+  0%,
+  16% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  34%,
+  62% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Dar ekran: kart daha küçük, perde daha ince.
+   ------------------------------------------------------------------ */
+
+@media (max-width: 640px) {
+  .cuts__band {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(12, 8, 4, 0) 0%,
+        rgba(12, 8, 4, 0) 19%,
+        rgba(20, 13, 7, 0.62) 27%,
+        rgba(232, 149, 58, 0.55) 30.4%,
+        rgba(232, 149, 58, 0.55) 31.1%,
+        rgba(15, 9, 4, 0.985) 33.5%,
+        rgba(13, 8, 4, 0.99) 50%,
+        rgba(15, 9, 4, 0.985) 66.5%,
+        rgba(232, 149, 58, 0.55) 68.9%,
+        rgba(232, 149, 58, 0.55) 69.6%,
+        rgba(20, 13, 7, 0.62) 73%,
+        rgba(12, 8, 4, 0) 81%,
+        rgba(12, 8, 4, 0) 100%
+      );
+  }
+
+  .cuts__title {
+    font-size: clamp(1.7rem, 9vw, 2.6rem);
+  }
+
+  .cuts__meta {
+    font-size: 0.56rem;
+    letter-spacing: 0.28em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cuts {
+    display: none;
+  }
+}

@@ -10,6 +10,7 @@ import "./juri.css";
 import "./pin.css";
 import "./film.css";
 import "./motion.css";
+import "./cuts.css";
 
 createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
