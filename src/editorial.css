@@ -56,19 +56,20 @@ body { counter-reset: patik-bolum; }
 
 .section { position: relative; }
 
-#saha { counter-set: patik-bolum 2; }
-#karsilastir { counter-set: patik-bolum 3; }
-#surec { counter-set: patik-bolum 4; }
-#uretici { counter-set: patik-bolum 5; }
-#mola { counter-set: patik-bolum 6; }
-#oyun-masasi { counter-set: patik-bolum 7; }
-#lotunu-kur { counter-set: patik-bolum 8; }
-#yz-defteri { counter-set: patik-bolum 9; }
-#urunler { counter-set: patik-bolum 10; }
-#mutfak { counter-set: patik-bolum 11; }
-#atlas { counter-set: patik-bolum 12; }
-#evren { counter-set: patik-bolum 13; }
-#lot-sorgula { counter-set: patik-bolum 14; }
+#film { counter-set: patik-bolum 2; }
+#saha { counter-set: patik-bolum 3; }
+#karsilastir { counter-set: patik-bolum 4; }
+#surec { counter-set: patik-bolum 5; }
+#uretici { counter-set: patik-bolum 6; }
+#mola { counter-set: patik-bolum 7; }
+#oyun-masasi { counter-set: patik-bolum 8; }
+#lotunu-kur { counter-set: patik-bolum 9; }
+#yz-defteri { counter-set: patik-bolum 10; }
+#urunler { counter-set: patik-bolum 11; }
+#mutfak { counter-set: patik-bolum 12; }
+#atlas { counter-set: patik-bolum 13; }
+#evren { counter-set: patik-bolum 14; }
+#lot-sorgula { counter-set: patik-bolum 15; }
 
 /* Bölüm başlığının üstünde saç teli çizgi + indeks rakamı.
    Referans: "01 VELVET STUDIO", "OUR ESSENTIALS" düzeni. */
@@ -511,4 +512,38 @@ h1, h2, h3, h4 {
 
 @media print {
   body::after { display: none; }
+}
+
+/* ---------------- Kısa ekranlarda hero sıkılığı ---------------- */
+/* 900 px yükseklikte bir dizüstü ekranda "Lotunu Kur" düğmesi ilk
+   ekranda görünmeli — jüri ilk dokunuşu kaydırmadan yapabilsin.
+   Başlık, ekran yüksekliğine göre kısalır; geniş ekranlar etkilenmez. */
+
+@media (min-width: 861px) and (max-height: 980px) {
+  .hero--ledger {
+    padding-top: 18px;
+  }
+
+  .hero__layout {
+    padding-top: clamp(16px, 2.4vw, 34px);
+    gap: clamp(28px, 3.4vw, 48px);
+  }
+
+  .hero--ledger .hero__title {
+    font-size: min(clamp(3.4rem, 7.4vw, 6.6rem), 9.6vh);
+  }
+
+  .hero--ledger .hero__sub {
+    margin-top: 16px;
+    font-size: clamp(0.96rem, 1.28vw, 1.08rem);
+    line-height: 1.6;
+  }
+
+  .hero--ledger .hero__ctas {
+    margin-top: 18px;
+  }
+
+  .hero__etymology {
+    margin-top: 12px;
+  }
 }

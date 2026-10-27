@@ -138,7 +138,7 @@ export default function Film() {
   };
 
   return (
-    <section className="film" id="yolculuk" aria-labelledby="film-baslik" ref={rootRef}>
+    <section className="film" id="film" aria-labelledby="film-baslik" ref={rootRef}>
       <h2 className="sr-only" id="film-baslik">
         Kayısının yolculuğu: hasattan lot pasaportuna beş durak
       </h2>

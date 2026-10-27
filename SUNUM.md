@@ -12,7 +12,9 @@
 > "Patik, Baskil'de kayısının çekirdeğini tek tek elle çıkarma mesaisine verilen ad.
 > Markamız adını o emekten alıyor; sözümüz basit: bahçeden kutuna, lotuyla. Her kutu
 > tek bahçeden dolar ve kapağında bir lot kodu olur. Sitemizde bu kodu yazdığınızda
-> bahçeyi, hasat haftasını, kurutma yolunu ve patik gününü gösteren lot pasaportu açılır."
+> bahçeyi, hasat haftasını, kurutma yolunu ve patik gününü gösteren lot pasaportu açılır.
+> Sitede bir de kısa bir film var: kaydırdıkça hasattan pasaporta beş durak değişiyor —
+> sayfa bir video gibi akıyor."
 >
 > **[35–60 sn — imza özellik]**
 > "Ama önce doğru kayısıyı bulmanız lazım. 'Lotunu Kur' size üç soru soruyor: nasıl
@@ -43,6 +45,7 @@
 
 1. **Vitrinde dur (8 sn):** "Kayısı kurur. Kaydı kalır." Beş duraklı yolu ve **PT-26-047**
    lot biletini göster; mesajı kur: satılan şey yalnız kayısı değil, kayısının izlenebilir kaydı.
+   Altındaki oynatıcı çubuğunu (zaman kodu + bölüm adı) bir kez göster: "sayfa bir film gibi."
 2. **Saha Defteri'ni çalıştır (10 sn):** Bir istasyon değiştir, **Başka kayıt** düğmesine bas.
    "1.800 temsilî kayıt sayfanın altında saklanmıyor; günün işi, lot, kalite ve ders burada çalışıyor."
 3. **3 soruyu cevapla (20 sn):** "Çayın yanına atıştırmalık" → "Koyu, yoğun, karamelimsi"
@@ -61,7 +64,10 @@
    "Patik gerçek işletme mi?" ile "tescil" cevaplarını göster. Kapatırken sloganı söyle:
    **"Bahçeden kutuna, lotuyla."**
 
-**Zaman kalırsa (bonus 45 sn):** Önce alt bilgideki **Jüri Özeti** düğmesine bas: açılan tek
+**Zaman kalırsa (bonus 45 sn):** Önce **Yolculuk filmini** bir kez kaydır: beş sahne
+(hasat → islim → sergi → patik → pasaport) zaman koduyla birlikte değişiyor, alt şeritten
+bir duraka atlayabiliyorsun; "bu bir video gibi" cümlesini bırakma. Sonra alt bilgideki
+**Jüri Özeti** düğmesine bas: açılan tek
 sayfayı jüriye göster ("sizin için bastım, PDF olarak da alabilirsiniz"), kapat. Sonra
 **Yapay Zekâ Defteri**'ni aç: cümle kutusuna "çayın yanına
 koyacağım, koyu olsun" yazıp **Eşleştir**'e bas — gerekçeli lot önerisi, anlaşılan boyutlar ve lot
@@ -137,9 +143,9 @@ yükleniyor; ilk açılışta ana paket şişmiyor.
 - **Tasarım/Ux:** 360 px telefondan baştan sona akış testi, tıklanabilir alan kontrolü.
 - **Teknik:** Replit'te projeyi açıp `Run` doğrulama, yedek ekran görüntüleri.
 
-**Prova Modu:** Demo sürücüsü siteyi `?prova=1` ile açsın. Konsol dokuz adımı,
-konuşma notlarını ve 105 saniye sayacını gösterir (7. adım Oyun Masası, 9. adım bonus:
-Yapay Zekâ Defteri);
+**Prova Modu:** Demo sürücüsü siteyi `?prova=1` ile açsın. Konsol on adımı,
+konuşma notlarını ve 112 saniye sayacını gösterir (2. adım Yolculuk filmi, 8. adım
+Oyun Masası, 10. adım bonus: Yapay Zekâ Defteri);
 ←/→ ile ilerlenir. Sahnede
 ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçültün.
 
@@ -159,3 +165,5 @@ ekran yansıtılıyorsa P tuşuyla konsolu küçük adım/süre hapına küçül
 - [ ] Ses düğmesi "Ses açık / kapalı" olarak çevrilebiliyor
 - [ ] Telefonda (ya da dar pencerede) yatay taşma yok, menü çalışıyor
 - [ ] Tüm görseller yükleniyor (özellikle sergi bandı)
+- [ ] "Yolculuk" filmi kaydırılınca sahneler değişiyor; alt şeritten atlanabiliyor
+- [ ] Oynatıcı çubuğunda zaman kodu ve bölüm adı ilerliyor
