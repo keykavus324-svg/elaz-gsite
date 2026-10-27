@@ -1,5 +1,14 @@
 import { LogoMark } from "./Header";
 
+/* Etkinlik günü öncesi tek yerden güncellenebilsin diye takım bilgisi ayrı tutuldu. */
+const TEAM = {
+  name: "ITS NEXOR4",
+  captain: "Fatma Türkmen",
+  members: ["Fatma Türkmen", "Nazlı Karaağaç", "Meryem Melek Şimşek", "Emine Zehra Duyar"],
+  repo: "https://github.com/keykavus324-svg/elaz-gsite",
+  live: "https://keykavus324-svg.github.io/elaz-gsite/",
+};
+
 export default function Footer() {
   return (
     <footer className="site-footer">
@@ -17,6 +26,17 @@ export default function Footer() {
             Patik, Baskil kayısının kendi adıyla ve izlenebilir kurutma kaydıyla tüketiciye
             ulaşabileceğini gösteren bir GakCoding konseptidir.
           </p>
+          <p className="site-footer__team">
+            <span className="site-footer__team-badge">{TEAM.name}</span>
+            <span>
+              <strong>Kaptan:</strong> {TEAM.captain} · <strong>Takım:</strong>{" "}
+              {TEAM.members.join(", ")}
+            </span>
+            <span className="site-footer__team-links">
+              <a href={TEAM.live} target="_blank" rel="noreferrer">Canlı site ↗</a>
+              <a href={TEAM.repo} target="_blank" rel="noreferrer">Kaynak kodu ↗</a>
+            </span>
+          </p>
         </div>
 
         <nav className="site-footer__nav" aria-label="Alt bilgi menüsü">
@@ -27,6 +47,7 @@ export default function Footer() {
           <a href="#uretici">Üretici Hikâyesi</a>
           <a href="#mola">Çay Molası: Radyo & Oyun</a>
           <a href="#lotunu-kur">Lotunu Kur</a>
+          <a href="#yz-defteri">Yapay Zekâ Defteri: Üretim Kaydı</a>
           <a href="#urunler">Ürünler</a>
           <a href="#mutfak">Mevsim & Mutfak · Hoşaf Hesapçısı</a>
           <a href="#atlas">Patik Atlası: Lot Defteri ve Sözlük</a>
@@ -42,12 +63,15 @@ export default function Footer() {
             <li>Üretici profili, fiyatlar ve lot kayıtları <strong>temsilîdir</strong>; gerçek kişi veya işletme değildir.</li>
             <li>Ürün süreçlerine dair genel bilgiler kaynaklara dayanır (depoda <em>KAYNAKLAR.md</em>).</li>
             <li>Görseller yapay zekâ ile üretilmiştir; gerçek üretici/tesis fotoğrafı değildir.</li>
+            <li>Kod, metin ve görseller yapay zekâ destekli araçlarla üretilip insan eliyle denetlenmiştir
+              (<a href="#yz-defteri">üretim kaydı</a>).</li>
             <li>Form verileri gönderilmez; sepet yalnızca tarayıcınızda saklanır.</li>
           </ul>
         </div>
       </div>
       <p className="site-footer__bottom">
         © 2026 Patik (kurgusal marka konsepti) · GakCoding — Elazığ · Kilimden koda, Baskil'den sofrana.
+        <span className="site-footer__team-name">Takım {TEAM.name}</span>
       </p>
     </footer>
   );

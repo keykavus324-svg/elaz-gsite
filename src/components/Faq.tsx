@@ -71,6 +71,31 @@ const FAQS: Array<{ q: string; a: React.ReactNode }> = [
       </>
     ),
   },
+  {
+    q: "Bu site yapay zekâ ile mi yapıldı?",
+    a: (
+      <>
+        Evet — ve bunu saklamıyoruz. Kod, metin, görsel ve kayıt verisi yapay zekâ destekli araçlarla
+        üretildi, ardından insan eliyle düzeltildi ve otomatik denetimlerden geçti. Sürecin tamamı{" "}
+        <a href="#yz-defteri">Yapay Zekâ Defteri</a> bölümünde beş adımda anlatılıyor: fikir, görsel
+        üretimi, veri üretimi, otomatik doğrulama ve editoryal denetim. Depodaki{" "}
+        <em>KAYNAKLAR.md</em> dosyasında da hangi bilginin nereden geldiği tek tek yazılı.
+      </>
+    ),
+  },
+  {
+    q: "“Cümleni anlat” özelliği yapay zekâ mı kullanıyor?",
+    a: (
+      <>
+        Bilinçli olarak <strong>hayır</strong> — ve bunu gizlemiyoruz. Büyük dil modeli çağırmıyoruz;
+        eşleştirici, sitedeki kanonik ürün ve lot kayıtları üzerinde kural tabanlı, şeffaf bir
+        eşleştirme yapıyor. Yazdığınız cümle hiçbir sunucuya gönderilmez, internet yokken de aynı
+        sonucu verir. Nedeni basit: etkinlik salonunun interneti bize ait değil — üçüncü taraf bir
+        API'ye bağımlı bir demo, bağlantı kesildiği anda çöker. Yapay zekâyı <em>üretim</em> tarafında
+        kullandık, <em>çalışma zamanında</em> ise siteye bağımlılık eklemedik.
+      </>
+    ),
+  },
 ];
 
 export default function Faq() {

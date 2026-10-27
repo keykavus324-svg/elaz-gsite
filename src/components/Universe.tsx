@@ -1,5 +1,6 @@
 import { Suspense, lazy, useState } from "react";
 import "../universe.css";
+import SectionBoundary from "./SectionBoundary";
 
 const OperationsDashboard = lazy(() => import("./universe/OperationsDashboard"));
 const DailyJournal = lazy(() => import("./universe/DailyJournal"));
@@ -113,12 +114,17 @@ export default function Universe() {
       </div>
 
       <Suspense fallback={<PanelFallback label={active.label} />}>
-        {tab === "operasyon" && <OperationsDashboard />}
-        {tab === "gunluk" && <DailyJournal />}
-        {tab === "kalite" && <QualityLab />}
-        {tab === "kutu" && <PackingLine />}
-        {tab === "hediye" && <GiftStudio />}
-        {tab === "okul" && <LearningSchool />}
+        <SectionBoundary
+          title={active.label}
+          note="Bu modül ayrı paket hâlinde geliyor; yüklenemezse diğer modüller çalışmaya devam eder."
+        >
+          {tab === "operasyon" && <OperationsDashboard />}
+          {tab === "gunluk" && <DailyJournal />}
+          {tab === "kalite" && <QualityLab />}
+          {tab === "kutu" && <PackingLine />}
+          {tab === "hediye" && <GiftStudio />}
+          {tab === "okul" && <LearningSchool />}
+        </SectionBoundary>
       </Suspense>
     </section>
   );

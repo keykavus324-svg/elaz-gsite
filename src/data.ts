@@ -289,6 +289,236 @@ export function recommend(a: Required<QuizAnswers>): Recommendation {
   return { product, size, reasons, kernelTip: product.id !== "hediye" && product.id !== "cekirdek" };
 }
 
+/* ================================================================== */
+/*  CÜMLEYLE EŞLEŞTİRME — Yapay Zekâ Defteri'nin yerel eşleştiricisi  */
+/*                                                                     */
+/*  Bilinçli olarak bir dil modeli çağırmaz. Eşleştirme, sitedeki    */
+/*  kanonik ürün ve lot kayıtları üzerinde kural tabanlı, şeffaf ve   */
+/*  çevrimdışı çalışır. Yazılan cümle hiçbir sunucuya gönderilmez.   */
+/* ================================================================== */
+
+const TR_MAP: Record<string, string> = {
+  ç: "c", Ç: "c", ğ: "g", Ğ: "g", ı: "i", İ: "i", ö: "o", Ö: "o",
+  ş: "s", Ş: "s", ü: "u", Ü: "u", â: "a", Â: "a", î: "i", Î: "i", û: "u", Û: "u",
+};
+
+/** Türkçe harfleri sadeleştirir, noktalama ve fazla boşlukları temizler. */
+export function normalizeTr(input: string): string {
+  return input
+    .toLocaleLowerCase("tr-TR")
+    .replace(/[çÇğĞıİöÖşŞüÜâÂîÎûÛ]/g, (c) => TR_MAP[c] ?? c)
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** Anahtar kelimenin metinde geçip geçmediğini, kelime sınırına saygılı olarak bulur. */
+function findHits(tokens: string[], keywords: string[]): string[] {
+  const joined = tokens.join(" ");
+  const hits: string[] = [];
+  for (const kw of keywords) {
+    if (kw.includes(" ")) {
+      if (joined.includes(kw)) hits.push(kw);
+    } else if (tokens.some((t) => t.startsWith(kw))) {
+      hits.push(kw);
+    }
+  }
+  return hits;
+}
+
+const USE_KEYWORDS: Array<[UseCase, string[]]> = [
+  ["hediye", [
+    "hediye", "hediyelik", "anne", "baba", "arkadas", "sevgili", "dogum", "evlilik",
+    "bayram", "misafir", "ogretmen", "komus", "komsu", "gonder", "paket", "surdum",
+  ]],
+  ["mutfak", [
+    "hosaf", "tatli", "mutfak", "yemek", "tarif", "pasta", "kek", "sarma", "baklava",
+    "yogurt", "sut", "recel", "kurabiye", "kompot", "mamalya", "donma", "puding",
+    "kahvalti", "dolma", "sarma", "seker",
+  ]],
+  ["deneme", [
+    "deneme", "denemek", "kararsiz", "hepsini", "ikisini", "cesitli", "merak",
+    "ozgun", "karsilastir", "gorus", "hepsi", "bilmek", "deneyim", "farkli",
+  ]],
+  ["atistirmalik", [
+    "cay", "atistirma", "atistirmalik", "yanina", "sabah", "ogle", "aksam",
+    "kavanoz", "isci", "ofis", "kahve", "molalar", "kasa",
+  ]],
+];
+
+const TASTE_KEYWORDS: Array<[Taste, string[]]> = [
+  ["koyu", [
+    "koyu", "karamel", "karamelize", "yogun", "dolu", "bati", "cekirdekli",
+    "siyah", "torra", "keskin", "gun kurusu", "eski usul", "bogaz",
+  ]],
+  ["parlak", [
+    "parlak", "canli", "taze", "diri", "renkli", "rengini", "islim", "islimli",
+    "jumbo", "buyuk", "donus", "saklanan", "uzun omur",
+  ]],
+];
+
+const AMOUNT_KEYWORDS: Array<[Amount, string[]]> = [
+  ["coklu", ["cok", "birkaç", "coklu", "ekip", "toplu", "fazla", "kisi", "paylas", "20", "30", "50", "100"]],
+  ["aile", ["aile", "ailece", "ikimiz", "bizim", "haftalik", "gunluk", "evde", "eve", "evin", "mutfakta", "1 kg", "1kg"]],
+  ["kucuk", ["kucuk", "kendi", "tek", "bireysel", "ilk", "kisisel", "az", "denemek"]],
+];
+
+const USE_LABEL: Record<UseCase, string> = {
+  atistirmalik: "Çayın yanına atıştırmalık",
+  hediye: "Hediye kutusu",
+  mutfak: "Mutfakta: hoşaf, tatlı, yemek",
+  deneme: "Üçünü birden deneme",
+};
+
+const TASTE_LABEL: Record<Taste, string> = {
+  koyu: "Koyu, yoğun, karamelimsi",
+  parlak: "Parlak, diri, canlı renk",
+  "fark-etmez": "Fark etmez — öneriye açık",
+};
+
+const AMOUNT_LABEL: Record<Amount, string> = {
+  kucuk: "Kendim için, küçük başlangıç",
+  aile: "Evde aileyle paylaşılır",
+  coklu: "Birkaç kişiyle paylaşılır",
+};
+
+/** Cümleden çıkarılan ek ipuçları (konu → kısa öneri). */
+const TOPIC_TIPS: Array<{ match: string[]; tip: string; link?: { href: string; label: string } }> = [
+  {
+    match: ["hosaf"],
+    tip: "Hoşafta islimli daha az dağılır; kuru kayısı iyice suyu çeker. Gramajı kişi sayısına göre hesaplamak için Mutfak bölümündeki Hoşaf Hesapçısı'nı kullan.",
+    link: { href: "#mutfak", label: "Hoşaf Hesapçısı" },
+  },
+  {
+    match: ["tatli", "baklava", "pasta", "kek", "kuru", "recel"],
+    tip: "Tatlıda rengi koruyan islimli öne çıkar; gün kurusu ise koyu tadıyla tarife karakter katar.",
+  },
+  {
+    match: ["cay", "kahve"],
+    tip: "Çayın yanında en çok gün kurusu tutulur: koyu tadı çaya eşlik eder, yumuşak dokusu çayla uyumludur.",
+  },
+  {
+    match: ["bayram", "misafir", "ogretmen", "komus"],
+    tip: "Ziyaret için gidiyorsan yanına bir hediye notu eklemeyi unutma; hediye notu sipariş adımında yazılıyor (demo).",
+  },
+  {
+    match: ["sakla", "bozul", "raf", "kilo"],
+    tip: "Açtıktan sonra ağzı kapalı, serin ve kuru yerde sakla; gün kurusu islimliye göre biraz daha özen ister.",
+  },
+  {
+    match: ["cekirdek"],
+    tip: "Çekirdek içi ayrı bir kutuda; az miktarda, günde birkaç adedi aşmadan tüketmen önerilir.",
+  },
+];
+
+interface GroupHit<T extends string> {
+  value: T;
+  count: number;
+  hits: string[];
+  firstIndex: number;
+}
+
+function scoreGroups<T extends string>(
+  groups: Array<[T, string[]]>,
+  tokens: string[],
+): GroupHit<T> | null {
+  let best: GroupHit<T> | null = null;
+  for (const [value, keywords] of groups) {
+    const hits = findHits(tokens, keywords);
+    if (hits.length === 0) continue;
+    const firstIndex = Math.min(
+      ...hits.map((kw) => {
+        const idx = tokens.findIndex((t) => t.startsWith(kw) || t === kw);
+        return idx < 0 ? tokens.length : idx;
+      }),
+    );
+    const candidate: GroupHit<T> = { value, count: hits.length, hits, firstIndex };
+    if (
+      !best ||
+      candidate.count > best.count ||
+      (candidate.count === best.count && candidate.firstIndex < best.firstIndex)
+    ) {
+      best = candidate;
+    }
+  }
+  return best;
+}
+
+export interface Advice {
+  product: Product;
+  size: SizeOption;
+  reasons: string[];
+  tips: string[];
+  tipLinks: Array<{ href: string; label: string }>;
+  lot: Lot;
+  confidence: "kesin" | "olası" | "zayif";
+  understood: Array<{ label: string; value: string; source: string }>;
+  use: UseCase;
+  taste: Taste;
+  amount: Amount;
+  kernelTip: boolean;
+}
+
+/**
+ * Serbest metni okur ve kanonik demo kayıtlarından gerekçeli bir lot önerisi üretir.
+ * Eşleştirme tamamen kural tabanlıdır; hiçbir ağ isteği yapılmaz.
+ */
+export function adviseFromText(raw: string): Advice | null {
+  const text = normalizeTr(raw);
+  if (text.length < 3) return null;
+  const tokens = text.split(" ");
+
+  const useHit = scoreGroups(USE_KEYWORDS, tokens);
+  const tasteHit = scoreGroups(TASTE_KEYWORDS, tokens);
+  const amountHit = scoreGroups(AMOUNT_KEYWORDS, tokens);
+
+  if (!useHit && !tasteHit && !amountHit) return null;
+
+  const use: UseCase = useHit?.value ?? "atistirmalik";
+  const taste: Taste = tasteHit?.value ?? "fark-etmez";
+  const amount: Amount = amountHit?.value ?? (use === "hediye" ? "aile" : "kucuk");
+
+  const rec = recommend({ use, taste, amount });
+  const reasons = [...rec.reasons];
+  const tips: string[] = [];
+  const tipLinks: Array<{ href: string; label: string }> = [];
+
+  for (const topic of TOPIC_TIPS) {
+    if (findHits(tokens, topic.match).length > 0) {
+      tips.push(topic.tip);
+      if (topic.link && !tipLinks.some((l) => l.href === topic.link!.href)) {
+        tipLinks.push(topic.link);
+      }
+    }
+  }
+
+  const understood: Advice["understood"] = [];
+  if (useHit) understood.push({ label: "Kullanım", value: USE_LABEL[use], source: useHit.hits.join(", ") });
+  if (tasteHit) understood.push({ label: "Damak", value: TASTE_LABEL[taste], source: tasteHit.hits.join(", ") });
+  if (amountHit) understood.push({ label: "Miktar", value: AMOUNT_LABEL[amount], source: amountHit.hits.join(", ") });
+
+  const totalHits = (useHit?.count ?? 0) + (tasteHit?.count ?? 0) + (amountHit?.count ?? 0);
+  const confidence: Advice["confidence"] =
+    totalHits >= 3 ? "kesin" : totalHits === 2 ? "olası" : "zayif";
+
+  const lot = findLot(rec.product.lotCodes[0]) ?? LOTS[0];
+
+  return {
+    product: rec.product,
+    size: rec.size,
+    reasons,
+    tips,
+    tipLinks,
+    lot,
+    confidence,
+    understood,
+    use,
+    taste,
+    amount,
+    kernelTip: rec.kernelTip,
+  };
+}
+
 /* ------------------------- Yardımcılar --------------------------- */
 
 export const TL = new Intl.NumberFormat("tr-TR", {

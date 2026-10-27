@@ -148,7 +148,14 @@ async function verifyAtlasIntegration() {
     [atlas.includes("KNOWLEDGE_CARDS"), "Atlas bilgi kartlarını kullanıyor"],
     [atlas.includes("QUIZ_BANK"), "Atlas soru bankasını kullanıyor"],
     [atlas.includes("Şeffaflık notu"), "Atlas şeffaflık uyarısını gösteriyor"],
-    [app.includes("lazy(() => import(\"./components/Atlas\"))"), "Atlas ayrı paket olarak tembel yükleniyor"],
+    [
+      /\blazy\(\s*(loadAtlas|\(\)\s*=>\s*import\("\.\/components\/Atlas"\))\s*\)/.test(app),
+      "Atlas ayrı paket olarak tembel yükleniyor",
+    ],
+    [
+      app.includes('const loadAtlas = () => import("./components/Atlas")'),
+      "Atlas paketi önden ısıtılabiliyor (idle prefetch)",
+    ],
     [app.includes("<Atlas />"), "Atlas ana akışa bağlı"],
     [header.includes('href: "#atlas"'), "Üst menü Atlas bağlantısı içeriyor"],
     [footer.includes('href="#atlas"'), "Alt bilgi Atlas bağlantısı içeriyor"],

@@ -15,13 +15,15 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 ## Saat saat
 
 - **11.00–11.30 Kurulum:** Masaya yerleş, priz/üçlü, su. Projeyi Replit'e aktar:
-  *Import from GitHub* → `arena/a9c83a62-elaz-gsite` dalı → Run. Açılışı telefon
+  *Import from GitHub* → `main` dalı → Run. Açılışı telefon
   ve dizüstünden doğrula. (Yedek: USB'de repo zip'i + telefonda akış videosu çekili.)
 - **11.30–12.30 Canlı test:** SUNUM.md §E listesini koş. Radyoyu salonda dene:
   TRT Türkü açılıyor mu, ses hoparlöre gidiyor mu? Açılmıyorsa sunumda radyo
   bölümünü "çevrimiçi katman" diye anlat, ekran görüntüsü göster — panik yok.
 - **12.30–13.30 İçerik rötuşu:** Takım adını, kaptan adını footer'a işle; fiyatlara
   son göz; yazılı pasaport çıktısı al (Lot Sorgula → Yazdır) — jüri masasına bırakılacak.
+  (Takım bilgisi artık `src/components/Footer.tsx` içindeki `TEAM` sabitinde; sunumdan önce
+  isimleri son kez gözden geçir.)
 - **13.30–15.30 Geliştirme penceresi:** Yalnızca küçük, güvenli işler. Büyük özellik
   eklemek yok; her değişiklikten sonra `npm run build` + ana akış testi.
 - **15.30–16.30 Prova ×3:** Prova Modu'nun yerleşik 105 saniye sayacıyla. Sürücü tıklama sırasını ezberler
@@ -35,7 +37,7 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 
 | Risk | Önlem |
 |---|---|
-| Salon interneti yok/zayıf | Site yerelden çalışır; radyo hariç her şey çevrimdışı. Telefon hotspot hazır |
+| Salon interneti yok/zayıf | Site yerelden çalışır; radyo hariç her şey çevrimdışı. Atlas/Evren paketleri sayfa boşta kaldığında önden indirilir; bir paket alınamazsa o bölüm "yüklenemedi" mesajıyla kapanır, **sayfanın geri kalanı çalışmaya devam eder** (sayfa asla boş kalmaz). Telefon hotspot hazır |
 | Replit yavaş açılıyor | Yedek: telefonda önceden çekilmiş 60 sn akış videosu + ekran görüntüleri |
 | Projeksiyon renkleri bozuk | Koyu metin/açık krem zaten kontrastı yüksek; parlaklığı kontrol et |
 | Radyo HTTPS'te açılmaz | TRT Türkü birincil; FM 23 takılırsa çalar açıklar, resmî siteye geç |
@@ -43,6 +45,8 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 | Jüri "gerçek mi?" derse | Gülümse: "Açıkça etiketledik" → §C/2 cevabı + KAYNAKLAR.md göster |
 | Atlas/Evren sayıları gerçek sanılırsa | 811 Atlas + 989 Evren kaydının temsilî arayüz ölçeği olduğunu ilk cümlede söyle; kanonik akışın 3 lotla çalıştığını göster |
 | Sayfa uzunluğu jüriyi yorarsa | Vitrin + Saha Defteri ile ölçeği ilk dakikada göster; ana akışı Lotunu Kur → Sepet → Pasaport sırasıyla bitir, Atlas ve Evreni bonus bırak |
+| Jüri "sitede gerçekten yapay zekâ var mı?" derse | "Üretimde kullandık, çalışma zamanında bilerek çağırmıyoruz" → Yapay Zekâ Defteri'ndeki 5 adımlı üretim kaydını göster, sonra eşleştiricinin çevrimdışı çalıştığını göster (SUNUM.md §C/6) |
+| Eşleştirici cümleyi yanlış anlarsa | Örnek cümleler (4 hazır chip) her zaman doğru sonucu verir; jüri bunlardan birine tıklarsa öneri kesin çıkar |
 
 ## Jüri masası kiti
 

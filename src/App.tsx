@@ -7,6 +7,7 @@ import Producer from "./components/Producer";
 import Mola from "./components/Mola";
 import Mutfak from "./components/Mutfak";
 import LotBuilder from "./components/LotBuilder";
+import YzDefteri from "./components/YzDefteri";
 import Products from "./components/Products";
 import LotLookup from "./components/LotLookup";
 import Faq from "./components/Faq";
@@ -15,11 +16,19 @@ import CartDrawer from "./components/CartDrawer";
 import Reveal from "./components/Reveal";
 import Prova from "./components/Prova";
 import ChapterRail from "./components/ChapterRail";
+import SectionBoundary from "./components/SectionBoundary";
 import { useCart } from "./cart";
 
-const Atlas = lazy(() => import("./components/Atlas"));
-const Universe = lazy(() => import("./components/Universe"));
-const FieldDesk = lazy(() => import("./components/FieldDesk"));
+/* Ağır bölümler ayrı paketlerden tembel yüklenir. Fabrikalar ayrı tutulur ki
+   hem önden ısıtılabilsin (idle ön yükleme) hem de paket alınamazsa
+   hata sınıra düşüp yalnızca o bölümü etkilesin. */
+const loadFieldDesk = () => import("./components/FieldDesk");
+const loadAtlas = () => import("./components/Atlas");
+const loadUniverse = () => import("./components/Universe");
+
+const Atlas = lazy(loadAtlas);
+const Universe = lazy(loadUniverse);
+const FieldDesk = lazy(loadFieldDesk);
 
 const WORDS = [
   "PATİK", "tek tek elle", "GÜN KURUSU", "islimsiz güneş", "İSLİM DAMI", "canlı renk",
@@ -134,7 +143,12 @@ function DeferredUniverse() {
   if (shouldLoad) {
     return (
       <Suspense fallback={<UniverseFallback />}>
-        <Universe />
+        <SectionBoundary
+          title="Patik Evreni"
+          note="Operasyon panosu, 365 günlük plan, kalite masası, kutu hattı, hediye stüdyosu ve Patik Okulu."
+        >
+          <Universe />
+        </SectionBoundary>
       </Suspense>
     );
   }
@@ -169,7 +183,47 @@ function Toast() {
   );
 }
 
+/**
+ * Ağır bölümlerin paketlerini sayfa boşta kaldığında önden getirir.
+ * Amaç: etkinlik salonunda internet kesilirse bile bölümler açılabilsin —
+ * tarayıcı paketleri önbelleğe almış olur. Başarısız olursa sessizce geçilir;
+ * yüklenemeyen bölüm SectionBoundary tarafından yakalanır.
+ */
+function useIdlePrefetch() {
+  useEffect(() => {
+    const timers: number[] = [];
+    const warm = (fn: () => Promise<unknown>) => {
+      fn().catch(() => {
+        /* ön yükleme başarısız olursa bölüm sınırı devreye girer */
+      });
+    };
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (typeof w.requestIdleCallback === "function") {
+      const id = w.requestIdleCallback(
+        () => {
+          warm(loadFieldDesk);
+          timers.push(window.setTimeout(() => warm(loadAtlas), 600));
+          timers.push(window.setTimeout(() => warm(loadUniverse), 1400));
+        },
+        { timeout: 3000 },
+      );
+      return () => {
+        w.cancelIdleCallback?.(id);
+        timers.forEach((t) => window.clearTimeout(t));
+      };
+    }
+    timers.push(window.setTimeout(() => warm(loadFieldDesk), 800));
+    timers.push(window.setTimeout(() => warm(loadAtlas), 1600));
+    timers.push(window.setTimeout(() => warm(loadUniverse), 2600));
+    return () => timers.forEach((t) => window.clearTimeout(t));
+  }, []);
+}
+
 export default function App() {
+  useIdlePrefetch();
   return (
     <>
       <Header />
@@ -177,15 +231,24 @@ export default function App() {
       <main id="icerik">
         <Hero />
         <Marquee />
-        <Suspense fallback={<FieldDeskFallback />}><FieldDesk /></Suspense>
+        <Suspense fallback={<FieldDeskFallback />}>
+          <SectionBoundary title="Saha Defteri" note="Günün kayıt fişleri burada çalışıyor.">
+            <FieldDesk />
+          </SectionBoundary>
+        </Suspense>
         <Reveal><Compare /></Reveal>
         <Reveal><Process /></Reveal>
         <Reveal><Producer /></Reveal>
         <Reveal><Mola /></Reveal>
         <Reveal><LotBuilder /></Reveal>
+        <Reveal><YzDefteri /></Reveal>
         <Reveal><Products /></Reveal>
         <Reveal><Mutfak /></Reveal>
-        <Suspense fallback={<AtlasFallback />}><Atlas /></Suspense>
+        <Suspense fallback={<AtlasFallback />}>
+          <SectionBoundary title="Patik Atlası" note="204 lotluk temsilî kayıt defteri ve sözlük.">
+            <Atlas />
+          </SectionBoundary>
+        </Suspense>
         <DeferredUniverse />
         <Reveal><LotLookup /></Reveal>
         <Reveal><Faq /></Reveal>
