@@ -90,6 +90,10 @@ Hoşaf Hesapçısı ölçüleri Patik mutfağının kendi önerisidir; dış kay
 **Marka amblemi** (`public/favicon.svg` ve başlık içi SVG) proje için kod ile çizilmiş
 özgün vektördür; ikon kütüphanesi kullanılmamıştır.
 
+**Doku dosyası** (`src/img/grain.png`) 128×128 piksel, elle üretilmiş kâğıt greni karosudur;
+stok görsel değildir ve hiçbir dış kaynaktan alınmamıştır. Sayfadaki basılı mürekkep
+dokusunu bu karo verir.
+
 ## 4b) Radyo yayınları (Çay Molası bölümü)
 
 Sitedeki çalar, istasyonların **resmî internet yayınlarını** kullanıcının tarayıcısında
@@ -122,6 +126,8 @@ yapılmıştır. Çalar, hata hâlinde bunu kullanıcıya açıkça söyler.
 
 - **Fraunces** ve **Manrope** — Google Fonts üzerinden, SIL Open Font License 1.1.
   Çevrimdışı durumda CSS yedekleri (Georgia / sistem yazı tipleri) devreye girer.
+- **Caveat** — Google Fonts üzerinden, SIL Open Font License 1.1. Sadece el yazısı
+  niteliğindeki "pull-quote" notları için kullanılır; yüklenemezse yedek yazı tipine düşer.
 - **React 18, ReactDOM, Vite 6, @vitejs/plugin-react, TypeScript** — MIT lisansı.
   Bunlar dışında üretim bağımlılığı yoktur; analitik/takip betiği bulunmaz.
 
@@ -143,6 +149,22 @@ Bu sitenin kodu, metinleri, görselleri ve kayıt verisi **yapay zekâ destekli 
 değil. Üçüncü taraf bir API'ye bağımlı bir "yapay zekâ" demosu, bağlantı kesildiği anda
 çöker ve jüri önünde bozulur. Bu yüzden yapay zekâyı **üretim** tarafında kullandık;
 **çalışma zamanında** ise siteye hiçbir dış bağımlılık eklemedik. Bu, sitede açıkça yazılıdır.
+
+## 5aa) Oyun Masası — oyunların veri kaynağı
+
+Oyun Masası'ndaki dört oyun **uydurma veriyle değil, sitenin kendi kayıt katmanıyla**
+çalışır; bu yüzden "oyun" bir süs değil, bir okuma biçimidir:
+
+| Oyun | Kullandığı veri | Kaynak dosya |
+|---|---|---|
+| İslim mi Gün mü (düello) | Karşılaştırma bölümünün gerçek iddiaları (islim damı, kurutma yolu, doku, saklama) | `src/components/Compare.tsx` (aynı metinler) |
+| Patik Yolu | Altı üretim durağı (Hasat → Yol Ayrımı → Sergi → Patik → Çir → Eleme & Kutu) | `src/data.ts` → `PROCESS` |
+| Lot Pusulası | 204 satırlık lot defteri (bahçe, hasat haftası, yöntem, kutu, verim) | `src/content/lotLedger.ts` |
+| Patik Ligi | 144 soruluk bilgi bankası (zorluk seviyesi puana dönüşür) | `src/content/quizBank.ts` |
+
+Bu veriler de §6'daki gibi **temsilî**dir: gerçek bahçe, gerçek üretici veya gerçek
+operasyon kaydı değildir. Skor tablosu yalnızca tarayıcının kendi deposunda (`localStorage`)
+saklanır; sunucuya hiçbir veri gönderilmez.
 
 ## 5b) Patik Atlası verisinin kökeni
 

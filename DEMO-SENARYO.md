@@ -22,8 +22,8 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
   bölümünü "çevrimiçi katman" diye anlat, ekran görüntüsü göster — panik yok.
 - **12.30–13.30 İçerik rötuşu:** Takım adını, kaptan adını footer'a işle; fiyatlara
   son göz; yazılı pasaport çıktısı al (Lot Sorgula → Yazdır) — jüri masasına bırakılacak.
-  (Takım bilgisi artık `src/components/Footer.tsx` içindeki `TEAM` sabitinde; sunumdan önce
-  isimleri son kez gözden geçir.)
+  (Takım bilgisi artık `src/team.ts` içindeki `TEAM` sabitinde; alt bilgi ve Jüri Özeti
+  aynı yerden besleniyor. Sunumdan önce isimleri son kez gözden geçir.)
 - **13.30–15.30 Geliştirme penceresi:** Yalnızca küçük, güvenli işler. Büyük özellik
   eklemek yok; her değişiklikten sonra `npm run build` + ana akış testi.
 - **15.30–16.30 Prova ×3:** Prova Modu'nun yerleşik 105 saniye sayacıyla. Sürücü tıklama sırasını ezberler
@@ -44,16 +44,20 @@ Etkinlik: Ahmet Tevfik Ozan Fuar ve Kongre Merkezi, 11.00–18.00 (resmî sayfa)
 | Sepet eski veriyle dolu | Sunum öncesi gizli sekme kullan (temiz localStorage) |
 | Jüri "gerçek mi?" derse | Gülümse: "Açıkça etiketledik" → §C/2 cevabı + KAYNAKLAR.md göster |
 | Atlas/Evren sayıları gerçek sanılırsa | 811 Atlas + 989 Evren kaydının temsilî arayüz ölçeği olduğunu ilk cümlede söyle; kanonik akışın 3 lotla çalıştığını göster |
-| Sayfa uzunluğu jüriyi yorarsa | Vitrin + Saha Defteri ile ölçeği ilk dakikada göster; ana akışı Lotunu Kur → Sepet → Pasaport sırasıyla bitir, Atlas ve Evreni bonus bırak |
-| Jüri "sitede gerçekten yapay zekâ var mı?" derse | "Üretimde kullandık, çalışma zamanında bilerek çağırmıyoruz" → Yapay Zekâ Defteri'ndeki 5 adımlı üretim kaydını göster, sonra eşleştiricinin çevrimdışı çalıştığını göster (SUNUM.md §C/6) |
+| Sayfa uzunluğu jüriyi yorarsa | Vitrin + Saha Defteri ile ölçeği ilk dakikada göster; ana akışı Lotunu Kur → Sepet → Pasaport sırasıyla bitir, Oyun Masası'nı 14 saniyede göster, Atlas ve Evreni bonus bırak |
+| Jüri oyunları "boş yere" sanırsa | Lot Pusulası'nın ipuç kartını göster: "204 lot kaydının hepsi sitede"; oyunun veriyi okuttuğunu söyle (SUNUM.md §C/4) |
+| Jüri "sitede gerçekten yapay zekâ var mı?" derse | "Üretimde kullandık, çalışma zamanında bilerek çağırmıyoruz" → Yapay Zekâ Defteri'ndeki 5 adımlı üretim kaydını göster, sonra eşleştiricinin çevrimdışı çalıştığını göster (SUNUM.md §C/7) |
 | Eşleştirici cümleyi yanlış anlarsa | Örnek cümleler (4 hazır chip) her zaman doğru sonucu verir; jüri bunlardan birine tıklarsa öneri kesin çıkar |
+| Oyun Masası açılmazsa (ağ paketi) | Oyunlar ayrı paketten gelir; açılmazsa bölüm boş kalır ama sayfa çalışmaya devam eder. Yedek: Çay Molası'ndaki *Patik Ustası* ve *Baskil Bilgisi* her zaman ana pakette |
+| Oyun sesi rahatsız ederse | Bölümde "Ses açık / kapalı" düğmesi var; sunumdan önce kapalıya al |
 
 ## Jüri masası kiti
 
 1. Basılı lot pasaportu (PT-26-047) — elden ele geçsin
 2. Açık site (dizüstü + telefon yedeği)
 3. Tek sayfa not: slogan, üç cümlelik fikir, iletişim/takım adı
-4. (Varsa) gerçek bir avuç kuru kayısı — tadımlık küçük kase. *Not: fiziksel
+4. **Jüri Özeti**'nin basılı kopyası (sitedeki "Jüri Özeti" düğmesi → Yazdır / PDF kaydet)
+5. (Varsa) gerçek bir avuç kuru kayısı — tadımlık küçük kase. *Not: fiziksel
    ürün getirirseniz "bunlar temsilî ürün değil, Baskil esnafından demo
    tadımlığı" diye ayırın; markanın kendi ürünüymüş gibi sunmayın.*
 
