@@ -114,6 +114,8 @@ export default function Film() {
     if (idx !== activeRef.current) {
       activeRef.current = idx;
       setActive(idx);
+      // Projeksiyonun kadraj değiştirmesi gibi: yumuşak bir tik.
+      sfx("tick");
     }
   });
 
