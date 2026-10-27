@@ -58,6 +58,9 @@
   position: absolute;
   inset: 0;
   z-index: 2;
+  /* İki sahne çakıştığında yazılar üst üste binmesin: metin yalnızca
+     sahne baskın olduğunda görünür (görseller yine yumuşak çözünür). */
+  opacity: clamp(0, calc((var(--w, 0) - 0.42) * 2.6), 1);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -276,11 +279,16 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
-    padding: 10px 8px;
+    padding: 10px 6px;
   }
 
   .film__jump-word {
-    font-size: 0.72rem;
-    letter-spacing: 0.02em;
+    font-size: 0.6rem;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  .film__jump-no {
+    font-size: 0.6rem;
   }
 }
