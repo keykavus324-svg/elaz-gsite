@@ -17,10 +17,14 @@
 
 html {
   scroll-padding-top: 142px;
+  /* Yatay taşma (kayan şerit, kanvas dışına taşan filigran) görünür ama
+     kaydırılamaz olsun. `clip` bir kaydırma kutusu üretmez; `hidden`'dan
+     farklı olarak dikey akışı ve `position: sticky` başlığı bozmaz. */
+  overflow-x: clip;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 8% 0%, rgba(242, 169, 59, 0.2), transparent 30rem),
     radial-gradient(circle at 100% 18%, rgba(83, 107, 60, 0.12), transparent 28rem),

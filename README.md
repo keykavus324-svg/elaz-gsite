@@ -141,5 +141,5 @@ SUNUM.md              90 saniyelik jüri metni, canlı demo sırası, jüri soru
 
 Anlamsal HTML, görünür odak halkası, klavye ile kullanılabilir tüm kontroller,
 etiketli form alanları, `aria-live` geri bildirimleri, görsellerde alternatif metin,
-yeterli kontrast ve `prefers-reduced-motion` desteği. 360 px mobil genişlik dahil
-yatay taşma olmayacak şekilde tasarlanmıştır.
+yeterli kontrast ve `prefers-reduced-motion` desteği. 320 px–1920 px arası tüm genişliklerde
+yatay taşma yoktur (`overflow-x: clip` ile taşma görsel olarak korunur ama kaydırılamaz).
